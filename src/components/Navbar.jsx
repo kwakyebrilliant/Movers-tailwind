@@ -21,8 +21,7 @@ const Navbar = () => {
           <li>Home</li>
           <li>About</li>
           <li>Support</li>
-          <li>Projects</li>
-          <li>Pricing</li>
+          <li>Properties</li>
           </ul>
         </div>
         <div className='hidden md:flex pr-4'>
@@ -41,8 +40,7 @@ const Navbar = () => {
         <li className='border-b-2 border-zinc-300 w-full'>Home</li>
         <li className='border-b-2 border-zinc-300 w-full'>About</li>
         <li className='border-b-2 border-zinc-300 w-full'>Support</li>
-        <li className='border-b-2 border-zinc-300 w-full'>Projects</li>
-        <li className='border-b-2 border-zinc-300 w-full'>Pricing</li>
+        <li className='border-b-2 border-zinc-300 w-full'>Properties</li>
 
         <div className='flex flex-col my-4'>
             <button className='bg-transparent text-green-700 px-8 py-3 mb-4'>Sign In</button>

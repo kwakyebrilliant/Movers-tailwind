@@ -1,5 +1,11 @@
 import React from 'react'
 
+import { FaAd, FaMoneyCheck } from 'react-icons/fa'
+
+import {
+    OfficeBuildingIcon
+} from '@heroicons/react/solid'
+
 import bgImg from '../assets/banner.png'
 
 const Banner = () => {
@@ -26,8 +32,69 @@ const Banner = () => {
             <div>
                 <img className='w-full' src={bgImg} alt="/" />
             </div>
+            <div className='absolute flex flex-col py-8 md:min-w-[760px] bottom-[5%]
+            mx-1 md:left-1/2 transform md:-translate-x-1/2 bg-zinc-200
+            border border-slate-300 rounded-xl text-center shadow-xl'>
+                <p>Our Services</p>
+                <div className='flex justify-between flex-wrap px-4'>
+                    <p className='flex px-4 py-2 text-slate-500'><OfficeBuildingIcon className='h-6 text-green-700' />Property Listing</p>
+                    <p className='flex px-4 py-2 text-slate-500'><FaMoneyCheck className='h-6 text-green-700' />Buying</p>
+                    <p className='flex px-4 py-2 text-slate-500'><FaAd className='h-6 text-green-700' />Selling</p>
+                </div>
+            </div>
+
+            {/* <div className="absolute flex flex-col py-8 md:min-w-[760px] bottom-[5%]
+                            mx-1 md:left-1/2 transform md:-translate-x-1/2 bg-zinc-200
+                            border border-slate-300 rounded-xl text-center shadow-xl"
+            >
+                <p>Our Services</p>
+                <div className="mt-2 flex justify-between flex-wrap px-4">
+                    <dl className="flex items-center mt-6 space-x-8 text-xs">
+                    <div className="sm:inline-flex sm:items-center sm:shrink-0">
+                        <OfficeBuildingIcon className='h-6 text-green-700' />
+
+                        <div className="sm:ml-3 mt-1.5 sm:mt-0">
+                        <dt className="text-gray-500">
+                           Property
+                        </dt>
+
+                        <dd className="font-medium">
+                            Listing
+                        </dd>
+                        </div>
+                    </div>
+
+                    <div className="sm:inline-flex sm:items-center sm:shrink-0">
+                    <FaMoneyCheck className='h-6 text-green-700' />
+
+                        <div className="sm:ml-3 mt-1.5 sm:mt-0">
+                        <dt className="text-gray-500">
+                           Property
+                        </dt>
+
+                        <dd className="font-medium">
+                            Listing
+                        </dd>
+                        </div>
+                    </div>
+
+                    <div className="sm:inline-flex sm:items-center sm:shrink-0">
+                    <FaMoneyCheck className='h-6 text-green-700' />
+
+                        <div className="sm:ml-3 mt-1.5 sm:mt-0">
+                        <dt className="text-gray-500">
+                            Bedroom
+                        </dt>
+
+                        <dd className="font-medium">
+                            4 rooms
+                        </dd>
+                        </div>
+                    </div>
+                    </dl>
+                </div>
+            </div> */}
         </div>
-        
     </div>
   )
 }

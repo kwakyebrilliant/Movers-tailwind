@@ -16,7 +16,7 @@ const Navbar = () => {
       <div className='px-2 flex justify-between items-center w-full h-full'>
         <div className='flex items-center'>
          <FaHome className=' text-green-500 lg:w-[35px] lg:h-[35px]' />
-          <h1 className='text-3xl font-bold text-white mr-4 sm:text-4xl'>CLOUDit.</h1>
+          <h1 className='text-3xl font-bold text-white mr-4 sm:text-4xl'>MOVERS.</h1>
           <ul className='hidden text-white md:flex'>
           <li>Home</li>
           <li>About</li>

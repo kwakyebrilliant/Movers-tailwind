@@ -10,8 +10,13 @@ const About = () => {
         <div className='max-w-[1240px] mx-auto'>
 
             <div className='text-center'>
-                <h2 className='text-5xl font-bold'>Trusted by properties seekers across the world</h2>
-                <p className='text-3xl py-6 text-gray-500'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque asperiores earum placeat veritatis dignissimos itaque.</p>
+                <h2 className='text-5xl font-bold'>Trusted Properties Finding Platform</h2>
+                <p className=' text-xl py-6 text-gray-500'>
+                    We understand the fear and numerous challenges in getting a property.<br/> 
+                    And as such we are giving you a platform with trusted property holders.<br/>
+                    Have in mind that all processes on the platform run on the blockchain <br/>
+                    and as such it is transparent to all end users.
+                </p>
             </div>
 
             <div className='grid md:grid-cols-3 gap-1 px-2 text-center'>

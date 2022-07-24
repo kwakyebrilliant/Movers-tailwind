@@ -53,14 +53,10 @@ const support = () => {
 
                     <dl className="flex mt-6">
                         <div className="flex flex-col-reverse">
-                        <dt className="text-sm font-medium text-gray-600">Published</dt>
-                        <dd className="text-xs text-gray-500">31st June, 2021</dd>
+                        <dt className="text-sm font-medium flex text-green-600">Continue <ArrowSmRightIcon className='w-5 ml-2' /></dt>
+                        <dd className="text-xs text-gray-500">Continue onFAQ's</dd>
                         </div>
 
-                        <div className="flex flex-col-reverse ml-3 sm:ml-6">
-                        <dt className="text-sm font-medium text-gray-600">Reading time</dt>
-                        <dd className="text-xs text-gray-500">3 minute</dd>
-                        </div>
                     </dl>
                     </div>
 
@@ -91,14 +87,10 @@ const support = () => {
 
                     <dl className="flex mt-6">
                         <div className="flex flex-col-reverse">
-                        <dt className="text-sm font-medium text-gray-600">Published</dt>
-                        <dd className="text-xs text-gray-500">31st June, 2021</dd>
+                        <dt className="text-sm font-medium flex text-green-600">Continue <ArrowSmRightIcon className='w-5 ml-2' /></dt>
+                        <dd className="text-xs text-gray-500">Continue onFAQ's</dd>
                         </div>
 
-                        <div className="flex flex-col-reverse ml-3 sm:ml-6">
-                        <dt className="text-sm font-medium text-gray-600">Reading time</dt>
-                        <dd className="text-xs text-gray-500">3 minute</dd>
-                        </div>
                     </dl>
                     </div>
 
@@ -129,14 +121,10 @@ const support = () => {
 
                     <dl className="flex mt-6">
                         <div className="flex flex-col-reverse">
-                        <dt className="text-sm font-medium text-gray-600">Published</dt>
-                        <dd className="text-xs text-gray-500">31st June, 2021</dd>
+                        <dt className="text-sm font-medium flex text-green-600">Continue <ArrowSmRightIcon className='w-5 ml-2' /></dt>
+                        <dd className="text-xs text-gray-500">Continue onFAQ's</dd>
                         </div>
 
-                        <div className="flex flex-col-reverse ml-3 sm:ml-6">
-                        <dt className="text-sm font-medium text-gray-600">Reading time</dt>
-                        <dd className="text-xs text-gray-500">3 minute</dd>
-                        </div>
                     </dl>
                     </div>
 

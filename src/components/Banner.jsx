@@ -3,7 +3,7 @@ import React from 'react'
 import { FaAd, FaMoneyCheck } from 'react-icons/fa'
 
 import {
-    OfficeBuildingIcon
+    OfficeBuildingIcon,
 } from '@heroicons/react/solid'
 
 import bgImg from '../assets/banner.png'
@@ -40,6 +40,7 @@ const Banner = () => {
                     <p className='flex px-4 py-2 text-slate-500'><OfficeBuildingIcon className='h-6 text-green-700' />Property Listing</p>
                     <p className='flex px-4 py-2 text-slate-500'><FaMoneyCheck className='h-6 text-green-700' />Buying</p>
                     <p className='flex px-4 py-2 text-slate-500'><FaAd className='h-6 text-green-700' />Selling</p>
+                    <p className='flex px-4 py-2 text-slate-500'><FaAd className='h-6 text-green-700' />Lease</p>
                 </div>
             </div>
 

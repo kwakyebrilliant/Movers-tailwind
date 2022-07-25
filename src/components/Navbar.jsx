@@ -18,9 +18,9 @@ const Navbar = () => {
          <FaHome className=' text-green-500 lg:w-[35px] lg:h-[35px]' />
           <h1 className='text-3xl font-bold text-white mr-4 sm:text-4xl'>MOVERS.</h1>
           <ul className='hidden text-white md:flex'>
-          <li>Home</li>
-          <li>About</li>
-          <li>Support</li>
+          <li><Link to="home" smooth={true} duration={500}>Home</Link></li>
+          <li><Link to="about" smooth={true} offset={-200} duration={500}>About</Link></li>
+          <li><Link to="support" smooth={true} offset={-50} duration={500}>Support</Link></li>
           <li>Properties</li>
           </ul>
         </div>
@@ -34,9 +34,9 @@ const Navbar = () => {
       </div>
 
       <ul className={!nav ? 'hidden' : 'absolute bg-zinc-200 w-full px-8'}>
-        <li className='border-b-2 border-zinc-300 w-full'>Home</li>
-        <li className='border-b-2 border-zinc-300 w-full'>About</li>
-        <li className='border-b-2 border-zinc-300 w-full'>Support</li>
+        <li className='border-b-2 border-zinc-300 w-full'><Link onClick={handleClose} to="home" smooth={true} duration={500}>Home</Link></li>
+        <li className='border-b-2 border-zinc-300 w-full'><Link onClick={handleClose} to="about" smooth={true} offset={-200} duration={500}>About</Link></li>
+        <li className='border-b-2 border-zinc-300 w-full'><Link onClick={handleClose} to="support" smooth={true} offset={-50} duration={500}>Support</Link></li>
         <li className='border-b-2 border-zinc-300 w-full'>Properties</li>
 
         <div className='flex flex-col my-4'>

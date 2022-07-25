@@ -5,12 +5,20 @@ import './App.css';
 import Navbar from './components/Navbar';
 // import Footer from './components/Footer';
 import Home from './components/Home';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Properties from './components/Properties';
 
 function App() {
   return (
     <div>
-      <Navbar />
-      <Home />
+      <Router>
+        <Navbar />
+        <Routes>
+        <Route path="/" exact element={<Home />} />
+        <Route path='/properties' element={<Properties /> } />
+        </Routes>
+      </Router>
+     
       {/* <Banner />
       <About />
       <Support />

@@ -149,7 +149,7 @@ const support = () => {
 
                 <div className='grid grid-cols-1 lg:grid-cols-3'>
 
-                <div className="block overflow-hidden mx-4 rounded-2xl">
+                <div className="block overflow-hidden mx-4 my-4 rounded-2xl">
                 <img className="object-cover w-full h-56" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="" />
 
                  <div className="p-4 bg-gray-900">
@@ -236,7 +236,7 @@ const support = () => {
                     </div>
                 </div>
 
-                <div className="block overflow-hidden mx-4 rounded-2xl">
+                <div className="block overflow-hidden mx-4 my-4 rounded-2xl">
                 <img className="object-cover w-full h-56" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="" />
 
                  <div className="p-4 bg-gray-900">
@@ -323,7 +323,7 @@ const support = () => {
                     </div>
                 </div>
 
-                <div className="block overflow-hidden mx-4 rounded-2xl">
+                <div className="block overflow-hidden mx-4 my-4 rounded-2xl">
                 <img className="object-cover w-full h-56" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="" />
 
                  <div className="p-4 bg-gray-900">

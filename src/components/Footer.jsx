@@ -6,6 +6,7 @@ import {
     FaInstagram,
     FaTwitter,
     FaTwitch,
+    FaHome
 } from 'react-icons/fa'
 
 const Footer = () => {
@@ -13,22 +14,18 @@ const Footer = () => {
     <div className='w-full mt-24 bg-white text-gray-900 py-y px-2'>
         <div className='max-w-[1240px] mx-auto grid grid-cols-2 md:grid-cols-6 border-b-2 border-gray-600 py-8'>
             <div>
-                <h6 className='font-bold uppercase pt-2'>Solutions</h6>
-                <ul>
-                    <li className='py-1'>Marketing</li>
-                    <li className='py-1'>Analytics</li>
-                    <li className='py-1'>Commerce</li>
-                    <li className='py-1'>Data</li>
-                    <li className='py-1'>Cloud</li>
-                </ul>
+                <h6 className='text-2xl flex font-bold text-black mr-4 sm:text-3xl'><FaHome className=' text-green-500 lg:w-[35px] lg:h-[35px]' /> MOVERS.</h6>
+                <p>With the way change of ownership regarding properties are moved about,
+                    there is always fear, We present to you movers. 
+                </p>
             </div>
             <div>
-                <h6 className='font-bold uppercase pt-2'>Support</h6>
+                <h6 className='font-bold uppercase pt-2'>Solutions</h6>
                 <ul>
-                    <li className='py-1'>Pricing</li>
-                    <li className='py-1'>Documentation</li>
-                    <li className='py-1'>Guides</li>
-                    <li className='py-1'>API Status</li>
+                    <li className='py-1'>Property Listing</li>
+                    <li className='py-1'>Property Leasing</li>
+                    <li className='py-1'>Buying</li>
+                    <li className='py-1'>Selling</li>
                 </ul>
             </div>
             <div>
@@ -38,7 +35,6 @@ const Footer = () => {
                     <li className='py-1'>Blog</li>
                     <li className='py-1'>Jobs</li>
                     <li className='py-1'>Press</li>
-                    <li className='py-1'>Partners</li>
                 </ul>
             </div>
             <div>

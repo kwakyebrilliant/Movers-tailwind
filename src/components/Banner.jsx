@@ -10,7 +10,7 @@ import bgImg from '../assets/banner.png'
 
 const Banner = () => {
   return (
-    <div className='w-full h-screen p-20 bg-zinc-200 flex flex-col justify-between'>
+    <div name="home" className='w-full h-screen p-20 bg-zinc-200 flex flex-col justify-between'>
         <div className='grid md:grid-cols-2 max-w-[1240px] m-auto'>
             <div className='flex flex-col justify-center md:items-start w-full px-2 py-8'>
                 <h1 className='py-3 text-4xl md:text-6xl font-bold'>Properties <strong className="font-extrabold text-green-700 sm:block">Management</strong></h1>

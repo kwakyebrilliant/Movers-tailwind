@@ -70,6 +70,40 @@ const Properties = () => {
           </div>
 
 
+           <div className='w-full my-32'>
+
+          <div className='mx-4 my-8'>
+            <h2 className='text-3xl font-bold'>Flash Deals</h2>
+          </div>
+
+            <div className='grid md:grid-cols-2 gap-4 mx-8 text-center'>
+
+            <div className="flex flex-col bg-white rounded-sm group hover:shadow-lg">
+              <img className="object-cover rounded-2xl w-full h-full" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="" />  
+            </div>
+
+
+            <div className="flex flex-col justify-between p-8 transition-shadow bg-white rounded-sm shadow-xl group hover:shadow-lg">
+                <div>
+                    <h5 className="text-5xl font-bold text-green-700">24/7</h5>
+                    <div className="pt-2 mt-4 border-t-2 border-indigo-100">
+                    <p className="text-sm font-medium tracking-widest text-gray-500 uppercase">Everytime Delivery</p>
+                    </div>
+                </div>
+
+                <div className="inline-flex items-center mt-16 text-green-700">
+                    <p className="text-lg font-medium">How we do it</p>
+
+                    <HomeIcon className='w-6 h-6 ml-3 transition-transform transform group-hover:translate-x-3' />
+                </div>
+            </div>
+
+
+
+            </div>
+          </div>
+
+
       <Footer />
     </div>
   )

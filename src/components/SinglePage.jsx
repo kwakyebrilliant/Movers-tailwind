@@ -5,7 +5,7 @@ const SinglePage = () => {
   return (
     <div className='w-full h-screen pt-20'>
 
-        <div>
+        <div className='mx-4'>
 
             <section>
             <div className="relative max-w-screen-xl px-4 py-8 mx-auto">

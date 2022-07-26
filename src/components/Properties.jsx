@@ -6,6 +6,7 @@ import {
   HomeIcon,
   QuestionMarkCircleIcon
 } from '@heroicons/react/solid'
+import { Link } from 'react-router-dom'
 
 
 const Properties = () => {
@@ -155,7 +156,9 @@ const Properties = () => {
                     </div>
                     <div className="items-center mt-4">
                     <div className='inline-flex flex-col'>
-                      <button className='px-3 py-2'>View Details</button>
+                      <Link to="/single">
+                       <button className='px-3 py-2'>View Details</button>
+                      </Link>
                       </div>
                      </div>
                     

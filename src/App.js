@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Properties from './components/Properties';
+import SinglePage from './components/SinglePage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path='/properties' element={<Properties /> } />
+        <Route path='/single' element={<SinglePage /> } />
         </Routes>
       </Router>
      

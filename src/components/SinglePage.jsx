@@ -55,6 +55,7 @@ const SinglePage = () => {
                 </div>
 
                 <div className="sticky top-0">
+                <strong className="border border-green-600 rounded-full tracking-wide px-3 font-medium py-0.5 text-xs bg-gray-100 text-green-600"> For Sale </strong>
 
                     <div class="flex justify-between mt-8">
                     <div className="max-w-[35ch]">

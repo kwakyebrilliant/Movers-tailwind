@@ -15,6 +15,7 @@ import bgImg from '../assets/banner.png'
 import supportImg from '../assets/support.jpeg'
 
 const Home = () => {
+    
   return (
     <div>
        <div className='w-full h-screen p-20 bg-zinc-200 flex flex-col justify-between'>
@@ -53,6 +54,7 @@ const Home = () => {
            
         </div>
     </div>
+  
 
 
       <div id="about" className='w-full my-32'>

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 
-import { FaHome, FaUser } from 'react-icons/fa'
+import { FaHome, FaUser, FaSearch } from 'react-icons/fa'
 
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 
@@ -24,6 +24,9 @@ const Navbar = () => {
           </ul>
         </div>
         <div className='hidden md:flex pr-4'>
+
+          
+          <FaSearch className='w-6 h-6 hover:text-green-400 text-white mr-5 mt-4' />
         
           <button className='px-3 py-3 rounded-full'>
           <FaUser className='w-6 h-6' />
@@ -39,6 +42,7 @@ const Navbar = () => {
         <li className='border-b-2 border-zinc-300 w-full'><Link to="/" onClick={handleClose}>Home</Link></li>
         <li className='border-b-2 border-zinc-300 w-full'><Link to="/properties" onClick={handleClose}>Properties</Link></li>
 
+        <FaSearch className='w-6 h-6 hover:text-black text-green-800 mr-5 mt-4' />
         <div className='my-4'>
           <button className='px-3 py-3 rounded-full'>
             <FaUser className='w-6 h-6' />

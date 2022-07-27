@@ -84,7 +84,7 @@ const Properties = () => {
       >
         <summary class="flex items-center justify-between px-5 py-3 bg-gray-100 lg:hidden">
           <span class="text-sm font-medium">
-            Toggle Filters
+            Filters
           </span>
 
           <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -114,7 +114,7 @@ const Properties = () => {
                   for="toy"
                   class="ml-3 text-sm font-medium"
                 >
-                  Toy
+                  Sale
                 </label>
               </div>
 
@@ -130,7 +130,7 @@ const Properties = () => {
                   for="game"
                   class="ml-3 text-sm font-medium"
                 >
-                  Game
+                  Rent
                 </label>
               </div>
 
@@ -146,7 +146,7 @@ const Properties = () => {
                   for="outdoor"
                   class="ml-3 text-sm font-medium"
                 >
-                  Outdoor
+                  Lease
                 </label>
               </div>
 
@@ -164,7 +164,7 @@ const Properties = () => {
           <div>
             <fieldset>
               <legend class="block w-full px-5 py-3 text-xs font-medium bg-gray-50">
-                Age
+                Year
               </legend>
 
               <div class="px-5 py-6 space-y-2">
@@ -180,7 +180,7 @@ const Properties = () => {
                     for="3+"
                     class="ml-3 text-sm font-medium"
                   >
-                    3+
+                    1-5
                   </label>
                 </div>
 
@@ -196,7 +196,7 @@ const Properties = () => {
                     for="8+"
                     class="ml-3 text-sm font-medium"
                   >
-                    8+
+                   6-10
                   </label>
                 </div>
 
@@ -212,7 +212,7 @@ const Properties = () => {
                     for="12+"
                     class="ml-3 text-sm font-medium"
                   >
-                    12+
+                    11-20
                   </label>
                 </div>
 
@@ -228,7 +228,7 @@ const Properties = () => {
                     for="16+"
                     class="ml-3 text-sm font-medium"
                   >
-                    16+
+                    21-50
                   </label>
                 </div>
 

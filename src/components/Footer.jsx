@@ -8,6 +8,7 @@ import {
     FaTwitch,
     FaHome
 } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -34,7 +35,7 @@ const Footer = () => {
                     <li className='py-1'>About</li>
                     <li className='py-1'>Blog</li>
                     <li className='py-1'>Jobs</li>
-                    <li className='py-1'>FAQ's</li>
+                    <li className='py-1'><Link to="/faq">FAQ's</Link></li>
                 </ul>
             </div>
             <div>

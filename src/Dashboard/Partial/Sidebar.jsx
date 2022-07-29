@@ -3,10 +3,9 @@ import { Link, useLocation } from 'react-router-dom'
 
 import { BsArrowLeftCircle } from 'react-icons/bs'
 import { AiFillPieChart } from 'react-icons/ai'
-// import { SiFuturelearn } from 'react-icons/si'
 // import { SiOpenaccess } from 'react-icons/si'
 // import { CgProfile } from 'react-icons/cg'
-import { FaHome } from 'react-icons/fa'
+import { FaHome, FaBook } from 'react-icons/fa'
 
 const Sidebar = () => {
     const [open, setOpen] = useState(false)
@@ -14,7 +13,7 @@ const Sidebar = () => {
 
     const Menus = [
         { title: 'Summary', path: '/summary', src: <AiFillPieChart /> },
-        // { title: 'Course', path: '/course', src: <SiFuturelearn /> },
+        { title: 'Booked', path: '/booked', src: <FaBook /> },
         // { title: 'Profile', path: '/profile', src: <CgProfile /> },
         // { title: 'Signin', path: '/login', src: <SiOpenaccess />, gap: 'true' },
     ]

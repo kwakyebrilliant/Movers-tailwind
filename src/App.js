@@ -11,6 +11,7 @@ import SinglePage from './components/SinglePage';
 import Faq from './components/Faq';
 import Layout from './Dashboard/Partial/Layout';
 import Summary from './Dashboard/Pages/Summary';
+import Booked from './Dashboard/Pages/Booked';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path='/faq' element={<Faq />} />
         <Route path='/layout' element={<Layout />} />
         <Route path='/summary' element={<Summary />} />
+        <Route path='/booked' element={<Booked />} />
         </Routes>
       </Router>
      

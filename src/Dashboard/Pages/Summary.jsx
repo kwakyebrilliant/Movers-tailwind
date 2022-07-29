@@ -3,7 +3,8 @@ import PartialNavbar from '../Partial/PartialNavbar'
 import Sidebar from '../Partial/Sidebar'
 
 const Summary = () => {
-    return <div className='text-black'>
+    return (
+    <div className='text-black'>
          <>
     <div className='flex flex-auto'>
         <Sidebar />
@@ -16,6 +17,7 @@ const Summary = () => {
     </div>
 </>
     </div>
+    )
 }
 
 export default Summary

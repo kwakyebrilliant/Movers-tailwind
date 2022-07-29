@@ -27,7 +27,9 @@ const Navbar = () => {
         <div className='hidden md:flex pr-4'>
         
           <button className='px-3 py-3 rounded-full'>
-          <FaUser className='w-6 h-6' />
+            <Link to="/layout" >
+            <FaUser className='w-6 h-6' />
+            </Link>
           </button>
         </div>
         <div className='md:hidden mr-4' onClick={handleClick}>
@@ -42,7 +44,9 @@ const Navbar = () => {
 
         <div className='my-4'>
           <button className='px-3 py-3 rounded-full'>
+          <Link to="/layout" >
             <FaUser className='w-6 h-6' />
+            </Link>
           </button>
         </div>
       </ul>

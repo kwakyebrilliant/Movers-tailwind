@@ -3,9 +3,8 @@ import { Link, useLocation } from 'react-router-dom'
 
 import { BsArrowLeftCircle } from 'react-icons/bs'
 import { AiFillPieChart } from 'react-icons/ai'
-// import { SiOpenaccess } from 'react-icons/si'
 // import { CgProfile } from 'react-icons/cg'
-import { FaHome, FaBook, FaBuilding } from 'react-icons/fa'
+import { FaHome, FaBook, FaBuilding, FaHeart } from 'react-icons/fa'
 
 const Sidebar = () => {
     const [open, setOpen] = useState(false)
@@ -15,7 +14,7 @@ const Sidebar = () => {
         { title: 'Summary', path: '/summary', src: <AiFillPieChart /> },
         { title: 'Booked', path: '/booked', src: <FaBook /> },
         { title: 'Properties', path: '/adminproperties', src: <FaBuilding /> },
-        // { title: 'Signin', path: '/login', src: <SiOpenaccess />, gap: 'true' },
+        { title: 'Favorite', path: '/favorite', src: <FaHeart />},
     ]
 
     return (

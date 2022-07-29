@@ -10,6 +10,7 @@ import Properties from './components/Properties';
 import SinglePage from './components/SinglePage';
 import Faq from './components/Faq';
 import Layout from './Dashboard/Partial/Layout';
+import Summary from './Dashboard/Pages/Summary';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path='/single' element={<SinglePage /> } />
         <Route path='/faq' element={<Faq />} />
         <Route path='/layout' element={<Layout />} />
+        <Route path='/summary' element={<Summary />} />
         </Routes>
       </Router>
      

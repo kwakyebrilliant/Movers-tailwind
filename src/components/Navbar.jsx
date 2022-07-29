@@ -27,7 +27,7 @@ const Navbar = () => {
         <div className='hidden md:flex pr-4'>
         
           <button className='px-3 py-3 rounded-full'>
-            <Link to="/layout" >
+            <Link to="/summary" >
             <FaUser className='w-6 h-6' />
             </Link>
           </button>
@@ -44,7 +44,7 @@ const Navbar = () => {
 
         <div className='my-4'>
           <button className='px-3 py-3 rounded-full'>
-          <Link to="/layout" >
+          <Link to="/summary" >
             <FaUser className='w-6 h-6' />
             </Link>
           </button>

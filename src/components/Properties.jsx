@@ -9,11 +9,14 @@ import {
   QuestionMarkCircleIcon
 } from '@heroicons/react/solid'
 import { Link } from 'react-router-dom'
+import Navbar from './Navbar'
 
 
 const Properties = () => {
   const [showModal, setShowModal] = React.useState(false);
   return (
+    <div>
+      <Navbar />
     <div className='w-full h-screen pt-20'>
 
       <div className='mx-4 my-8'>
@@ -793,6 +796,7 @@ const Properties = () => {
 
 
       <Footer />
+    </div>
     </div>
   )
 }

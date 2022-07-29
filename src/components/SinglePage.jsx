@@ -1,9 +1,13 @@
 import React from 'react'
 import Footer from './Footer'
 
+import Navbar from './Navbar';
+
 const SinglePage = () => {
 
   return (
+    <div>
+        <Navbar />
     <div className='w-full h-screen pt-20'>
 
         <div className='mx-4'>
@@ -497,6 +501,7 @@ const SinglePage = () => {
         
         
         <Footer />
+    </div>
     </div>
   )
 }

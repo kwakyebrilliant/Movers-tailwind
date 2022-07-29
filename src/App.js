@@ -12,6 +12,7 @@ import Faq from './components/Faq';
 import Layout from './Dashboard/Partial/Layout';
 import Summary from './Dashboard/Pages/Summary';
 import Booked from './Dashboard/Pages/Booked';
+import AdminProperties from './Dashboard/Pages/AdminProperties';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path='/layout' element={<Layout />} />
         <Route path='/summary' element={<Summary />} />
         <Route path='/booked' element={<Booked />} />
+        <Route path='/adminproperties' element={<AdminProperties />} />
         </Routes>
       </Router>
      

@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Properties from './components/Properties';
 import SinglePage from './components/SinglePage';
 import Faq from './components/Faq';
+import Layout from './Dashboard/Partial/Layout';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/properties' element={<Properties /> } />
         <Route path='/single' element={<SinglePage /> } />
         <Route path='/faq' element={<Faq />} />
+        <Route path='/layout' element={<Layout />} />
         </Routes>
       </Router>
      

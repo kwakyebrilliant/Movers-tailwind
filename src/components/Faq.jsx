@@ -1,8 +1,11 @@
 import React from 'react'
 import Footer from './Footer'
+import Navbar from './Navbar'
 
 const Faq = () => {
   return (
+    <div>
+        <Navbar />
     <div className='w-full h-screen pt-20'>
         <div className='mx-4 my-8'>
           <h2 className='text-4xl font-bold uppercase'>Frequently Asked Questions</h2>
@@ -252,6 +255,7 @@ const Faq = () => {
         </div>
 
         <Footer />
+    </div>
     </div>
   )
 }

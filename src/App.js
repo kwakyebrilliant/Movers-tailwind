@@ -14,6 +14,7 @@ import Summary from './Dashboard/Pages/Summary';
 import Booked from './Dashboard/Pages/Booked';
 import AdminProperties from './Dashboard/Pages/AdminProperties';
 import Favorite from './Dashboard/Pages/Favorite';
+import Chat from './Dashboard/Pages/Chat';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path='/booked' element={<Booked />} />
         <Route path='/adminproperties' element={<AdminProperties />} />
         <Route path='/favorite' element={<Favorite />} />
+        <Route path='/chat' element={<Chat />} />
         </Routes>
       </Router>
      

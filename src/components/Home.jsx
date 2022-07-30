@@ -1,6 +1,6 @@
 import React from 'react'
 import Footer from '../components/Footer';
-
+import { Link } from 'react-router-dom'
 import { FaAd, FaMoneyCheck } from 'react-icons/fa'
 
 import {
@@ -174,7 +174,9 @@ const Home = () => {
 
                     <dl className="flex mt-6">
                         <div className="flex flex-col-reverse">
+                        <Link to="/faq">
                         <dt className="text-sm font-medium flex text-green-600">Continue <ArrowSmRightIcon className='w-5 ml-2' /></dt>
+                            </Link>
                         <dd className="text-xs text-gray-500">Continue onFAQ's</dd>
                         </div>
 
@@ -208,7 +210,9 @@ const Home = () => {
 
                     <dl className="flex mt-6">
                         <div className="flex flex-col-reverse">
+                        <Link to="/faq">
                         <dt className="text-sm font-medium flex text-green-600">Continue <ArrowSmRightIcon className='w-5 ml-2' /></dt>
+                            </Link>
                         <dd className="text-xs text-gray-500">Continue onFAQ's</dd>
                         </div>
 
@@ -242,7 +246,9 @@ const Home = () => {
 
                     <dl className="flex mt-6">
                         <div className="flex flex-col-reverse">
+                        <Link to="/faq">
                         <dt className="text-sm font-medium flex text-green-600">Continue <ArrowSmRightIcon className='w-5 ml-2' /></dt>
+                            </Link>
                         <dd className="text-xs text-gray-500">Continue onFAQ's</dd>
                         </div>
 

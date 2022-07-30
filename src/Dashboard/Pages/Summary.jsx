@@ -6,6 +6,7 @@ import Sidebar from '../Partial/Sidebar'
 import { ArrowSmRightIcon } from '@heroicons/react/outline';
 
 import { FaBook, FaBuilding, FaHeart, FaMailBulk } from 'react-icons/fa'
+import { Link } from 'react-router-dom';
 
 const Summary = () => {
     return (
@@ -66,7 +67,9 @@ const Summary = () => {
 
                     <dl className="flex mt-6">
                         <div className="flex flex-col-reverse">
+                            <Link to="/faq">
                         <dt className="text-sm font-medium flex text-green-600">Continue <ArrowSmRightIcon className='w-5 ml-2' /></dt>
+                            </Link>
                         <dd className="text-xs text-gray-500">Continue onFAQ's</dd>
                         </div>
 
@@ -99,7 +102,9 @@ const Summary = () => {
 
                     <dl className="flex mt-6">
                         <div className="flex flex-col-reverse">
+                            <Link to="/faq">
                         <dt className="text-sm font-medium flex text-green-600">Continue <ArrowSmRightIcon className='w-5 ml-2' /></dt>
+                            </Link>
                         <dd className="text-xs text-gray-500">Continue onFAQ's</dd>
                         </div>
 
@@ -132,7 +137,9 @@ const Summary = () => {
 
                     <dl className="flex mt-6">
                         <div className="flex flex-col-reverse">
+                            <Link to="/faq">
                         <dt className="text-sm font-medium flex text-green-600">Continue <ArrowSmRightIcon className='w-5 ml-2' /></dt>
+                            </Link>
                         <dd className="text-xs text-gray-500">Continue onFAQ's</dd>
                         </div>
 
@@ -165,7 +172,9 @@ const Summary = () => {
 
                     <dl className="flex mt-6">
                         <div className="flex flex-col-reverse">
+                            <Link to="/faq">
                         <dt className="text-sm font-medium flex text-green-600">Continue <ArrowSmRightIcon className='w-5 ml-2' /></dt>
+                            </Link>
                         <dd className="text-xs text-gray-500">Continue onFAQ's</dd>
                         </div>
 

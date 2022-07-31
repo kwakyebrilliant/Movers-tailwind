@@ -19,6 +19,7 @@ const Summary = () => {
 
     
             <div className='m-5'>
+            
             <header className="rounded-2xl inset-x-0 bottom-0 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600">
             <div className="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8">
                 <div className="sm:justify-between sm:items-center sm:flex">
@@ -185,9 +186,11 @@ const Summary = () => {
 
                     
             </div>  
-
+        
         </div>
+        
     </div>
+   
 </>
     </div>
     )

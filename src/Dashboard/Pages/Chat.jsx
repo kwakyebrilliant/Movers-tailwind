@@ -33,9 +33,14 @@ const Chat = () => {
             </div>
 
 
-            <div class="grid mx-5 py-8 grid-flow-col gap-4">
-            <div className='bg-red-500 h-screen'>01</div>
-            <div className='bg-green-500 h-screen'>02</div>
+            <div className="grid mx-5 py-8 grid-flow-col gap-4">
+
+            <div className='bg-red-500 h-screen rounded-2xl text-center'>01</div>
+
+            <div className='bg-green-500 h-screen rounded-2xl text-center'>
+              02
+            </div>
+
           </div>
 
             </div>

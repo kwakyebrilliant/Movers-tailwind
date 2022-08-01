@@ -33,15 +33,117 @@ const Chat = () => {
             </div>
 
 
-            <div className="grid mx-5 py-8 grid-flow-col gap-4">
+            <div className='relative px-4 pt-12 sm:pt-12 sm:pb-12 text-black'>
 
-            <div className='bg-white shadow-lg h-screen rounded-2xl text-center'>
-              01
+            <div className='bg-white flex-row shadow-lg rounded-2xl px-4'>
+
+            <div className="relative">
+
+            <div className="flex items-center p-4">
+              <img
+                className="object-cover w-12 h-12 rounded-lg"
+                src="https://www.hyperui.dev/photos/man-5.jpeg"
+                alt=""
+              />
+
+              <div className="ml-3 overflow-hidden">
+                <p className="font-medium text-gray-900">John Doe</p>
+                <p className="text-sm text-gray-500">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
+                  laborum? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
+                  laborum?
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
+                  laborum?
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative">
+
+        <div className="flex items-center p-4">
+          <img
+            className="object-cover w-12 h-12 rounded-lg"
+            src="https://www.hyperui.dev/photos/man-5.jpeg"
+            alt=""
+          />
+
+          <div className="ml-3 overflow-hidden">
+            <p className="font-medium text-gray-900">John Doe</p>
+            <p className="text-sm text-gray-500">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
+                  laborum? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
+                  laborum?
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
+                  laborum?
+            </p>
+          </div>
+        </div>
+        </div>
+
+        <div className="relative">
+
+        <div className="flex items-center p-4">
+          <img
+            className="object-cover w-12 h-12 rounded-lg"
+            src="https://www.hyperui.dev/photos/man-5.jpeg"
+            alt=""
+          />
+
+          <div className="ml-3 overflow-hidden">
+            <p className="font-medium text-gray-900">John Doe</p>
+            <p className="text-sm text-gray-500">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
+                  laborum? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
+                  laborum?
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
+                  laborum?
+            </p>
+          </div>
+        </div>
+        </div>
+
+        <div className="relative">
+
+        <div className="flex items-center p-4">
+        <img
+        className="object-cover w-12 h-12 rounded-lg"
+        src="https://www.hyperui.dev/photos/man-5.jpeg"
+        alt=""
+        />
+
+        <div className="ml-3 overflow-hidden">
+        <p className="font-medium text-gray-900">John Doe</p>
+        <p className="text-sm text-gray-500">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
+          laborum?
+        </p>
+        </div>
+        </div>
+        </div>
+
+        <div className="relative">
+
+        <div className="flex items-center p-4">
+        <img
+        className="object-cover w-12 h-12 rounded-lg"
+        src="https://www.hyperui.dev/photos/man-5.jpeg"
+        alt=""
+        />
+
+        <div className="ml-3 overflow-hidden">
+        <p className="font-medium text-gray-900">John Doe</p>
+        <p className="text-sm text-gray-500">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
+          laborum?
+        </p>
+        </div>
+        </div>
+        </div>
+
+
             </div>
 
-            <div className='bg-green-700 h-screen rounded-2xl text-center'>
-              02
-            </div>
 
           </div>
 

@@ -33,8 +33,18 @@ const Chat = () => {
             </div>
 
 
-            <div className='relative px-4 pt-12 sm:pt-12 sm:pb-12 text-black'>
+            {/* <div className='relative px-4 sm:pt-12 sm:pb-12 text-black'>
+              <p className="font-medium text-3xl text-gray-900 px-4">Browser Chats</p>
+              <form className='flex flex-col sm:flex-row'>
+                  <input className='w-full mt-12 p-2 rounded-md mx-4' type="text" placeholder='Filter Chats..'/>
+              </form>
+            </div> */}
 
+            <div className='relative px-4 pt-4 sm:pt-4 sm:pb-12 text-black'>
+
+              <form className='flex mb-8 flex-col sm:flex-row'>
+                  <input className=' mt-12 p-2 rounded-md mx-4' type="text" placeholder='Filter Chats..'/>
+              </form>
             <div className='bg-white flex-row shadow-lg rounded-2xl px-4'>
 
             <div className="relative">

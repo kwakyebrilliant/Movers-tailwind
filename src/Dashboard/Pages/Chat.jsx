@@ -22,7 +22,7 @@ const Chat = () => {
                     </h1>
 
                     <p className="mt-1.5 text-sm text-gray-900">
-                    Check your statistics on MOVERS 🎉
+                    Check your previous chats on MOVERS 🎉
                     </p>
                 </div>
 

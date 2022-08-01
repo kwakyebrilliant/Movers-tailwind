@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import PartialNavbar from '../Partial/PartialNavbar'
 import Sidebar from '../Partial/Sidebar'
 
@@ -47,6 +48,7 @@ const Chat = () => {
               </form>
             <div className='bg-white flex-row shadow-lg rounded-2xl px-4'>
 
+            <Link to="/chatsingle">
             <div className="relative">
 
             <div className="flex items-center p-4">
@@ -68,6 +70,7 @@ const Chat = () => {
               </div>
             </div>
           </div>
+          </Link>
 
           <div className="relative">
 

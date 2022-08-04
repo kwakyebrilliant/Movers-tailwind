@@ -67,8 +67,10 @@ const Booked = () => {
                      <img className="object-cover w-full h-80 rounded-2xl" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="" />
                     </div>
 
-                    <p className='text-black mb-5'>Property Location: 123 Wallaby Avenue, Park Road</p>
-                    <p className='text-black mb-5'>Property Owner: John Doe</p>
+                    <p className='text-black mb-5 font-bold'>Property Location: 123 Wallaby Avenue, Park Road</p>
+                    <p className='text-black mb-5 font-bold'>Property Owner: John Doe</p>
+                    <p className='text-black mb-5 font-bold'>Chat Count: 4</p>
+
 
                   <input type="text" id="text" className="border border-green-700 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-zinc-300 dark:border-gray-500 dark:placeholder-gray-900 dark:text-gray-900" placeholder="search..." required/>
                   

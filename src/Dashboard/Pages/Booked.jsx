@@ -68,12 +68,18 @@ const Booked = () => {
                     </div>
 
                     <p className='text-black mb-5 font-bold'>Property Location: 123 Wallaby Avenue, Park Road</p>
-                    <p className='text-black mb-5 font-bold'>Property Owner: John Doe</p>
                     <p className='text-black mb-5 font-bold'>Chat Count: 4</p>
 
+                    <form>
+                        <select className="border border-green-700 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-zinc-300 dark:border-gray-500 dark:placeholder-gray-900 dark:text-gray-900" >
+                          <option value="javascript">Select a language</option>
+                          <option value="javascript">JavaScript</option>
+                          <option value="php">PHP</option>
+                          <option value="java">Java</option>
+                          <option value="golang">Golang</option>
+                        </select>
+                    </form>
 
-                  <input type="text" id="text" className="border border-green-700 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-zinc-300 dark:border-gray-500 dark:placeholder-gray-900 dark:text-gray-900" placeholder="search..." required/>
-                  
                   </div>
                 </div>
                 {/*footer*/}

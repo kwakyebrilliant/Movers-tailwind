@@ -63,6 +63,9 @@ const Booked = () => {
                 <div className="relative p-6 flex-auto">
                   <div className="my-4 text-slate-500 text-lg leading-relaxed">
 
+                    <p className='text-black mb-2'>Property Location: 123 Wallaby Avenue, Park Road</p>
+                    <p className='text-black mb-2'>Property Owner: John Doe</p>
+
                   <input type="text" id="text" className="border border-green-700 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-zinc-300 dark:border-gray-500 dark:placeholder-gray-900 dark:text-gray-900" placeholder="search..." required/>
                   
                   </div>

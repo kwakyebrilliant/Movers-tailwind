@@ -2,6 +2,12 @@ import React from 'react'
 import PartialNavbar from '../Partial/PartialNavbar'
 import Sidebar from '../Partial/Sidebar'
 
+import {
+  OfficeBuildingIcon,
+  HomeIcon,
+  QuestionMarkCircleIcon
+} from '@heroicons/react/solid'
+
 const AdminProperties = () => {
   return (
     <div className='text-black'>
@@ -30,6 +36,44 @@ const AdminProperties = () => {
             </div>
             </header>
        </div>
+
+
+      <div className="flex flex-col bg-white m-auto p-auto">
+        <div className="flex overflow-x-scroll hide-scroll-bar">
+          <div className="flex lg:ml-6 md:ml-20 py-4 ml-6">
+
+          <div className="inline-block text-center px-3">
+                    <div className="w-64 h-64 max-w-xs bg-green-800  overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                        <p className='text-6xl mt-20 flex justify-center font-bold text-white'><HomeIcon className='h-16 w-16 text-white' /></p>
+                        <p className='text-white mt-2'>Home</p>
+                    </div>
+                  </div>
+
+                  <div className="inline-block text-center px-3">
+                    <div className="w-64 h-64 max-w-xs bg-green-800  overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                        <p className='text-6xl mt-20 flex justify-center font-bold text-white'><HomeIcon className='h-16 w-16 text-white' /></p>
+                        <p className='text-white mt-2'>Home</p>
+                    </div>
+                  </div>
+
+                  <div className="inline-block text-center px-3">
+                    <div className="w-64 h-64 max-w-xs bg-green-800  overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                        <p className='text-6xl mt-20 flex justify-center font-bold text-white'><HomeIcon className='h-16 w-16 text-white' /></p>
+                        <p className='text-white mt-2'>Home</p>
+                    </div>
+                  </div>
+
+                  <div className="inline-block text-center px-3">
+                    <div className="w-64 h-64 max-w-xs bg-green-800  overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                        <p className='text-6xl mt-20 flex justify-center font-bold text-white'><HomeIcon className='h-16 w-16 text-white' /></p>
+                        <p className='text-white mt-2'>Home</p>
+                    </div>
+                  </div>
+
+
+          </div>
+        </div>
+      </div>
 
    </div>
 </div>

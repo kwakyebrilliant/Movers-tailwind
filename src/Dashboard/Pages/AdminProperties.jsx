@@ -33,25 +33,27 @@ const AdminProperties = () => {
 
 
        <section>
-        <div class="max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
           <div
-            class="grid grid-cols-1 lg:grid-cols-2 gap-y-8 lg:gap-x-16 lg:items-center"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 lg:gap-x-16 lg:items-center"
           >
-            <div class="max-w-lg mx-auto text-center lg:text-left lg:mx-0">
-              <h2 class="text-3xl font-bold sm:text-4xl">Find your career path</h2>
+            <div className="max-w-lg mx-auto text-center lg:text-left lg:mx-0">
+              <h2 className="text-3xl font-bold sm:text-4xl mb-8">No Property Selected</h2>
 
-              <p class="mt-4 text-gray-600">
+              {/* <p className="mt-4 text-gray-600">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut vero
                 aliquid sint distinctio iure ipsum cupiditate? Quis, odit assumenda?
                 Deleniti quasi inventore, libero reiciendis minima aliquid tempora.
                 Obcaecati, autem.
-              </p>
+              </p> */}
+
+              <img className="object-cover w-full h-80 rounded-2xl" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="" />
 
               <a
-                class="inline-flex items-center px-8 py-3 mt-8 text-white bg-indigo-600 border border-indigo-600 rounded hover:bg-transparent hover:text-indigo-600 active:text-indigo-500 focus:outline-none focus:ring"
-                href="/get-started"
+                className="inline-flex items-center px-8 py-3 mt-8 text-white bg-green-600 border border-green-600 rounded hover:bg-transparent hover:text-green-600 active:text-green-500 focus:outline-none focus:ring"
+                href="/#"
               >
-                <span class="text-sm font-medium"> Get Started </span>
+                <span class="text-sm font-medium">View Property </span>
 
                 <svg
                   class="w-5 h-5 ml-3"

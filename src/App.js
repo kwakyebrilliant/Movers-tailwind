@@ -16,6 +16,7 @@ import AdminProperties from './Dashboard/Pages/AdminProperties';
 import Favorite from './Dashboard/Pages/Favorite';
 import Chat from './Dashboard/Pages/Chat';
 import ChatSingle from './Dashboard/Pages/ChatSingle';
+import AdminPropertiesDetail from './Dashboard/Pages/AdminPropertiesDetail';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path='/favorite' element={<Favorite />} />
         <Route path='/chat' element={<Chat />} />
         <Route path='/chatsingle' element={<ChatSingle />} />
+        <Route path='/adminpropertiesdetail' element={<AdminPropertiesDetail />} />
         </Routes>
       </Router>
      

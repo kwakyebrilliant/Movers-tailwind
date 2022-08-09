@@ -30,8 +30,13 @@ const AdminPropertiesDetail = () => {
             </div>
 
 
-        <div className=''>
-
+        <div className='grid grid-cols-1 lg:grid-cols-2 relative gap-x-8 gap-y-16 px-4 pt-12 sm:pt-20 text-black'>
+<div>
+<h1>hi</h1>
+</div>
+<div>
+<h1>hi</h1>
+</div>
         </div>
 
            </div>

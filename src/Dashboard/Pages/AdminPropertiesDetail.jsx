@@ -30,6 +30,10 @@ const AdminPropertiesDetail = () => {
             </div>
 
 
+        <div className=''>
+
+        </div>
+
            </div>
 
        </div>

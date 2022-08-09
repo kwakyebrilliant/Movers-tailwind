@@ -34,13 +34,13 @@ const AdminPropertiesDetail = () => {
 
         <div>
             <h1 className='text-gray-500 text-3xl'>Property Location:</h1>
-            <p className='text-black mb-5 font-bold'>123 Wallaby Avenue, Park Road</p>
+            <p className='text-black mb-5'>123 Wallaby Avenue, Park Road</p>
 
             <h1 className='text-gray-500 text-3xl'>Property Space:</h1>
-            <p className='text-black mb-5 font-bold'>123 Wallaby Avenue, Park Road</p>
+            <p className='text-black mb-5'>123 Wallaby Avenue, Park Road</p>
 
             <h1 className='text-gray-500 text-3xl'>Property Parking Space:</h1>
-            <p className='text-black mb-5 font-bold'>1 Space</p>
+            <p className='text-black mb-5'>1 Space</p>
 
         </div>
 

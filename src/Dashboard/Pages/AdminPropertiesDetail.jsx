@@ -39,6 +39,8 @@ const AdminPropertiesDetail = () => {
             <h1 className='text-gray-500 text-3xl'>Property Space:</h1>
             <p className='text-black mb-5 font-bold'>123 Wallaby Avenue, Park Road</p>
 
+            <h1 className='text-gray-500 text-3xl'>Property Parking Space:</h1>
+            <p className='text-black mb-5 font-bold'>1 Space</p>
 
         </div>
 

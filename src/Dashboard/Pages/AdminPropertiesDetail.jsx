@@ -30,13 +30,17 @@ const AdminPropertiesDetail = () => {
             </div>
 
 
-        <div className='grid grid-cols-1 lg:grid-cols-2 relative gap-x-8 gap-y-16 px-4 pt-12 sm:pt-20 text-black'>
-<div>
-<h1>hi</h1>
-</div>
-<div>
-<h1>hi</h1>
-</div>
+        <div className='grid grid-cols-1 lg:grid-cols-2 relative gap-x-8 gap-y-16 px-4 pt-4 sm:pt-10 text-black'>
+
+        <div>
+            <h1 className='text-gray-500 text-3xl'>Property Location:</h1>
+        <p className='text-black mb-5 font-bold'>123 Wallaby Avenue, Park Road</p>
+        </div>
+
+        <div>
+        <h1>hi</h1>
+        </div>
+
         </div>
 
            </div>

@@ -37,8 +37,7 @@ const PartialNavbar = () => {
 
                 <div className='flex justify-end pt-4'>
                     
-                    <div>
-                    <Dropdown>
+                <Dropdown>
                         <Dropdown.Toggle variant="light" id="dropdown-basic">
                         <svg
                                 className="max-w-full fill-current mx-2 text-gray-900"
@@ -67,8 +66,6 @@ const PartialNavbar = () => {
                             </Dropdown.Item>
                         </Dropdown.Menu>
                         </Dropdown>
-                    </div>
-                
                 </div>
             </div>
         </nav>

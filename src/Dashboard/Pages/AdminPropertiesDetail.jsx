@@ -33,25 +33,25 @@ const AdminPropertiesDetail = () => {
         <div className='grid grid-cols-1 lg:grid-cols-2 relative gap-x-8 gap-y-16 px-4 pt-4 sm:pt-10 text-black'>
 
         <div>
-            <h1 className='text-gray-500 text-3xl'>Property Location:</h1>
+            <h1 className='text-gray-500 text-2xl'>Property Location:</h1>
             <p className='text-black mb-5'>123 Wallaby Avenue, Park Road</p>
 
-            <h1 className='text-gray-500 text-3xl'>Property Space:</h1>
+            <h1 className='text-gray-500 text-2xl'>Property Space:</h1>
             <p className='text-black mb-5'>123 Wallaby Avenue, Park Road</p>
 
-            <h1 className='text-gray-500 text-3xl'>Property Parking Space:</h1>
+            <h1 className='text-gray-500 text-2xl'>Property Parking Space:</h1>
             <p className='text-black mb-5'>1 Space</p>
             
-            <h1 className='text-gray-500 text-3xl'>Property Bathroom:</h1>
+            <h1 className='text-gray-500 text-2xl'>Property Bathroom:</h1>
             <p className='text-black mb-5'>4 Bathroom</p>
 
         </div>
 
         <div>
-            <h1 className='text-gray-500 text-3xl'>Property Bedroom:</h1>
+            <h1 className='text-gray-500 text-2xl'>Property Bedroom:</h1>
             <p className='text-black mb-5'>4 Bedrooms</p>
 
-            <h1 className='text-gray-500 text-3xl'>Property Document:</h1>
+            <h1 className='text-gray-500 text-2xl'>Property Document:</h1>
             <p className='text-black mb-5'>4</p>
             
         </div>

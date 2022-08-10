@@ -52,7 +52,11 @@ const AdminPropertiesDetail = () => {
             <p className='text-black mb-5'>4 Bedrooms</p>
 
             <h1 className='text-gray-500 text-2xl'>Property Document:</h1>
-            <p className='text-black mb-5'>4</p>
+            <p className='text-black mb-5'>
+            <iframe width="200" height="200"
+                src="https://www.youtube.com/embed/grQWumjGi0k">
+                </iframe>
+            </p>
             
         </div>
 

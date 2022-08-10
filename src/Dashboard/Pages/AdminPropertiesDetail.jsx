@@ -50,6 +50,10 @@ const AdminPropertiesDetail = () => {
         <div>
             <h1 className='text-gray-500 text-3xl'>Property Bedroom:</h1>
             <p className='text-black mb-5'>4 Bedrooms</p>
+
+            <h1 className='text-gray-500 text-3xl'>Property Document:</h1>
+            <p className='text-black mb-5'>4</p>
+            
         </div>
 
         </div>

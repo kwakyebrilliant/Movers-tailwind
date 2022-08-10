@@ -33,7 +33,7 @@ const PartialNavbar = () => {
                 <div className='flex items-center mx-auto'>
                 </div>
 
-                <div className='flex justify-end pr-4 pt-4'>
+                <div className='flex justify-end pt-4'>
                     <span className='text-xl font-medium whitespace-nowrap'>
                     <svg
                     className="max-w-full fill-current mx-2 text-gray-900"

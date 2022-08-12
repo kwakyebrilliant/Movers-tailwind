@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { AiFillPieChart } from 'react-icons/ai'
+import { AiFillPieChart, AiOutlineLogout } from 'react-icons/ai'
 import { FaBook, FaBuilding, FaHeart, FaMailBulk } from 'react-icons/fa'
 
 import { MenuIcon, XIcon, ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/outline';
@@ -62,11 +62,8 @@ const PartialNavbar = () => {
                                 {!dropdown ? <ArrowDownIcon className='w-5 text-black' /> : <ArrowUpIcon className='w-5 text-black' />}
 
                                 <ul className={!dropdown ? 'hidden' : 'absolute bg-zinc-900 px-8'}>
-                                    <li className='border-zinc-900 w-fit text-white'><Link to="/summary" className='flex' onClick={handleClose2}><AiFillPieChart className='text-2xl mr-4' />Summary</Link></li>
-                                    <li className='border-zinc-900 w-fit text-white'><Link to="/booked" className='flex' onClick={handleClose}><FaBook className='text-2xl mr-4' />Booked</Link></li>
-                                    <li className='border-zinc-900 w-fit text-white'><Link to="/adminproperties" className='flex' onClick={handleClose2}><FaBuilding className='text-2xl mr-4' />Properties</Link></li>
-                                    <li className='border-zinc-900 w-fit text-white'><Link to="/favorite" className='flex' onClick={handleClose2}><FaHeart className='text-2xl mr-4' />Favorite</Link></li>
-                                    <li className='border-zinc-900 w-fit text-white'><Link to="/chat" className='flex' onClick={handleClose2}><FaMailBulk className='text-2xl mr-4' />Chat</Link></li>
+                                    <li className='border-zinc-900 w-fit text-white'>0xF...y6b</li>
+                                    <li className='border-zinc-900 w-fit text-white'><Link to="/booked" className='flex' onClick={handleClose2}><AiOutlineLogout className='text-2xl mr-4' />Logout</Link></li>
                                 </ul>
                             
                                 </div> 

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
-import { AiFillPieChart, AiOutlineLogout } from 'react-icons/ai'
+import { AiFillPieChart, AiOutlineLogout, AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai'
 import { FaBook, FaBuilding, FaHeart, FaMailBulk } from 'react-icons/fa'
 
-import { MenuIcon, XIcon, ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/outline';
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import { Link } from 'react-router-dom';
 
 
@@ -58,8 +58,8 @@ const PartialNavbar = () => {
                                 />
                             </svg>
                             
-                            <div className='' onClick={handleClick2}>
-                                {!dropdown ? <ArrowDownIcon className='w-5 text-black' /> : <ArrowUpIcon className='w-5 text-black' />}
+                            <div onClick={handleClick2}>
+                                {!dropdown ? <AiOutlineArrowDown className='w-5 mt-3 text-black' /> : <AiOutlineArrowUp className='w-5 text-black' />}
 
                                 <ul className={!dropdown ? 'hidden' : 'absolute bg-zinc-900 px-8'}>
                                     <li className='border-zinc-900 w-fit text-white'>0xF...y6b</li>

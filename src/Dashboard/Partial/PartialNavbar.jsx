@@ -59,9 +59,9 @@ const PartialNavbar = () => {
                             </svg>
                             
                             <div onClick={handleClick2}>
-                                {!dropdown ? <AiOutlineArrowDown className='w-5 cursor-pointer mt-3 text-black' /> : <AiOutlineArrowUp className='w-5 cursor-pointer text-black' />}
+                                {!dropdown ? <AiOutlineArrowDown className='w-5 cursor-pointer mt-3 text-black' /> : <AiOutlineArrowUp className='w-5 mt-3 cursor-pointer text-black' />}
 
-                                <ul className={!dropdown ? 'hidden' : 'absolute bg-zinc-900 px-8'}>
+                                <ul className={!dropdown ? 'hidden' : 'absolute right-5 bg-zinc-900 px-8'}>
                                     <li className='border-zinc-900 w-fit text-white'>0xF...y6b</li>
                                     <li className='border-zinc-900 w-fit text-white'><Link to="/" className='flex' onClick={handleClose2}><AiOutlineLogout className='text-2xl mr-4' />Logout</Link></li>
                                 </ul>

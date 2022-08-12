@@ -4,11 +4,13 @@ import { AiFillPieChart, AiOutlineLogout, AiOutlineArrowDown, AiOutlineArrowUp }
 import { FaBook, FaBuilding, FaHeart, FaMailBulk } from 'react-icons/fa'
 
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
 const PartialNavbar = () => {
+
+    const navigate = useNavigate();
 
     const [nav, setNav] = useState(false)
     
@@ -21,6 +23,10 @@ const PartialNavbar = () => {
     const handleClick2 = () => setdropdown(!dropdown)
 
     const handleClose2 =()=> setdropdown(!dropdown)
+
+    const logout = () => {
+        navigate('/');
+      }
     
 
   return (

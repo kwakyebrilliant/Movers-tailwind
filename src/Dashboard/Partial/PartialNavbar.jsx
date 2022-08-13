@@ -45,7 +45,7 @@ const PartialNavbar = () => {
                 <div className='flex justify-end pt-4'>
 
                 <svg
-                                className="max-w-full fill-current mt-1 mx-2 text-gray-900"
+                                className="max-w-full fill-current mt-1 text-gray-900"
                                 width="30px"
                                 height="30px"
                                 viewBox="0 0 24 24"

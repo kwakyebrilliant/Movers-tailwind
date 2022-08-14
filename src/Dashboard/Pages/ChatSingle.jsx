@@ -45,39 +45,36 @@ const ChatSingle = () => {
             </div>
            
 
+            {/* <div className='mb-5'>
+                <img className="object-cover w-full rounded-2xl" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="" />
+            </div> */}
+
+            <footer>
+           <div className="dabsolute flex inset-x-0 bottom-0 mx-5">
+                        <input
+                            className="rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
+                            type="text"
+                            as="textarea"
+                            rows={1}
+                            placeholder="Enter your message"
+                        />
+                        <button
+                            className='px-3 py-3'
+                        >
+                            <AiOutlineSend className='w-6 h-6' />
+                        </button>
+                        </div>
+</footer>
 
            </div>
 
-           <div className="row">
-      <main
-        role="main"
-        className="col-lg-12 ml-auto mr-auto"
-        style={{ maxWidth: "700px" }}
-      >
-        <div className="content mr-auto ml-auto">
-          <div className="col-lg-12 p-3 m-auto mb-3">
-            <div className="d-flex fixed-bottom m-3">
-              <input
-                className="rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
-                type="text"
-                as="textarea"
-                rows={1}
-                placeholder="Enter your message"
-              />
-              <button
-                className='px-3 py-3 rounded-xl'
-              >
-                <AiOutlineSend className='w-6 h-6' />
-              </button>
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
+
+
 
        </div>
     </div>
     </>
+  
     </div>
       )
 }

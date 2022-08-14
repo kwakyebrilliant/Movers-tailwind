@@ -49,10 +49,10 @@ const ChatSingle = () => {
                 <img className="object-cover w-full rounded-2xl" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="" />
             </div> */}
 
-            <footer>
-           <div className="dabsolute flex inset-x-0 bottom-0 mx-5">
+      
+           <div className="absolute justify-center flex inset-x-0 bottom-0 mx-5 mb-3">
                         <input
-                            className="rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
+                            className="rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-[500px]"
                             type="text"
                             as="textarea"
                             rows={1}
@@ -64,7 +64,7 @@ const ChatSingle = () => {
                             <AiOutlineSend className='w-6 h-6' />
                         </button>
                         </div>
-</footer>
+
 
            </div>
 

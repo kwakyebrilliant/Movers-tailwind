@@ -62,11 +62,12 @@ const ChatSingle = () => {
                 type="text"
                 as="textarea"
                 rows={1}
+                placeholder="Enter your message"
               />
               <button
-                type="submit"
+                className='px-3 py-3 rounded-xl'
               >
-                <AiOutlineSend className='bg-green-600' size={40} />
+                <AiOutlineSend className='w-6 h-6' />
               </button>
             </div>
           </div>

@@ -47,8 +47,8 @@ const ChatSingle = () => {
 
             <div className='mb-5'>
 
-                <div className='flex float-left'>
-                    <h1>Hi</h1>
+                <div className='flex float-left bg-black'>
+                    <h1 className='text-white'>Hi</h1>
                 </div>
 
                 <div className='flex float-right'>

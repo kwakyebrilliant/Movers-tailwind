@@ -45,7 +45,15 @@ const ChatSingle = () => {
             </div>
            
 
-            <div className='mb-5 grid grid-cols-1 lg:grid-cols-2'>
+            <div className='mb-5'>
+
+                <div className='flex float-left'>
+                    <h1>Hi</h1>
+                </div>
+
+                <div className='flex float-right'>
+                    <h1>Hi</h1>
+                </div>
                 
             </div>
 

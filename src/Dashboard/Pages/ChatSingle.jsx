@@ -79,7 +79,7 @@ const ChatSingle = () => {
             </div>
 
       
-           <div className="absolute justify-center flex inset-x-0 bottom-0 mx-5 mb-3">
+           <div className="fixed justify-center flex inset-x-0 bottom-0 mx-5 mb-3">
                         <input
                             className="rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-[500px]"
                             type="text"

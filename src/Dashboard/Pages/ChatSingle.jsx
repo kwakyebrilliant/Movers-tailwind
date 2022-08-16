@@ -45,33 +45,33 @@ const ChatSingle = () => {
             </div>
            
 
-            <div class="relative p-6">
-              <ul class="space-y-2">
-                <li class="flex justify-start">
-                  <div class="bg-black relative max-w-xl px-4 py-2 text-gray-100 rounded shadow">
-                    <span class="block">Hi</span>
+            <div className="relative p-6">
+              <ul className="space-y-2">
+                <li className="flex justify-start">
+                  <div className="bg-black relative max-w-xl px-4 py-2 text-gray-100 rounded shadow">
+                    <span className="block">Hi</span>
                   </div>
                 </li>
-                <li class="flex justify-end">
-                  <div class="bg-green-700 relative max-w-xl px-4 py-2 text-gray-100 rounded shadow">
-                    <span class="block">Hiiii</span>
+                <li className="flex justify-end">
+                  <div className="bg-green-700 relative max-w-xl px-4 py-2 text-gray-100 rounded shadow">
+                    <span className="block">Hiiii</span>
                   </div>
                 </li>
-                <li class="flex justify-end">
-                  <div class="bg-green-700 relative max-w-xl px-4 py-2 text-gray-100 rounded shadow">
-                    <span class="block">how are you?</span>
+                <li className="flex justify-end">
+                  <div className="bg-green-700 relative max-w-xl px-4 py-2 text-gray-100 rounded shadow">
+                    <span className="block">how are you?</span>
                   </div>
                 </li>
-                <li class="flex justify-start">
-                  <div class="bg-black relative max-w-xl px-4 py-2 text-gray-100 rounded shadow">
-                    <span class="block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                <li className="flex justify-start">
+                  <div className="bg-black relative max-w-xl px-4 py-2 text-gray-100 rounded shadow">
+                    <span className="block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     </span>
                   </div>
                 </li>
 
-                <li class="flex justify-start">
-                  <div class="bg-black relative max-w-xl px-4 py-2 text-gray-100 rounded shadow">
-                    <span class="block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                <li className="flex justify-start">
+                  <div className="bg-black relative max-w-xl px-4 py-2 text-gray-100 rounded shadow">
+                    <span className="block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     </span>
                   </div>
                 </li>

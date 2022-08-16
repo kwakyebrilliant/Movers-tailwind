@@ -47,16 +47,17 @@ const ChatSingle = () => {
 
             <div className='mb-5'>
 
-                <div className='grid grid-cols-1 bg-black rounded-lg py-2'>
+                <div className='bg-black rounded-lg py-2'>
                     <h1 className='text-white px-4 py-1'>
                         Hi
                     </h1>
                 </div>
 
-                <div className='grid grid-cols-1 bg-green-700 rounded-lg py-2 my-4'>
+                <div className='flex bg-green-700 rounded-lg py-2'>
                     <h1 className='text-white px-4 py-1'>
                         Hi
                     </h1>
+                    
                 </div>
                 
             </div>

@@ -45,21 +45,37 @@ const ChatSingle = () => {
             </div>
            
 
-            <div className='mb-5'>
+            <div class="relative p-6">
+              <ul class="space-y-2">
+                <li class="flex justify-start">
+                  <div class="bg-black relative max-w-xl px-4 py-2 text-gray-100 rounded shadow">
+                    <span class="block">Hi</span>
+                  </div>
+                </li>
+                <li class="flex justify-end">
+                  <div class="bg-green-700 relative max-w-xl px-4 py-2 text-gray-100 rounded shadow">
+                    <span class="block">Hiiii</span>
+                  </div>
+                </li>
+                <li class="flex justify-end">
+                  <div class="bg-green-700 relative max-w-xl px-4 py-2 text-gray-100 rounded shadow">
+                    <span class="block">how are you?</span>
+                  </div>
+                </li>
+                <li class="flex justify-start">
+                  <div class="bg-black relative max-w-xl px-4 py-2 text-gray-100 rounded shadow">
+                    <span class="block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    </span>
+                  </div>
+                </li>
 
-                <div className='bg-black rounded-lg py-2'>
-                    <h1 className='text-white px-4 py-1'>
-                        Hi
-                    </h1>
-                </div>
-
-                <div className='flex bg-green-700 rounded-lg py-2'>
-                    <h1 className='text-white px-4 py-1'>
-                        Hi
-                    </h1>
-                    
-                </div>
-                
+                <li class="flex justify-start">
+                  <div class="bg-black relative max-w-xl px-4 py-2 text-gray-100 rounded shadow">
+                    <span class="block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    </span>
+                  </div>
+                </li>
+              </ul>
             </div>
 
       

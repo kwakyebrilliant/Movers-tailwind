@@ -71,7 +71,7 @@ const ChatSingle = () => {
 
                 <li className="flex justify-start">
                   <div className="bg-black relative max-w-xl px-4 py-2 text-gray-100 rounded shadow">
-                    <span className="block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    <span className="block">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     </span>
                   </div>
                 </li>

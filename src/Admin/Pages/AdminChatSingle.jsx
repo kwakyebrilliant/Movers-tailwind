@@ -1,6 +1,6 @@
 import React from 'react'
-import PartialNavbar from '../Partial/PartialNavbar'
-import Sidebar from '../Partial/Sidebar'
+import AdminPartialNavbar from '../Partial/AdminPartialNavbar'
+import AdminSidebar from '../Partial/AdminSidebar'
 
 import { FaArrowLeft } from 'react-icons/fa'
 
@@ -32,10 +32,10 @@ const AdminChatSingle = () => {
     return (
         <div className='text-black'>
         <>
-    <div className='flex flex-auto'>
-            <Sidebar />
-       <div className='grow'>
-           <PartialNavbar />
+        <div className='flex flex-auto'>
+        <AdminSidebar />
+        <div className='grow'>
+            <AdminPartialNavbar />
 
            <div className='m-5'>
 

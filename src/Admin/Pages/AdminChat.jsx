@@ -3,7 +3,7 @@ import AdminPartialNavbar from '../Partial/AdminPartialNavbar'
 import AdminSidebar from '../Partial/AdminSidebar'
 import { Link } from 'react-router-dom'
 
-const Chat = () => {
+const AdminChat = () => {
   return (
     <div className='text-black'>
     <>
@@ -167,4 +167,4 @@ const Chat = () => {
   )
 }
 
-export default Chat
+export default AdminChat

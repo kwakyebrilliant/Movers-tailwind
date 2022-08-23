@@ -15,7 +15,7 @@ const AdminSidebar = () => {
         { title: 'Booked', path: '/booked', src: <FaBook /> },
         { title: 'Properties', path: '/adminproperties', src: <FaBuilding /> },
         { title: 'Favorite', path: '/favorite', src: <FaHeart />},
-        { title: 'Chat', path: '/chat', src: <FaMailBulk />},
+        { title: 'Chat', path: '/adminchat', src: <FaMailBulk />},
     ]
 
     return (

@@ -19,11 +19,11 @@ const AdminChat = () => {
                 <div className="sm:justify-between sm:items-center sm:flex">
                 <div className="text-center sm:text-left">
                     <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
-                    Welcome Back, Brilliant!
+                    Welcome Back, Admin!
                     </h1>
 
                     <p className="mt-1.5 text-sm text-gray-900">
-                    Check your previous chats on MOVERS 🎉
+                    Check chats on MOVERS 🎉
                     </p>
                 </div>
 

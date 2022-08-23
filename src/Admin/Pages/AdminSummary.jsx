@@ -1,6 +1,6 @@
 import React from 'react'
 import PartialNavbar from '../Partial/PartialNavbar'
-import Sidebar from '../Partial/Sidebar'
+import AdminSidebar from '../Partial/AdminSidebar'
 
 
 import { ArrowSmRightIcon } from '@heroicons/react/outline';
@@ -13,7 +13,7 @@ const AdminSummary = () => {
     <div className='text-black'>
          <>
     <div className='flex flex-auto'>
-        <Sidebar />
+        <AdminSidebar />
         <div className='grow'>
             <PartialNavbar />
 

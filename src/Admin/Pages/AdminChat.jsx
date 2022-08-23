@@ -48,7 +48,7 @@ const AdminChat = () => {
               </form>
             <div className='bg-white flex-row shadow-lg rounded-2xl px-4'>
 
-            <Link to="/chatsingle">
+            <Link to="/adminchatsingle">
             <div className="relative">
 
             <div className="flex items-center p-4">

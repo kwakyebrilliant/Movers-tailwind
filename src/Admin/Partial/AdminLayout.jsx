@@ -1,5 +1,5 @@
 import React from 'react'
-import PartialNavbar from './PartialNavbar'
+import AdminPartialNavbar from './AdminPartialNavbar'
 import AdminSidebar from './AdminSidebar'
 
 const Layout = ({ children }) => {
@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
     <div className='flex flex-auto'>
         <AdminSidebar />
         <div className='grow'>
-            <PartialNavbar />
+            <AdminPartialNavbar />
             <div className='m-5'>{children}</div>
         </div>
     </div>

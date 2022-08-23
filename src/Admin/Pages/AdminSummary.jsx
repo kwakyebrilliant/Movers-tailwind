@@ -1,5 +1,5 @@
 import React from 'react'
-import PartialNavbar from '../Partial/PartialNavbar'
+import AdminPartialNavbar from '../Partial/AdminPartialNavbar'
 import AdminSidebar from '../Partial/AdminSidebar'
 
 
@@ -15,7 +15,7 @@ const AdminSummary = () => {
     <div className='flex flex-auto'>
         <AdminSidebar />
         <div className='grow'>
-            <PartialNavbar />
+            <AdminPartialNavbar />
 
     
             <div className='m-5'>

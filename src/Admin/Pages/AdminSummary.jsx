@@ -29,7 +29,7 @@ const AdminSummary = () => {
                     </h1>
 
                     <p className="mt-1.5 text-sm text-gray-900">
-                    Check your statistics on MOVERS 🎉
+                    Check statistics on MOVERS 🎉
                     </p>
                 </div>
 

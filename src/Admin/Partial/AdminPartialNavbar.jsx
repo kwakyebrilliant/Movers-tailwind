@@ -35,7 +35,7 @@ const AdminPartialNavbar = () => {
                 <li className='border-zinc-900 w-fit text-white'><Link to="/booked" className='flex' onClick={handleClose}><FaBook className='text-2xl mr-4' />Booked</Link></li>
                 <li className='border-zinc-900 w-fit text-white'><Link to="/adminproperties" className='flex' onClick={handleClose}><FaBuilding className='text-2xl mr-4' />Properties</Link></li>
                 <li className='border-zinc-900 w-fit text-white'><Link to="/favorite" className='flex' onClick={handleClose}><FaHeart className='text-2xl mr-4' />Favorite</Link></li>
-                <li className='border-zinc-900 w-fit text-white'><Link to="/chat" className='flex' onClick={handleClose}><FaMailBulk className='text-2xl mr-4' />Chat</Link></li>
+                <li className='border-zinc-900 w-fit text-white'><Link to="/adminchat" className='flex' onClick={handleClose}><FaMailBulk className='text-2xl mr-4' />Chat</Link></li>
             </ul>
           
             </div>

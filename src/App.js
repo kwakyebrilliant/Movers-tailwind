@@ -18,6 +18,7 @@ import Chat from './Dashboard/Pages/Chat';
 import ChatSingle from './Dashboard/Pages/ChatSingle';
 import AdminPropertiesDetail from './Dashboard/Pages/AdminPropertiesDetail';
 import AdminSummary from './Admin/Pages/AdminSummary'
+import AdminChat from './Admin/Pages/AdminChat';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path='/chatsingle' element={<ChatSingle />} />
         <Route path='/adminpropertiesdetail' element={<AdminPropertiesDetail />} />
         <Route path='/adminsummary' element={<AdminSummary />} />
+        <Route path='/adminchat' element={<AdminChat />} />
         </Routes>
       </Router>
      

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { AiFillPieChart, AiOutlineLogout, AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai'
-import { FaBook, FaBuilding, FaHeart, FaMailBulk } from 'react-icons/fa'
+import { FaBook, FaBuilding, FaMailBulk } from 'react-icons/fa'
 
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import { Link } from 'react-router-dom';
@@ -34,7 +34,6 @@ const AdminPartialNavbar = () => {
                 <li className='border-zinc-900 w-fit text-white'><Link to="/adminsummary" className='flex' onClick={handleClose}><AiFillPieChart className='text-2xl mr-4' />Summary</Link></li>
                 <li className='border-zinc-900 w-fit text-white'><Link to="/booked" className='flex' onClick={handleClose}><FaBook className='text-2xl mr-4' />Booked</Link></li>
                 <li className='border-zinc-900 w-fit text-white'><Link to="/adminproperties" className='flex' onClick={handleClose}><FaBuilding className='text-2xl mr-4' />Properties</Link></li>
-                <li className='border-zinc-900 w-fit text-white'><Link to="/favorite" className='flex' onClick={handleClose}><FaHeart className='text-2xl mr-4' />Favorite</Link></li>
                 <li className='border-zinc-900 w-fit text-white'><Link to="/adminchat" className='flex' onClick={handleClose}><FaMailBulk className='text-2xl mr-4' />Chat</Link></li>
             </ul>
           

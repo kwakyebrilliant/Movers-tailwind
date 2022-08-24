@@ -50,7 +50,11 @@ const AddProperties = () => {
                 />
             
             <h1 className='mt-4 text-gray-500 text-2xl'>Property Bathroom:</h1>
-            <p className='text-black mb-5'>4 Bathroom</p>
+                <input
+                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-[400px]"
+                    type="text"
+                    placeholder="Enter bathroom"
+                />
 
         </div>
 

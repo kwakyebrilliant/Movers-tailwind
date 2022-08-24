@@ -35,8 +35,12 @@ const AddProperties = () => {
                     placeholder="Enter location"
                 />
 
-            <h1 className='text-gray-500 text-2xl'>Property Space:</h1>
-            <p className='text-black mb-5'>123 Wallaby Avenue, Park Road</p>
+            <h1 className='mt-4 text-gray-500 text-2xl'>Property Space:</h1>
+                <input
+                        className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-[400px]"
+                        type="text"
+                        placeholder="Enter space"
+                    />
 
             <h1 className='text-gray-500 text-2xl'>Property Parking Space:</h1>
             <p className='text-black mb-5'>1 Space</p>

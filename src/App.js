@@ -16,7 +16,7 @@ import UserProperties from './Dashboard/Pages/UserProperties';
 import Favorite from './Dashboard/Pages/Favorite';
 import Chat from './Dashboard/Pages/Chat';
 import ChatSingle from './Dashboard/Pages/ChatSingle';
-import AdminPropertiesDetail from './Dashboard/Pages/AdminPropertiesDetail';
+import UserPropertiesDetail from './Dashboard/Pages/UserPropertiesDetail';
 import AdminSummary from './Admin/Pages/AdminSummary'
 import AdminChat from './Admin/Pages/AdminChat';
 import AdminChatSingle from './Admin/Pages/AdminChatSingle';
@@ -40,7 +40,7 @@ function App() {
         <Route path='/favorite' element={<Favorite />} />
         <Route path='/chat' element={<Chat />} />
         <Route path='/chatsingle' element={<ChatSingle />} />
-        <Route path='/adminpropertiesdetail' element={<AdminPropertiesDetail />} />
+        <Route path='/userpropertiesdetail' element={<UserPropertiesDetail />} />
         <Route path='/adminsummary' element={<AdminSummary />} />
         <Route path='/adminchat' element={<AdminChat />} />
         <Route path='/adminchatsingle' element={<AdminChatSingle />} />

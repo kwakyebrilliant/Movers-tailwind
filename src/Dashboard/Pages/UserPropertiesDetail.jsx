@@ -6,7 +6,7 @@ import { FaArrowLeft } from 'react-icons/fa'
 
 import { useNavigate } from 'react-router-dom';
 
-const AdminPropertiesDetail = () => {
+const UserPropertiesDetail = () => {
 
     const navigate = useNavigate();
 
@@ -71,4 +71,4 @@ const AdminPropertiesDetail = () => {
       )
 }
 
-export default AdminPropertiesDetail
+export default UserPropertiesDetail

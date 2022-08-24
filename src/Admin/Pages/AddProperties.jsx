@@ -2,7 +2,14 @@ import React from 'react'
 import AdminPartialNavbar from '../Partial/AdminPartialNavbar'
 import AdminSidebar from '../Partial/AdminSidebar'
 
+import { FaArrowLeft } from 'react-icons/fa'
+
+import { useNavigate } from 'react-router-dom';
+
 const AddProperties = () => {
+
+    const navigate = useNavigate();
+
   return (
     <div className='text-black'>
     <>
@@ -12,23 +19,15 @@ const AddProperties = () => {
             <AdminPartialNavbar />
        
        <div className='m-5'>
-       <header className="rounded-2xl inset-x-0 bottom-0 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600">
-            <div className="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8">
-                <div className="sm:justify-between sm:items-center sm:flex">
-                <div className="text-center sm:text-left">
-                    <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">
-                    Welcome Back, Admin!
-                    </h1>
-
-                    <p className="mt-1.5 text-sm text-gray-900">
-                    Add properties on MOVERS 🎉
-                    </p>
-                </div>
-
-                
-                </div>
+            <div className='flex my-8'>
+                <FaArrowLeft className="text-gray-500 text-2xl" onClick={() => navigate(-1)} />
+                <p className='mx-2 text-gray-500'>Back</p>
             </div>
-            </header>
+
+
+            
+
+
        </div>
 
 

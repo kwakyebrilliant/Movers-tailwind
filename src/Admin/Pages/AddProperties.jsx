@@ -30,28 +30,28 @@ const AddProperties = () => {
         <div>
             <h1 className='text-gray-500 text-2xl'>Property Location:</h1>
                 <input
-                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-[400px]"
+                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
                     type="text"
                     placeholder="Enter location"
                 />
 
             <h1 className='mt-4 text-gray-500 text-2xl'>Property Space:</h1>
                 <input
-                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-[400px]"
+                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
                     type="text"
                     placeholder="Enter space"
                 />
 
             <h1 className='mt-4 text-gray-500 text-2xl'>Property Parking Space:</h1>
                 <input
-                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-[400px]"
+                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
                     type="text"
                     placeholder="Enter parking space"
                 />
             
             <h1 className='mt-4 text-gray-500 text-2xl'>Property Bathroom:</h1>
                 <input
-                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-[400px]"
+                    className="mt-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
                     type="text"
                     placeholder="Enter bathroom"
                 />
@@ -59,9 +59,9 @@ const AddProperties = () => {
         </div>
 
         <div>
-            <h1 className='mt-4 text-gray-500 text-2xl'>Property Bedroom:</h1>
+            <h1 className=' text-gray-500 text-2xl'>Property Bedroom:</h1>
                 <input
-                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-[400px]"
+                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
                     type="text"
                     placeholder="Enter bedroom"
                 />

@@ -65,6 +65,8 @@ const AddProperties = () => {
                     type="text"
                     placeholder="Enter bedroom"
                 />
+                
+            <h1 className='text-gray-500 text-2xl'>Property Document:</h1>
 
             <h1 className='text-gray-500 text-2xl'>Property Document:</h1>
             

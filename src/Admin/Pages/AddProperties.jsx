@@ -79,6 +79,17 @@ const AddProperties = () => {
                    
                 </div>
 
+                <div className='mx-2 mt-4 border-dotted border-2 border-green-700 justify-center'>
+                    <div className='grid grid-rows-2 justify-center'>
+                        <div className="inline-flex cursor-pointer items-center px-8 py-3 mt-8 text-white bg-green-600 border border-green-600 rounded hover:bg-transparent hover:text-green-600 active:text-green-500 focus:outline-none focus:ring">
+                            <span className="text-sm font-medium">Upload Image </span>
+                            <FaPlusCircle className='mx-2' />
+                        </div>
+                        <p className='m-2'>PNG, JPG, JPEG up to 5MB</p>
+                    </div>
+                   
+                </div>
+
             
             
             

@@ -67,20 +67,19 @@ const AddProperties = () => {
                 />
 
             <h1 className='mt-4 text-gray-500 text-2xl'>Property Documents:</h1>
-                <div className='flex m-2'>
-                    <div className='m-auto'>
-                        <FaPlusCircle className='mx-2 text-green-700 w-9 h-9' />
-                        <a
-                className="inline-flex items-center px-8 py-3 mt-8 text-white bg-green-600 border border-green-600 rounded hover:bg-transparent hover:text-green-600 active:text-green-500 focus:outline-none focus:ring"
-                href="/addproperties"
-              >
-                <span className="text-sm font-medium">Upload Image </span>
-              </a>
+
+                <div className='mx-2 mt-4 border-dotted border-2 border-green-700 justify-center'>
+                    <div className='grid grid-rows-2 justify-center'>
+                        <div className="inline-flex cursor-pointer items-center px-8 py-3 mt-8 text-white bg-green-600 border border-green-600 rounded hover:bg-transparent hover:text-green-600 active:text-green-500 focus:outline-none focus:ring">
+                            <span className="text-sm font-medium">Upload Image </span>
+                            <FaPlusCircle className='mx-2' />
+                        </div>
+                        <p className='m-2'>PNG, JPG, JPEG up to 5MB</p>
                     </div>
-                    
+                   
                 </div>
 
-            <h1 className='text-gray-500 text-2xl'>Property Document:</h1>
+            
             
             
         </div>

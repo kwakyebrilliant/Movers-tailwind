@@ -23,6 +23,7 @@ import AdminChatSingle from './Admin/Pages/AdminChatSingle';
 import AdminBooked from './Admin/Pages/AdminBooked';
 import AdminProperties from './Admin/Pages/AdminProperties';
 import AdminPropertiesDetail from './Admin/Pages/AdminPropertiesDetials';
+import AddProperties from './Admin/Pages/AddProperties';
 
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
         <Route path='/adminbooked' element={<AdminBooked />} />
         <Route path='/adminproperties' element={<AdminProperties />} />
         <Route path='/adminpropertiesdetail' element={<AdminPropertiesDetail />} />
+        <Route path='/addproperties' element={<AddProperties />} />
         </Routes>
       </Router>
      

@@ -20,6 +20,7 @@ import AdminPropertiesDetail from './Dashboard/Pages/AdminPropertiesDetail';
 import AdminSummary from './Admin/Pages/AdminSummary'
 import AdminChat from './Admin/Pages/AdminChat';
 import AdminChatSingle from './Admin/Pages/AdminChatSingle';
+import AdminBooked from './Admin/Pages/AdminBooked';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
         <Route path='/adminsummary' element={<AdminSummary />} />
         <Route path='/adminchat' element={<AdminChat />} />
         <Route path='/adminchatsingle' element={<AdminChatSingle />} />
+        <Route path='/adminbooked' element={<AdminBooked />} />
         </Routes>
       </Router>
      

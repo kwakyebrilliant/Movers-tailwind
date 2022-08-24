@@ -29,7 +29,11 @@ const AddProperties = () => {
 
         <div>
             <h1 className='text-gray-500 text-2xl'>Property Location:</h1>
-            <p className='text-black mb-5'>123 Wallaby Avenue, Park Road</p>
+                <input
+                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-[400px]"
+                    type="text"
+                    placeholder="Enter location"
+                />
 
             <h1 className='text-gray-500 text-2xl'>Property Space:</h1>
             <p className='text-black mb-5'>123 Wallaby Avenue, Park Road</p>

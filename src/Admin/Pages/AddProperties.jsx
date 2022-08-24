@@ -2,7 +2,7 @@ import React from 'react'
 import AdminPartialNavbar from '../Partial/AdminPartialNavbar'
 import AdminSidebar from '../Partial/AdminSidebar'
 
-import { FaArrowLeft } from 'react-icons/fa'
+import { FaArrowLeft, FaPlusCircle } from 'react-icons/fa'
 
 import { useNavigate } from 'react-router-dom';
 
@@ -65,8 +65,20 @@ const AddProperties = () => {
                     type="text"
                     placeholder="Enter bedroom"
                 />
-                
-            <h1 className='text-gray-500 text-2xl'>Property Document:</h1>
+
+            <h1 className='mt-4 text-gray-500 text-2xl'>Property Documents:</h1>
+                <div className='flex m-2'>
+                    <div className='m-auto'>
+                        <FaPlusCircle className='mx-2 text-green-700 w-9 h-9' />
+                        <a
+                className="inline-flex items-center px-8 py-3 mt-8 text-white bg-green-600 border border-green-600 rounded hover:bg-transparent hover:text-green-600 active:text-green-500 focus:outline-none focus:ring"
+                href="/addproperties"
+              >
+                <span className="text-sm font-medium">Upload Image </span>
+              </a>
+                    </div>
+                    
+                </div>
 
             <h1 className='text-gray-500 text-2xl'>Property Document:</h1>
             

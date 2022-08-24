@@ -85,7 +85,7 @@ const AddProperties = () => {
                             <span className="text-sm font-medium">Upload Image </span>
                             <FaPlusCircle className='mx-2' />
                         </div>
-                        <p className='m-2'>PNG, JPG, JPEG up to 5MB</p>
+                        <p className='m-2'> PDF, DOCX up to 5MB</p>
                     </div>
                    
                 </div>

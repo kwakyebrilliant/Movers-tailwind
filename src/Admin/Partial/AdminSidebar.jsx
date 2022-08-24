@@ -12,7 +12,7 @@ const AdminSidebar = () => {
 
     const Menus = [
         { title: 'Summary', path: '/adminsummary', src: <AiFillPieChart /> },
-        { title: 'Booked', path: '/booked', src: <FaBook /> },
+        { title: 'Booked', path: '/adminbooked', src: <FaBook /> },
         { title: 'Properties', path: '/adminproperties', src: <FaBuilding /> },
         { title: 'Chat', path: '/adminchat', src: <FaMailBulk />},
     ]

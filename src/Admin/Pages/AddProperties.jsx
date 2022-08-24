@@ -2,8 +2,6 @@ import React from 'react'
 import AdminPartialNavbar from '../Partial/AdminPartialNavbar'
 import AdminSidebar from '../Partial/AdminSidebar'
 
-import { FaPlusCircle } from 'react-icons/fa'
-
 const AddProperties = () => {
   return (
     <div className='text-black'>

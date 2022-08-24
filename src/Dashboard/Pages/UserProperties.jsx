@@ -2,7 +2,7 @@ import React from 'react'
 import PartialNavbar from '../Partial/PartialNavbar'
 import Sidebar from '../Partial/Sidebar'
 
-const AdminProperties = () => {
+const UserProperties = () => {
   return (
     <div className='text-black'>
     <>
@@ -96,4 +96,4 @@ const AdminProperties = () => {
   )
 }
 
-export default AdminProperties
+export default UserProperties

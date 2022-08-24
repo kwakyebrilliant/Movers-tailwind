@@ -12,7 +12,7 @@ import Faq from './components/Faq';
 import Layout from './Dashboard/Partial/Layout';
 import Summary from './Dashboard/Pages/Summary';
 import Booked from './Dashboard/Pages/Booked';
-import AdminProperties from './Dashboard/Pages/AdminProperties';
+import UserProperties from './Dashboard/Pages/UserProperties';
 import Favorite from './Dashboard/Pages/Favorite';
 import Chat from './Dashboard/Pages/Chat';
 import ChatSingle from './Dashboard/Pages/ChatSingle';
@@ -36,7 +36,7 @@ function App() {
         <Route path='/layout' element={<Layout />} />
         <Route path='/summary' element={<Summary />} />
         <Route path='/booked' element={<Booked />} />
-        <Route path='/adminproperties' element={<AdminProperties />} />
+        <Route path='/userproperties' element={<UserProperties />} />
         <Route path='/favorite' element={<Favorite />} />
         <Route path='/chat' element={<Chat />} />
         <Route path='/chatsingle' element={<ChatSingle />} />

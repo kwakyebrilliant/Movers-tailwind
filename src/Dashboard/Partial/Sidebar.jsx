@@ -13,7 +13,7 @@ const Sidebar = () => {
     const Menus = [
         { title: 'Summary', path: '/summary', src: <AiFillPieChart /> },
         { title: 'Booked', path: '/booked', src: <FaBook /> },
-        { title: 'Properties', path: '/adminproperties', src: <FaBuilding /> },
+        { title: 'Properties', path: '/userproperties', src: <FaBuilding /> },
         { title: 'Favorite', path: '/favorite', src: <FaHeart />},
         { title: 'Chat', path: '/chat', src: <FaMailBulk />},
     ]

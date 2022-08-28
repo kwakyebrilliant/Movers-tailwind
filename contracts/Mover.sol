@@ -6,5 +6,6 @@ import "hardhat/console.sol";
 contract Mover {
 
      mapping(uint256 => PropertyOwner) public idPropertyOwner;
+      uint public propertyCount = 0;
 
 }

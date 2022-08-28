@@ -46,14 +46,14 @@ const AddProperties = () => {
                 <input
                     className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
                     type="text"
-                    placeholder="Enter parking space"
+                    placeholder="Enter number of parking space"
                 />
             
             <h1 className='mt-4 text-gray-500 text-2xl'>Property Bathroom:</h1>
                 <input
                     className="mt-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
                     type="text"
-                    placeholder="Enter bathroom"
+                    placeholder="Enter number of bathroom"
                 />
 
         </div>
@@ -63,7 +63,7 @@ const AddProperties = () => {
                 <input
                     className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
                     type="text"
-                    placeholder="Enter bedroom number"
+                    placeholder="Enter number of bedroom"
                 />
 
             <h1 className='mt-4 text-gray-500 text-2xl'>Property Documents:</h1>

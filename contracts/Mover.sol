@@ -8,4 +8,9 @@ contract Mover {
      mapping(uint256 => PropertyOwner) public idPropertyOwner;
       uint public propertyCount = 0;
 
+      struct PropertyOwner {
+      uint256 id;
+      string ownername;
+    }
+
 }

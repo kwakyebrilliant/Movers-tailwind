@@ -36,6 +36,13 @@ const AddProperties = () => {
                     placeholder="P001"
                 />
 
+            <h1 className='text-gray-500 text-2xl'>Property Owner:</h1>
+                <input
+                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
+                    type="text"
+                    placeholder="Enter owner name"
+                />
+
             <h1 className='text-gray-500 text-2xl'>Property Location:</h1>
                 <input
                     className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"

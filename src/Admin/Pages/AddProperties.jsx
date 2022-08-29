@@ -28,6 +28,14 @@ const AddProperties = () => {
             <div className='grid grid-cols-1 lg:grid-cols-2 relative gap-x-8 gap-y-16 px-4 pt-4 sm:pt-10 text-black'>
 
         <div>
+
+            <h1 className='text-gray-500 text-2xl'>Property Number:</h1>
+                <input
+                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
+                    type="text"
+                    placeholder="P001"
+                />
+
             <h1 className='text-gray-500 text-2xl'>Property Location:</h1>
                 <input
                     className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"

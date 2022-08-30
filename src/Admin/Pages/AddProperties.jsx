@@ -93,6 +93,16 @@ const AddProperties = () => {
                     </select>
                 </form>
 
+                <h1 className=' text-gray-500 text-2xl'>Property Tye:</h1>
+                <form className='my-4'>
+                    <select className="rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full" >
+                          <option value="javascript">Select Type</option>
+                          <option value="sale">Sale</option>
+                          <option value="rent">Rent</option>
+                          <option value="lease">Lease</option>
+                    </select>
+                </form>
+
             <h1 className=' text-gray-500 text-2xl'>Property Duration:</h1>
                 <input
                     className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"

@@ -11,6 +11,9 @@ contract Mover {
       struct PropertyOwner {
       uint256 id;
       string ownername;
+      Nested nested;
     }
+
+    
 
 }

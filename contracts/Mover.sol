@@ -21,6 +21,7 @@ contract Mover {
       string propertybathroom;
       string propertybedroom;
       string propertycategory;
+      string propertytype;
     }
 
 }

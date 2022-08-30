@@ -15,7 +15,7 @@ async function main() {
   txReceipt = await ethers.provider.waitForTransaction(txHash);
   let moverAddress = txReceipt.contractAddress;
 
-  console.log("Auditra contract address", moverAddress);
+  console.log("Mover contract address", moverAddress);
 }
 
 main()

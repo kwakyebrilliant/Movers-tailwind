@@ -81,6 +81,13 @@ const AddProperties = () => {
                     placeholder="Enter number of bedroom"
                 />
 
+            <h1 className=' text-gray-500 text-2xl'>Property Duration:</h1>
+                <input
+                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
+                    type="text"
+                    placeholder="Enter number of years"
+                />
+
             <h1 className='mt-4 text-gray-500 text-2xl'>Property Documents:</h1>
 
                 <div className='mx-2 mt-4 border-dotted border-2 border-green-700 justify-center'>

@@ -20,6 +20,7 @@ contract Mover {
       string propertyparkingspace;
       string propertybathroom;
       string propertybedroom;
+      string propertycategory;
     }
 
 }

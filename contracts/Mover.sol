@@ -22,6 +22,7 @@ contract Mover {
       string propertybedroom;
       string propertycategory;
       string propertytype;
+      string propertyduration;
     }
 
 }

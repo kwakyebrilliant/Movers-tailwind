@@ -17,6 +17,8 @@ contract Mover {
     struct Nested {
       string propertylocation;
       string propertyspace;
+      string propertyparkingspace;
+      string propertybathroom;
     }
 
 }

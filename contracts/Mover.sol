@@ -14,6 +14,9 @@ contract Mover {
       Nested nested;
     }
 
-    
+    struct Nested {
+      string propertylocation;
+      string propertyspace;
+    }
 
 }

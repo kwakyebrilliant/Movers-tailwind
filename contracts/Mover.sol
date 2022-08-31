@@ -57,6 +57,13 @@ contract Mover {
       uint itemCount = propertyCount;
       uint currentIndex = 0;
       PropertyOwner[]  memory items = new PropertyOwner[](itemCount);
+       for (uint i = 0; i < itemCount; i++) {
+          uint currentId = i + 1;
+          PropertyOwner storage currentItem = idPropertyOwner[currentId];
+          items[currentIndex] = currentItem;
+          currentIndex += 1;
+      }
+      return items;
     }
 
 }

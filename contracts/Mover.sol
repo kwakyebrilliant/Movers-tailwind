@@ -23,6 +23,7 @@ contract Mover {
       string propertycategory;
       string propertytype;
       string propertyduration;
+      string hash;
     }
 
 

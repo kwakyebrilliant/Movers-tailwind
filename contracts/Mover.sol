@@ -25,4 +25,13 @@ contract Mover {
       string propertyduration;
     }
 
+
+    //add property
+    function addProperty(PropertyOwner memory property_)
+      public
+      payable
+      {
+
+    }
+
 }

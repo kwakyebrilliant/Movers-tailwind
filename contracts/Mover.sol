@@ -40,6 +40,8 @@ contract Mover {
 
         property.id = propertyCount;
         property.ownername = property_.ownername;
+        property.nested.propertylocation = property_.nested.propertylocation;
+        property.nested.propertyspace = property_.nested.propertyspace;
 
     }
 

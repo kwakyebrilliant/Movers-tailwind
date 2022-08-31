@@ -31,6 +31,7 @@ contract Mover {
       public
       payable
       {
+        require(bytes(property_.ownername).length > 0, 'Owner name is required');
 
     }
 

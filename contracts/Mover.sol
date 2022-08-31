@@ -23,7 +23,7 @@ contract Mover {
       string propertycategory;
       string propertytype;
       string propertyduration;
-      string hash;
+      // string hash;
     }
 
 
@@ -33,7 +33,7 @@ contract Mover {
       payable
       {
         require(bytes(property_.ownername).length > 0, 'Owner name is required');
-        require(bytes(property_.nested.hash).length > 0, 'Image Hash is required');
+        // require(bytes(property_.nested.hash).length > 0, 'Image Hash is required');
 
         propertyCount++;
         PropertyOwner storage property = idPropertyOwner[propertyCount];
@@ -48,6 +48,12 @@ contract Mover {
         property.nested.propertycategory = property_.nested.propertycategory;
         property.nested.propertytype = property_.nested.propertytype;
         property.nested.propertyduration = property_.nested.propertyduration;
+
+    }
+
+
+     //all properties
+    function fetchPropertyOwner() public view returns (PropertyOwner[] memory) {
 
     }
 

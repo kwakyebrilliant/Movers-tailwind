@@ -54,7 +54,9 @@ contract Mover {
 
      //all properties
     function fetchPropertyOwner() public view returns (PropertyOwner[] memory) {
-
+      uint itemCount = propertyCount;
+      uint currentIndex = 0;
+      PropertyOwner[]  memory items = new PropertyOwner[](itemCount);
     }
 
 }

@@ -38,6 +38,8 @@ contract Mover {
         propertyCount++;
         PropertyOwner storage property = idPropertyOwner[propertyCount];
 
+        property.id = propertyCount;
+
     }
 
 }

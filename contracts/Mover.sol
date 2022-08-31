@@ -35,6 +35,9 @@ contract Mover {
         require(bytes(property_.ownername).length > 0, 'Owner name is required');
         require(bytes(property_.nested.hash).length > 0, 'Image Hash is required');
 
+        propertyCount++;
+        PropertyOwner storage property = idPropertyOwner[propertyCount];
+
     }
 
 }

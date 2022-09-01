@@ -52,7 +52,9 @@ const AddProperties = () => {
         if (!ownername) return;
         if (!propertylocation) return;
         if (!propertyspace) return;
-        if (propertyparkingspace) return;
+        if (!propertyparkingspace) return;
+        if (!propertybathroom) return;
+        if (!propertybedroom) return;
       }
 
 

@@ -68,7 +68,12 @@ const AddProperties = () => {
 
         const contract = new ethers.Contract(moverAddress, Mover.abi, signer);
         const transaction = await contract.addProperty( 
-            
+            [id,
+            ownername,
+            [
+                
+            ]
+            ]
 
         )
         

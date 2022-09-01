@@ -58,6 +58,16 @@ const AddProperties = () => {
         if (!propertycategory) return;
         if (!propertytype) return;
         if (!propertylocation) return;
+
+
+                // If MetaMask exists
+        if (typeof window.ethereum !== "undefined") {
+            
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+        
+        }
+
       }
 
 

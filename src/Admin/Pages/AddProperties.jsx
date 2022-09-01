@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import AdminPartialNavbar from '../Partial/AdminPartialNavbar'
 import AdminSidebar from '../Partial/AdminSidebar'
 
@@ -27,6 +27,26 @@ const AddProperties = () => {
     const [propertycategory, setPropertyCategory] = useState("");
     const [propertytype, setPropertyType] = useState("");
     const [propertyduration, setPropertyDuration] = useState("");
+    const [useraddress, setUserAddress] = useState('');
+    
+
+    useEffect(() => {
+        const { ethereum } = window;
+      
+        const requestAccount = async () => {
+          if (!ethereum) {
+            sethaveMetamask(false);
+          }
+          sethaveMetamask(true);
+          const accounts = await ethereum.request({
+            method: 'eth_requestAccounts',
+          });
+          setUserAddress(accounts[0]);
+        };
+        requestAccount();
+      }, []);
+
+
 
   return (
     <div className='text-black'>

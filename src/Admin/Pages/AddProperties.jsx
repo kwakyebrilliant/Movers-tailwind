@@ -51,6 +51,8 @@ const AddProperties = () => {
         if (!id) return;
         if (!ownername) return;
         if (!propertylocation) return;
+        if (!propertyspace) return;
+        if (propertyparkingspace) return;
       }
 
 

@@ -6,6 +6,9 @@ import { FaArrowLeft, FaPlusCircle } from 'react-icons/fa'
 
 import { useNavigate } from 'react-router-dom';
 
+import { ethers } from 'ethers';
+import Mover from '../../artifacts/contracts/Mover.sol/Mover.json';
+
 const AddProperties = () => {
 
     const navigate = useNavigate();

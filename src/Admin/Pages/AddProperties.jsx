@@ -88,6 +88,12 @@ const AddProperties = () => {
         setPropertyLocation("");
         setPropertySpace("");
         setPropertyParkingSpace("");
+        setPropertyBathroom("");
+        setPropertyBedroom("");
+        setPropertyCategory("");
+        setPropertyType("");
+        setPropertyDuration("");
+        await transaction.wait();
         
         }
         window.location.reload(false);

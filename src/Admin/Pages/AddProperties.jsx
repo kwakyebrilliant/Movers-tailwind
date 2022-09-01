@@ -71,7 +71,11 @@ const AddProperties = () => {
             [id,
             ownername,
             [
-                
+            propertylocation,
+            propertyspace,
+            propertyparkingspace,
+            propertybathroom,
+            propertybedroom   
             ]
             ]
 

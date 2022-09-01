@@ -18,6 +18,7 @@ const AddProperties = () => {
 
     const [haveMetamask, sethaveMetamask] = useState(true);
     const [id, setId] = useState("");
+    const [ownername, setOwnerName] = useState("");
 
   return (
     <div className='text-black'>
@@ -52,6 +53,8 @@ const AddProperties = () => {
                     className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
                     type="text"
                     placeholder="Enter owner name"
+                    onChange={(e) => setOwnerName(e.target.value)}
+                    value={ownername}
                 />
 
             <h1 className='text-gray-500 text-2xl'>Property Location:</h1>

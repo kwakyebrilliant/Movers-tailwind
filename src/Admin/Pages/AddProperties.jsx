@@ -57,7 +57,7 @@ const AddProperties = () => {
         if (!propertybedroom) return;
         if (!propertycategory) return;
         if (!propertytype) return;
-        if (!propertylocation) return;
+        if (!propertyduration) return;
 
 
                 // If MetaMask exists
@@ -75,11 +75,13 @@ const AddProperties = () => {
             propertyspace,
             propertyparkingspace,
             propertybathroom,
-            propertybedroom   
+            propertybedroom,
+            propertycategory,
+            propertytype,
+            propertyduration   
             ]
             ]
-
-        )
+        );
         
         }
 

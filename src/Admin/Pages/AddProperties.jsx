@@ -55,6 +55,9 @@ const AddProperties = () => {
         if (!propertyparkingspace) return;
         if (!propertybathroom) return;
         if (!propertybedroom) return;
+        if (!propertycategory) return;
+        if (!propertytype) return;
+        if (!propertylocation) return;
       }
 
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AdminPartialNavbar from '../Partial/AdminPartialNavbar'
 import AdminSidebar from '../Partial/AdminSidebar'
 
@@ -14,6 +14,10 @@ const moverAddress = "0x97BAE06725DC6a637f5362F9243F75EfcfCf2277";
 const AddProperties = () => {
 
     const navigate = useNavigate();
+
+
+    const [haveMetamask, sethaveMetamask] = useState(true);
+    const [id, setId] = useState("");
 
   return (
     <div className='text-black'>

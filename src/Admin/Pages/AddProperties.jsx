@@ -25,6 +25,7 @@ const AddProperties = () => {
     const [propertybathroom, setPropertyBathroom] = useState("");
     const [propertybedroom, setPropertyBedroom] = useState("");
     const [propertycategory, setPropertyCategory] = useState("");
+    const [propertytype, setPropertyType] = useState("");
 
   return (
     <div className='text-black'>
@@ -114,7 +115,7 @@ const AddProperties = () => {
 
             <h1 className=' text-gray-500 text-2xl'>Property Category:</h1>
                 <form className='my-4'>
-                    <select  onChange={(e) => { setPropertyCategory(e.target.value) }} className="rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full" >
+                    <select onChange={(e) => { setPropertyCategory(e.target.value) }} className="rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full" >
                           <option value="javascript">Select Category</option>
                           <option value="home">Home</option>
                           <option value="offices">Offices</option>
@@ -126,7 +127,7 @@ const AddProperties = () => {
 
                 <h1 className=' text-gray-500 text-2xl'>Property Tye:</h1>
                 <form className='my-4'>
-                    <select className="rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full" >
+                    <select onChange={(e) => { setPropertyType(e.target.value) }} className="rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full" >
                           <option value="javascript">Select Type</option>
                           <option value="sale">Sale</option>
                           <option value="rent">Rent</option>

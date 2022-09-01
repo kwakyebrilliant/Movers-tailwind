@@ -82,9 +82,15 @@ const AddProperties = () => {
             ]
             ]
         );
+
+        setId("");
+        setOwnerName("");
+        setPropertyLocation("");
+        setPropertySpace("");
+        setPropertyParkingSpace("");
         
         }
-
+        window.location.reload(false);
       }
 
 

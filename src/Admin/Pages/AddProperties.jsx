@@ -26,6 +26,7 @@ const AddProperties = () => {
     const [propertybedroom, setPropertyBedroom] = useState("");
     const [propertycategory, setPropertyCategory] = useState("");
     const [propertytype, setPropertyType] = useState("");
+    const [propertyduration, setPropertyDuration] = useState("");
 
   return (
     <div className='text-black'>
@@ -140,6 +141,8 @@ const AddProperties = () => {
                     className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
                     type="text"
                     placeholder="Enter number of years"
+                    onChange={(e) => setPropertyDuration(e.target.value)}
+                    value={propertyduration}
                 />
 
             <h1 className='mt-4 text-gray-500 text-2xl'>Property Documents:</h1>

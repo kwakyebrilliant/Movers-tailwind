@@ -28,7 +28,7 @@ const AddProperties = () => {
     const [propertytype, setPropertyType] = useState("");
     const [propertyduration, setPropertyDuration] = useState("");
     const [useraddress, setUserAddress] = useState('');
-    
+
 
     useEffect(() => {
         const { ethereum } = window;
@@ -46,6 +46,12 @@ const AddProperties = () => {
         requestAccount();
       }, []);
 
+
+      async function addProperty() {
+        if (!id) return;
+        if (!ownername) return;
+        if (!propertylocation) return;
+      }
 
 
   return (

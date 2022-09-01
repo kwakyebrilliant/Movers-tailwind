@@ -19,6 +19,7 @@ const AddProperties = () => {
     const [haveMetamask, sethaveMetamask] = useState(true);
     const [id, setId] = useState("");
     const [ownername, setOwnerName] = useState("");
+    const [propertylocation, setPropertyLocation] = useState("");
 
   return (
     <div className='text-black'>
@@ -62,6 +63,8 @@ const AddProperties = () => {
                     className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
                     type="text"
                     placeholder="Enter location"
+                    onChange={(e) => setPropertyLocation(e.target.value)}
+                    value={propertylocation}
                 />
 
             <h1 className='mt-4 text-gray-500 text-2xl'>Property Space:</h1>

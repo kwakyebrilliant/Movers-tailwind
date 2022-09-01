@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react'
 import AdminPartialNavbar from '../Partial/AdminPartialNavbar'
 import AdminSidebar from '../Partial/AdminSidebar'
@@ -241,7 +242,15 @@ const AddProperties = () => {
                    
                 </div>
 
-            
+                <div className='justify-center flex'>
+                    <a
+                    className="inline-flex items-center px-8 py-3 mt-8 text-white bg-green-600 border border-green-600 rounded hover:bg-transparent hover:text-green-600 active:text-green-500 focus:outline-none focus:ring"
+                    onClick={addProperty}
+                    type="submit"
+                    >
+                    <span className="text-sm font-medium">Submit </span>
+                    </a>
+                 </div>
             
             
         </div>

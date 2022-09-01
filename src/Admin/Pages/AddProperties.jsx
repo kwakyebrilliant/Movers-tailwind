@@ -23,6 +23,7 @@ const AddProperties = () => {
     const [propertyspace, setPropertySpace] = useState("");
     const [propertyparkingspace, setPropertyParkingSpace] = useState("");
     const [propertybathroom, setPropertyBathroom] = useState("");
+    const [propertybedroom, setPropertyBedroom] = useState("");
 
   return (
     <div className='text-black'>
@@ -102,6 +103,8 @@ const AddProperties = () => {
                     className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
                     type="text"
                     placeholder="Enter number of bedroom"
+                    onChange={(e) => setPropertyBedroom(e.target.value)}
+                    value={propertybedroom}
                 />
 
         </div>

@@ -21,6 +21,7 @@ const AddProperties = () => {
     const [ownername, setOwnerName] = useState("");
     const [propertylocation, setPropertyLocation] = useState("");
     const [propertyspace, setPropertySpace] = useState("");
+    const [propertyparkingspace, setPropertyParkingSpace] = useState("");
 
   return (
     <div className='text-black'>
@@ -82,6 +83,8 @@ const AddProperties = () => {
                     className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
                     type="text"
                     placeholder="Enter number of parking space"
+                    onChange={(e) => setPropertyParkingSpace(e.target.value)}
+                    value={propertyparkingspace}
                 />
             
             <h1 className='mt-4 text-gray-500 text-2xl'>Property Bathroom:</h1>

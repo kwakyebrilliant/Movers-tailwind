@@ -10,6 +10,7 @@ contract Mover {
 
       struct PropertyOwner {
       uint256 id;
+      string propertynumber;
       string ownername;
       Nested nested;
     }
@@ -39,6 +40,7 @@ contract Mover {
         PropertyOwner storage property = idPropertyOwner[propertyCount];
 
         property.id = propertyCount;
+        property.propertynumber = property_.propertynumber;
         property.ownername = property_.ownername;
         property.nested.propertylocation = property_.nested.propertylocation;
         property.nested.propertyspace = property_.nested.propertyspace;

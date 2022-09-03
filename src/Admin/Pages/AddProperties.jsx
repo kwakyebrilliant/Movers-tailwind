@@ -1,9 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import AdminPartialNavbar from '../Partial/AdminPartialNavbar'
 import AdminSidebar from '../Partial/AdminSidebar'
 
 import { FaArrowLeft, FaPlusCircle } from 'react-icons/fa'
+
+import { Web3Storage } from 'web3.storage';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -11,6 +13,7 @@ import { ethers } from 'ethers';
 import Mover from '../../artifacts/contracts/Mover.sol/Mover.json';
 
 const moverAddress = "0x01D620fE224Dae9482013E28E3E3Ccee0f40ab4E";
+
 
 const AddProperties = () => {
 
@@ -29,6 +32,8 @@ const AddProperties = () => {
     const [propertytype, setPropertyType] = useState("");
     const [propertyduration, setPropertyDuration] = useState("");
     const [useraddress, setUserAddress] = useState('');
+
+    const hiddenFileInput = useRef(null);
 
 
     useEffect(() => {

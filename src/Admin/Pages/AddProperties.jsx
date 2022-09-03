@@ -124,6 +124,7 @@ const AddProperties = () => {
         if (!propertycategory) return;
         if (!propertytype) return;
         if (!propertyduration) return;
+        if (!image) return;
 
 
                 // If MetaMask exists
@@ -144,7 +145,8 @@ const AddProperties = () => {
             propertybedroom,
             propertycategory,
             propertytype,
-            propertyduration   
+            propertyduration,
+            image   
             ]
             ]
         );
@@ -159,6 +161,7 @@ const AddProperties = () => {
         setPropertyCategory("");
         setPropertyType("");
         setPropertyDuration("");
+        setImage("");
         await transaction.wait();
         
         }

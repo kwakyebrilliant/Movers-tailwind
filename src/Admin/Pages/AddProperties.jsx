@@ -89,6 +89,32 @@ const AddProperties = () => {
       };
 
 
+      async function handleChange2(event) {
+        const documentUploaded = event.target.files[0];
+        setDocument(URL.createObjectURL(event.target.files[0]));
+        const client = makeStorageClient()
+        const cid = await client.put([documentUploaded])
+        console.log('stored files with cid:', cid)
+    
+        const res = await client.get(cid)
+        console.log(`Got a response! [${res.status}] ${res.statusText}`)
+        if (!res.ok) {
+          throw new Error(`failed to get ${cid} - [${res.status}] ${res.statusText}`)
+        }
+    
+    
+        const documents = await res.files();
+        setDocument(`https://${cid}.ipfs.dweb.link/${documentUploaded.name}`);
+        console.log(document)
+        console.log(documentUploaded)
+        for (const file of documents) {
+          console.log(`${file.cid} -- ${file.path} -- ${file.size}`)
+        }
+        return cid
+    
+      };
+
+
     useEffect(() => {
         const { ethereum } = window;
       
@@ -118,6 +144,7 @@ const AddProperties = () => {
         if (!propertytype) return;
         if (!propertyduration) return;
         if (!image) return;
+        if (!document) return;
 
 
                 // If MetaMask exists
@@ -139,7 +166,8 @@ const AddProperties = () => {
             propertycategory,
             propertytype,
             propertyduration,
-            image   
+            image,
+            document  
             ]
             ]
         );
@@ -155,6 +183,7 @@ const AddProperties = () => {
         setPropertyType("");
         setPropertyDuration("");
         setImage("");
+        setDocument("");
         await transaction.wait();
         
         }
@@ -317,11 +346,25 @@ const AddProperties = () => {
 
                 <div className='mx-2 mt-4 border-dotted border-2 border-green-700 justify-center'>
                     <div className='grid grid-rows-2 justify-center'>
-                        <div className="inline-flex cursor-pointer items-center px-8 py-3 mt-8 text-white bg-green-600 border border-green-600 rounded hover:bg-transparent hover:text-green-600 active:text-green-500 focus:outline-none focus:ring">
+                        <div onClick={handleClick2} className="inline-flex cursor-pointer items-center px-8 py-3 mt-8 text-white bg-green-600 border border-green-600 rounded hover:bg-transparent hover:text-green-600 active:text-green-500 focus:outline-none focus:ring">
                             <span className="text-sm font-medium">Upload Image </span>
                             <FaPlusCircle className='mx-2' />
                         </div>
-                        <p className='m-2'> PDF, DOCX up to 5MB</p>
+                        <input type="file"
+                                ref={hiddenDocumentInput}
+                                onChange={handleChange2}
+                                style={{display:'none'}}
+                                accept=".pdf"
+                        /> 
+                        <p className='m-2'> PDF up to 5MB</p>
+                        {document && (
+                        <iframe
+                        className='documentpreview'
+                            src={document}
+                            accept=".pdf"
+                        >
+                            </iframe>
+                        )}
                     </div>
                    
                 </div>

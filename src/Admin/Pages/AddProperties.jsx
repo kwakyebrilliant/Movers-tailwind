@@ -332,15 +332,16 @@ const AddProperties = () => {
                                 accept=".png,.jpg,.jpeg"
                         /> 
                         <p className='m-2'>PNG, JPG, JPEG up to 5MB</p>
-                        {image && (
+                        
+                    </div>
+                    {image && (
                         <iframe
-                        className='documentpreview'
+                        className='relative m-auto mb-3'
                             src={image}
                             accept=".png,.jpg,.jpeg"
                         >
                             </iframe>
                         )}
-                    </div>
                    
                 </div>
 
@@ -357,15 +358,16 @@ const AddProperties = () => {
                                 accept=".pdf"
                         /> 
                         <p className='m-2'> PDF up to 5MB</p>
-                        {document && (
+                        
+                    </div>
+                    {document && (
                         <iframe
-                        className='documentpreview'
+                        className='relative m-auto mb-3'
                             src={document}
                             accept=".pdf"
                         >
                             </iframe>
                         )}
-                    </div>
                    
                 </div>
 

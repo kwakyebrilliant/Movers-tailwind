@@ -84,15 +84,6 @@ const AddProperties = () => {
         }
         return cid
     
-    
-        // props.handleFile(fileUploaded);
-        // try {
-        //   const added = await client.add(fileUploaded);
-        //   const url = `https://ipfs.infura.io/ipfs/${added.path}`
-        //   setImage(url);
-        // } catch (error) {
-        //   console.log('Error uploading file: ', error)
-        // }
       };
 
 
@@ -299,11 +290,25 @@ const AddProperties = () => {
 
                 <div className='mx-2 mt-4 border-dotted border-2 border-green-700 justify-center'>
                     <div className='grid grid-rows-2 justify-center'>
-                        <div className="inline-flex cursor-pointer items-center px-8 py-3 mt-8 text-white bg-green-600 border border-green-600 rounded hover:bg-transparent hover:text-green-600 active:text-green-500 focus:outline-none focus:ring">
+                        <div onClick={handleClick} className="inline-flex cursor-pointer items-center px-8 py-3 mt-8 text-white bg-green-600 border border-green-600 rounded hover:bg-transparent hover:text-green-600 active:text-green-500 focus:outline-none focus:ring">
                             <span className="text-sm font-medium">Upload Image </span>
                             <FaPlusCircle className='mx-2' />
                         </div>
+                        <input type="file"
+                                ref={hiddenFileInput}
+                                onChange={handleChange}
+                                style={{display:'none'}}
+                                accept=".png,.jpg,.jpeg"
+                        /> 
                         <p className='m-2'>PNG, JPG, JPEG up to 5MB</p>
+                        {image && (
+                        <iframe
+                        className='documentpreview'
+                            src={image}
+                            accept=".png,.jpg,.jpeg"
+                        >
+                            </iframe>
+                        )}
                     </div>
                    
                 </div>

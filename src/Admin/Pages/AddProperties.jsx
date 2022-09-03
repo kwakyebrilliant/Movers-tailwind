@@ -38,6 +38,7 @@ const AddProperties = () => {
 
     const [haveMetamask, sethaveMetamask] = useState(true);
     const [id, setId] = useState("");
+    const [propertynumber, setPropertyNumber] = useState("");
     const [ownername, setOwnerName] = useState("");
     const [propertylocation, setPropertyLocation] = useState("");
     const [propertyspace, setPropertySpace] = useState("");
@@ -134,6 +135,7 @@ const AddProperties = () => {
 
       async function addProperty() {
         if (!id) return;
+        if (!propertynumber) return;
         if (!ownername) return;
         if (!propertylocation) return;
         if (!propertyspace) return;
@@ -156,6 +158,7 @@ const AddProperties = () => {
         const contract = new ethers.Contract(moverAddress, Mover.abi, signer);
         const transaction = await contract.addProperty( 
             [id,
+            propertynumber,
             ownername,
             [
             propertylocation,
@@ -173,6 +176,7 @@ const AddProperties = () => {
         );
 
         setId("");
+        setPropertyNumber("");
         setOwnerName("");
         setPropertyLocation("");
         setPropertySpace("");
@@ -224,8 +228,8 @@ const AddProperties = () => {
                     className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
                     type="text"
                     placeholder="P001"
-                    onChange={(e) => setId(e.target.value)}
-                    value={id}
+                    onChange={(e) => setPropertyNumber(e.target.value)}
+                    value={propertynumber}
                 />
 
             <h1 className='text-gray-500 text-2xl'>Property Owner:</h1>

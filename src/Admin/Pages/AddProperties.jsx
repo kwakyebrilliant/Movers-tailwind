@@ -52,10 +52,6 @@ const AddProperties = () => {
 
     const hiddenFileInput = useRef(null);
 
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
     
     const handleClick = () => {
       hiddenFileInput.current.click();

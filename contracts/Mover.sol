@@ -53,6 +53,7 @@ contract Mover {
         property.nested.propertytype = property_.nested.propertytype;
         property.nested.propertyduration = property_.nested.propertyduration;
         property.nested.hash = property_.nested.hash;
+        property.nested.document = property_.nested.document;
 
     }
 

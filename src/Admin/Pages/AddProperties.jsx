@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { ethers } from 'ethers';
 import Mover from '../../artifacts/contracts/Mover.sol/Mover.json';
 
-const moverAddress = "0x2806359997b7E4820154F47bdB4Cb7B89f04b6B7";
+const moverAddress = "0x01D620fE224Dae9482013E28E3E3Ccee0f40ab4E";
 
 const AddProperties = () => {
 

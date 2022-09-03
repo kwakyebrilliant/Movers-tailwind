@@ -49,13 +49,19 @@ const AddProperties = () => {
     const [propertyduration, setPropertyDuration] = useState("");
     const [useraddress, setUserAddress] = useState('');
     const [image, setImage] = useState(``);
+    const [document, setDocument] = useState(``);
 
     const hiddenFileInput = useRef(null);
+    const hiddenDocumentInput = useRef(null);
 
     
     const handleClick = () => {
       hiddenFileInput.current.click();
     };
+
+    const handleClick2 = () => {
+        hiddenDocumentInput.current.click();
+      };
 
     async function handleChange(event) {
         const fileUploaded = event.target.files[0];

@@ -295,6 +295,8 @@ const AddProperties = () => {
                     className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
                     type="text"
                     placeholder="Enter Price in ETH"
+                    onChange={(e) => setPropertyPrice(e.target.value)}
+                    value={propertyprice}
                 />
 
         </div>

@@ -45,6 +45,7 @@ const AddProperties = () => {
     const [propertyparkingspace, setPropertyParkingSpace] = useState("");
     const [propertybathroom, setPropertyBathroom] = useState("");
     const [propertybedroom, setPropertyBedroom] = useState("");
+    const [propertyprice, setPropertyPrice] = useState("");
     const [propertycategory, setPropertyCategory] = useState("");
     const [propertytype, setPropertyType] = useState("");
     const [propertyduration, setPropertyDuration] = useState("");
@@ -142,6 +143,7 @@ const AddProperties = () => {
         if (!propertyparkingspace) return;
         if (!propertybathroom) return;
         if (!propertybedroom) return;
+        if (!propertyprice) return;
         if (!propertycategory) return;
         if (!propertytype) return;
         if (!propertyduration) return;
@@ -166,6 +168,7 @@ const AddProperties = () => {
             propertyparkingspace,
             propertybathroom,
             propertybedroom,
+            propertyprice,
             propertycategory,
             propertytype,
             propertyduration,
@@ -183,6 +186,7 @@ const AddProperties = () => {
         setPropertyParkingSpace("");
         setPropertyBathroom("");
         setPropertyBedroom("");
+        setPropertyPrice("");
         setPropertyCategory("");
         setPropertyType("");
         setPropertyDuration("");

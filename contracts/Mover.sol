@@ -21,6 +21,7 @@ contract Mover {
       string propertyparkingspace;
       string propertybathroom;
       string propertybedroom;
+      string propertyprice;
       string propertycategory;
       string propertytype;
       string propertyduration;
@@ -49,6 +50,7 @@ contract Mover {
         property.nested.propertyparkingspace = property_.nested.propertyparkingspace;
         property.nested.propertybathroom = property_.nested.propertybathroom;
         property.nested.propertybedroom = property_.nested.propertybedroom;
+        property.nested.propertyprice = property_.nested.propertyprice;
         property.nested.propertycategory = property_.nested.propertycategory;
         property.nested.propertytype = property_.nested.propertytype;
         property.nested.propertyduration = property_.nested.propertyduration;

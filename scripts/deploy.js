@@ -17,7 +17,7 @@ async function main() {
 
   console.log("Mover contract address", moverAddress);
 }
-
+  
 main()
   .then(() => process.exit(0))
   .catch((error) => {

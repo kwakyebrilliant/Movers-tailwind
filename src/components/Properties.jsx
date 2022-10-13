@@ -333,7 +333,6 @@ const Properties = () => {
             </span>
             6 of 24 Products
           </p>
-
           
         </div>
         

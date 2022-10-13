@@ -46,7 +46,7 @@ const Footer = () => {
                     <li className='py-1'>Policies</li>
                     <li className='py-1'>Conditions</li>
                 </ul>
-            </div>
+            </div> 
             <div className='col-span-2 pt-8 md:pt-2'>
                 <p className='font-bold uppercase'>Subscribe to our newsletter</p>
                 <p className='py-4'>The latest news, articles, and resources, sent to your inbox weekly.</p>

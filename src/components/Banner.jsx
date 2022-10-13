@@ -2,7 +2,7 @@ import React from 'react'
 
 import { FaAd, FaMoneyCheck } from 'react-icons/fa'
 
-import {
+import { 
     OfficeBuildingIcon,
 } from '@heroicons/react/solid'
 

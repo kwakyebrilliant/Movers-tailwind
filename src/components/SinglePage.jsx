@@ -182,7 +182,7 @@ const SinglePage = () => {
                             </dd>
                             </div>
                         </div>
-
+ 
                         <div className="sm:inline-flex sm:items-center sm:shrink-0">
                             <svg
                             className="w-4 h-4 text-green-500"

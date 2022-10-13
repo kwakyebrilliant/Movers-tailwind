@@ -66,7 +66,7 @@ const About = () => {
                     <ArrowRightIcon className='w-6 h-6 ml-3 transition-transform transform group-hover:translate-x-3' />
                 </div>
             </div>
-
+ 
 
             </div>
 

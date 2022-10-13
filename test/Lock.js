@@ -67,7 +67,7 @@ describe("Lock", function () {
           "You can't withdraw yet"
         );
       });
-
+ 
       it("Should revert with the right error if called from another account", async function () {
         const { lock, unlockTime, otherAccount } = await loadFixture(
           deployOneYearLockFixture

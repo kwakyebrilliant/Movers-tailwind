@@ -53,7 +53,7 @@ function App() {
         <Route path='/addproperties' element={<AddProperties />} />
         </Routes>
       </Router>
-     
+    
       {/* <Banner />
       <About />
       <Support />

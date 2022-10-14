@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import AdminPartialNavbar from '../Partial/AdminPartialNavbar'
 import AdminSidebar from '../Partial/AdminSidebar'
 
@@ -10,6 +10,13 @@ import Mover from '../../artifacts/contracts/Mover.sol/Mover.json';
 const moverAddress = "0xe1EC8601A53d06D74eE628D06528C3e43d10C0Ee";
 
 const AdminProperties = () => {
+
+  const [currentProperty, setCurrentProperty] = useState([]);
+
+  useEffect(() => {
+    
+  })
+
   return (
     <div className='text-black'>
     <>

@@ -12,10 +12,38 @@ const moverAddress = "0xe1EC8601A53d06D74eE628D06528C3e43d10C0Ee";
 const AdminProperties = () => {
 
   const [currentProperty, setCurrentProperty] = useState([]);
+  const [accountAddress, setAccountAddress] = useState('');
 
   useEffect(() => {
-    
-  })
+    async function fetchPropertyOwner() {
+      const { ethereum } = window;
+      // If MetaMask exists
+      if (typeof window.ethereum !== "undefined") {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const accounts = await ethereum.request({
+        method: 'eth_requestAccounts',
+      });
+      setAccountAddress(accounts[0]);
+      const contract = new ethers.Contract(
+        moverAddress,
+        Mover.abi,
+        provider
+      );
+      try {
+        const data = await contract.fetchPropertyOwner();
+        console.log("data: ", data);
+        setCurrentProperty(data);
+        for (var i = 1; i <= data; i++) {
+          const currentPropertys = await contract.idPropertyOwner(i);
+          setCurrentProperty((currentProperty) => [...currentProperty, currentPropertys]);
+        }
+      } catch (error) {
+        console.log("Error: ", error);
+      }
+    }
+  }
+  fetchPropertyOwner();
+  }, []);
 
   return (
     <div className='text-black'>

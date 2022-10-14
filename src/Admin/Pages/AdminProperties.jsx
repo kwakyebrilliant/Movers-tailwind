@@ -4,6 +4,11 @@ import AdminSidebar from '../Partial/AdminSidebar'
 
 import { FaPlusCircle } from 'react-icons/fa'
 
+import { ethers } from 'ethers';
+import Mover from '../../artifacts/contracts/Mover.sol/Mover.json';
+
+const moverAddress = "0xe1EC8601A53d06D74eE628D06528C3e43d10C0Ee";
+
 const AdminProperties = () => {
   return (
     <div className='text-black'>

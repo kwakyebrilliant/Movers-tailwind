@@ -118,7 +118,7 @@ const AdminProperties = () => {
               </a>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 d-flex flex-row flex-nowrap overflow-auto">
             {currentProperty.map((data) => (
               <div key={data.id}>
                  <img className="object-cover w-full h-40 rounded-2xl" src={data.nested.hash} alt="" />

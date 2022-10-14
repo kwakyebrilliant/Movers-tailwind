@@ -119,6 +119,12 @@ const AdminProperties = () => {
             </div>
 
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+            {currentProperty.map((data) => (
+              <div key={data.id}>
+                {data.ownername}
+                </div>
+              ))
+            }
 
             <img className="object-cover w-full h-40 rounded-2xl" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="" />
 

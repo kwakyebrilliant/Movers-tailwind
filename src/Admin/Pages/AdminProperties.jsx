@@ -85,51 +85,44 @@ const AdminProperties = () => {
        </div>
 
 
-       <section>
-        <div className="max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-          <div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 lg:gap-x-16 lg:items-center"
-          >
-            <div className="max-w-lg mx-auto text-center lg:text-left lg:mx-0">
-              <h2 className="text-3xl font-bold sm:text-4xl mb-8">No Property Selected</h2>
+       <div className='relative px-4 pt-4 sm:pt-4 sm:pb-12 text-black'>
+        <form className='flex mb-8 flex-col sm:flex-row'>
+          <input className=' mt-12 p-2 rounded-md mx-4' type="text" placeholder='Filter Properties..'/>
+        </form>
 
-              <img className="object-cover w-full h-80 rounded-2xl" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="" />
-
-              <a
-                className="inline-flex items-center px-8 py-3 mt-8 text-white bg-green-600 border border-green-600 rounded hover:bg-transparent hover:text-green-600 active:text-green-500 focus:outline-none focus:ring"
-                href="/adminpropertiesdetail"
-              >
-                <span className="text-sm font-medium">View Property </span>
-
-                <svg
-                  className="w-5 h-5 ml-3"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </a>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+        <table className="border-collapse w-full">
+            <thead>
+                <tr>
+                    <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Code</th>
+                    <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Property Location</th>
+                    <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Image</th>
+                </tr>
+            </thead>
+            <tbody>
             {currentProperty.map((data) => (
-              <div onClick={() => {}} key={data.id}>
-                 <img className="object-cover w-full h-40 rounded-2xl" src={data.nested.hash} alt="" />
-                </div>
-              ))
-            }
-              
-            </div>
-          </div>
+                <tr className="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
+                    <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+                        <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Code</span>
+                        {data.propertynumber}
+                    </td>
+                    <td className="w-full lg:w-auto p-3 text-gray-800 border border-b text-center block lg:table-cell relative lg:static">
+                        <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Property Location</span>
+                       {data.nested.propertylocation}
+                    </td>
+                    <td className="w-full lg:w-auto p-3 text-gray-800 border border-b text-center block lg:table-cell relative lg:static">
+                        <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">View</span>
+                     
+                          <img className="object-cover w-full h-60 rounded-2xl" src={data.nested.hash} alt="" />
+                         
+                    </td>
+                </tr>
+                ))
+                }
+               
+            </tbody>
+        </table>
+
         </div>
-      </section>
 
      
          

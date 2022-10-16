@@ -331,7 +331,7 @@ const Home = () => {
                                  </dt>
      
                                  <dd className="font-medium">
-                                 123 Wallaby Avenue, Park Road
+                                 {data.nested.propertylocation}
                                  </dd>
                              </div>
                              </dl>
@@ -351,7 +351,7 @@ const Home = () => {
                                  </dt>
      
                                  <dd className="font-medium">
-                                     2 spaces
+                                 {data.nested.propertyparkingspace}  spaces
                                  </dd>
                                  </div>
                              </div>
@@ -370,7 +370,7 @@ const Home = () => {
                                  </dt>
      
                                  <dd className="font-medium">
-                                     2 rooms
+                                 {data.nested.propertybathroom}  rooms
                                  </dd>
                                  </div>
                              </div>
@@ -389,7 +389,7 @@ const Home = () => {
                                  </dt>
      
                                  <dd className="font-medium">
-                                     4 rooms
+                                 {data.nested.propertybedroom} rooms
                                  </dd>
                                  </div>
                              </div>

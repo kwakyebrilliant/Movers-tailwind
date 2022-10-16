@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom'
 import { FaAd, FaMoneyCheck } from 'react-icons/fa'
@@ -16,11 +16,39 @@ import supportImg from '../assets/support.jpeg'
 import Navbar from './Navbar';
 
 import { ethers } from 'ethers';
-import Mover from '../../artifacts/contracts/Mover.sol/Mover.json';
+import Mover from '../artifacts/contracts/Mover.sol/Mover.json';
 
 const moverAddress = "0xe1EC8601A53d06D74eE628D06528C3e43d10C0Ee";
 
 const Home = () => {
+
+    const [currentProperty, setCurrentProperty] = useState([]);
+
+    useEffect(() => {
+        async function fetchPropertyOwner() {
+          // If MetaMask exists
+          if (typeof window.ethereum !== "undefined") {
+          const provider = new ethers.providers.Web3Provider(window.ethereum);
+          const contract = new ethers.Contract(
+            moverAddress,
+            Mover.abi,
+            provider
+          );
+          try {
+            const data = await contract.fetchPropertyOwner();
+            console.log("data: ", data);
+            setCurrentProperty(data);
+            for (var i = 1; i <= data; i++) {
+              const currentPropertys = await contract.idPropertyOwner(i);
+              setCurrentProperty((currentProperty) => [...currentProperty, currentPropertys]);
+            }
+          } catch (error) {
+            console.log("Error: ", error);
+          }
+        }
+      }
+      fetchPropertyOwner();
+      }, []);
     
   return (
     <div>

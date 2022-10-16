@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Footer from './Footer'
 
 import { FaSearch } from 'react-icons/fa'
@@ -11,9 +11,17 @@ import {
 import { Link } from 'react-router-dom'
 import Navbar from './Navbar'
 
+import { ethers } from 'ethers';
+import Mover from '../artifacts/contracts/Mover.sol/Mover.json';
+
+const moverAddress = "0xe1EC8601A53d06D74eE628D06528C3e43d10C0Ee";
+
 
 const Properties = () => {
+  
   const [showModal, setShowModal] = React.useState(false);
+  const [currentProperty, setCurrentProperty] = useState([]);
+
   return (
     <div>
       <Navbar />

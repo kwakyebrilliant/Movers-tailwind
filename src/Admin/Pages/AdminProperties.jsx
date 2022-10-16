@@ -84,7 +84,6 @@ const AdminProperties = () => {
               </a>
        </div>
 
-
        <div className='relative px-4 pt-4 sm:pt-4 sm:pb-12 text-black'>
         <form className='flex mb-8 flex-col sm:flex-row'>
           <input className=' mt-12 p-2 rounded-md mx-4' type="text" placeholder='Filter Properties..'/>

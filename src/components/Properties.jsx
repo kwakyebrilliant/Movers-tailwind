@@ -820,7 +820,20 @@ const Properties = () => {
                     <div className='inline-flex flex-col'>
                       <Link to="/single" 
                       state={{
-                        
+                        id: data.id,
+                        propertynumber: data.propertynumber,
+                        ownername: data.ownername,
+                        propertylocation: data.nested.propertylocation,
+                        propertyspace: data.nested.propertyspace,
+                        propertyparkingspace: data.nested.propertyparkingspace,
+                        propertybathroom: data.nested.propertybathroom,
+                        propertybedroom: data.nested.propertybedroom,
+                        propertyprice: data.nested.propertyprice,
+                        propertycategory: data.nested.propertycategory,
+                        propertytype: data.nested.propertytype,
+                        propertyduration: data.nested.propertyduration,
+                        hash: data.nested.hash,
+                        document: data.nested.document
                       }}>
                        <button className='px-3 py-2'>View Details</button>
                       </Link>

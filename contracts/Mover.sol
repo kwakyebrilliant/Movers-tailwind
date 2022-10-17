@@ -17,6 +17,7 @@ contract Mover {
 
     struct Nested {
       string propertylocation;
+      string propertydescription;
       string propertyspace;
       string propertyparkingspace;
       string propertybathroom;
@@ -26,6 +27,8 @@ contract Mover {
       string propertytype;
       string propertyduration;
       string hash;
+      string supportimage1;
+      string supportimage2;
       string document;
     }
 
@@ -37,7 +40,9 @@ contract Mover {
       {
         require(bytes(property_.ownername).length > 0, 'Owner name is required');
         require(bytes(property_.nested.hash).length > 0, 'Image Hash is required');
-         require(bytes(property_.nested.document).length > 0, 'Document is required');
+        require(bytes(property_.nested.supportimage1).length > 0, 'Support image1 is required');
+        require(bytes(property_.nested.supportimage2).length > 0, 'Support image2 is required');
+        require(bytes(property_.nested.document).length > 0, 'Document is required');
 
         propertyCount++;
         PropertyOwner storage property = idPropertyOwner[propertyCount];
@@ -55,6 +60,8 @@ contract Mover {
         property.nested.propertytype = property_.nested.propertytype;
         property.nested.propertyduration = property_.nested.propertyduration;
         property.nested.hash = property_.nested.hash;
+        property.nested.supportimage1 = property_.nested.supportimage1;
+        property.nested.supportimage2 = property_.nested.supportimage2;
         property.nested.document = property_.nested.document;
 
     }

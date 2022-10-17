@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect, useRef } from 'react'
 import AdminPartialNavbar from '../Partial/AdminPartialNavbar'
@@ -12,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import { ethers } from 'ethers';
 import Mover from '../../artifacts/contracts/Mover.sol/Mover.json';
 
-const moverAddress = "0x64D71775c6FC8e5f5aC9a56F4A976B2f4B39A0A4";
+const moverAddress = "0x02D69CDdeEbE4F717cb77d4074f34c7305F8E32C";
 
 function getAccessToken () {
     
@@ -34,6 +35,7 @@ const AddProperties = () => {
     const [propertynumber, setPropertyNumber] = useState("");
     const [ownername, setOwnerName] = useState("");
     const [propertylocation, setPropertyLocation] = useState("");
+    const [propertydescription, setPropertyDescription] = useState("");
     const [propertyspace, setPropertySpace] = useState("");
     const [propertyparkingspace, setPropertyParkingSpace] = useState("");
     const [propertybathroom, setPropertyBathroom] = useState("");
@@ -44,9 +46,13 @@ const AddProperties = () => {
     const [propertyduration, setPropertyDuration] = useState("");
     const [useraddress, setUserAddress] = useState('');
     const [image, setImage] = useState(``);
+    const [supportimage1, setSupportImage1] = useState(``);
+    const [supportimage2, setSupportImage2] = useState(``);
     const [document, setDocument] = useState(``);
 
     const hiddenFileInput = useRef(null);
+    const hiddenFileSupport1 = useRef(null);
+    const hiddenFileSupport2 = useRef(null);
     const hiddenDocumentInput = useRef(null);
 
     
@@ -57,6 +63,15 @@ const AddProperties = () => {
     const handleClick2 = () => {
         hiddenDocumentInput.current.click();
       };
+
+      const handleClick3 = () => {
+        hiddenFileSupport1.current.click();
+      };
+
+      const handleClick4 = () => {
+        hiddenFileSupport2.current.click();
+      };
+      
 
     async function handleChange(event) {
         const fileUploaded = event.target.files[0];
@@ -77,6 +92,56 @@ const AddProperties = () => {
         console.log(image)
         console.log(fileUploaded)
         for (const file of filess) {
+          console.log(`${file.cid} -- ${file.path} -- ${file.size}`)
+        }
+        return cid
+    
+      };
+
+      async function handleChange3(event) {
+        const supportUploaded1 = event.target.files[0];
+        setSupportImage1(URL.createObjectURL(event.target.files[0]));
+        const client = makeStorageClient()
+        const cid = await client.put([supportUploaded1])
+        console.log('stored files with cid:', cid)
+    
+        const res = await client.get(cid)
+        console.log(`Got a response! [${res.status}] ${res.statusText}`)
+        if (!res.ok) {
+          throw new Error(`failed to get ${cid} - [${res.status}] ${res.statusText}`)
+        }
+    
+    
+        const supports1 = await res.files();
+        setSupportImage1(`https://${cid}.ipfs.dweb.link/${supportUploaded1.name}`);
+        console.log(supportimage1)
+        console.log(supportUploaded1)
+        for (const file of supports1) {
+          console.log(`${file.cid} -- ${file.path} -- ${file.size}`)
+        }
+        return cid
+    
+      };
+
+      async function handleChange4(event) {
+        const supportUploaded2 = event.target.files[0];
+        setSupportImage2(URL.createObjectURL(event.target.files[0]));
+        const client = makeStorageClient()
+        const cid = await client.put([supportUploaded2])
+        console.log('stored files with cid:', cid)
+    
+        const res = await client.get(cid)
+        console.log(`Got a response! [${res.status}] ${res.statusText}`)
+        if (!res.ok) {
+          throw new Error(`failed to get ${cid} - [${res.status}] ${res.statusText}`)
+        }
+    
+    
+        const supports2 = await res.files();
+        setSupportImage2(`https://${cid}.ipfs.dweb.link/${supportUploaded2.name}`);
+        console.log(supportimage1)
+        console.log(supportUploaded2)
+        for (const file of supports2) {
           console.log(`${file.cid} -- ${file.path} -- ${file.size}`)
         }
         return cid
@@ -132,6 +197,7 @@ const AddProperties = () => {
         if (!propertynumber) return;
         if (!ownername) return;
         if (!propertylocation) return;
+        if (!propertydescription) return;
         if (!propertyspace) return;
         if (!propertyparkingspace) return;
         if (!propertybathroom) return;
@@ -141,6 +207,8 @@ const AddProperties = () => {
         if (!propertytype) return;
         if (!propertyduration) return;
         if (!image) return;
+        if (!supportimage1) return;
+        if (!supportimage2) return;
         if (!document) return;
 
 
@@ -157,6 +225,7 @@ const AddProperties = () => {
             ownername,
             [
             propertylocation,
+            propertydescription,
             propertyspace,
             propertyparkingspace,
             propertybathroom,
@@ -166,6 +235,8 @@ const AddProperties = () => {
             propertytype,
             propertyduration,
             image,
+            supportimage1,
+            supportimage2,
             document  
             ]
             ]
@@ -175,6 +246,7 @@ const AddProperties = () => {
         setPropertyNumber("");
         setOwnerName("");
         setPropertyLocation("");
+        setPropertyDescription("");
         setPropertySpace("");
         setPropertyParkingSpace("");
         setPropertyBathroom("");
@@ -184,6 +256,8 @@ const AddProperties = () => {
         setPropertyType("");
         setPropertyDuration("");
         setImage("");
+        setSupportImage1("");
+        setSupportImage2("");
         setDocument("");
         await transaction.wait();
         
@@ -245,6 +319,16 @@ const AddProperties = () => {
                     placeholder="Enter location"
                     onChange={(e) => setPropertyLocation(e.target.value)}
                     value={propertylocation}
+                />
+
+            <h1 className='text-gray-500 text-2xl'>Property Description:</h1>
+                <textarea
+                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
+                    type="text"
+                    placeholder="Enter description"
+                    rows="4"
+                    onChange={(e) => setPropertyDescription(e.target.value)}
+                    value={propertydescription}
                 />
 
             <h1 className='mt-4 text-gray-500 text-2xl'>Property Space:</h1>
@@ -329,7 +413,8 @@ const AddProperties = () => {
 
             <h1 className='mt-4 text-gray-500 text-2xl'>Property Documents:</h1>
 
-                <div className='mx-2 mt-4 border-dotted border-2 border-green-700 justify-center'>
+            <p className='mt-2 ml-2'>Cover Image</p>
+                <div className='mx-2 border-dotted border-2 border-green-700 justify-center'>
                     <div className='grid grid-rows-2 justify-center'>
                         <div onClick={handleClick} className="inline-flex cursor-pointer items-center px-8 py-3 mt-8 text-white bg-green-600 border border-green-600 rounded hover:bg-transparent hover:text-green-600 active:text-green-500 focus:outline-none focus:ring">
                             <span className="text-sm font-medium">Upload Image </span>
@@ -355,7 +440,62 @@ const AddProperties = () => {
                    
                 </div>
 
-                <div className='mx-2 mt-4 border-dotted border-2 border-green-700 justify-center'>
+                <p className='mt-2 ml-2'>Support Image 1</p>
+                <div className='mx-2 border-dotted border-2 border-green-700 justify-center'>
+                    <div className='grid grid-rows-2 justify-center'>
+                        <div onClick={handleClick3} className="inline-flex cursor-pointer items-center px-8 py-3 mt-8 text-white bg-green-600 border border-green-600 rounded hover:bg-transparent hover:text-green-600 active:text-green-500 focus:outline-none focus:ring">
+                            <span className="text-sm font-medium">Upload Image </span>
+                            <FaPlusCircle className='mx-2' />
+                        </div>
+                        <input type="file"
+                                ref={hiddenFileSupport1}
+                                onChange={handleChange3}
+                                style={{display:'none'}}
+                                accept=".png,.jpg,.jpeg"
+                        /> 
+                        <p className='m-2'>PNG, JPG, JPEG up to 5MB</p>
+                        
+                    </div>
+                    {supportimage1 && (
+                        <iframe
+                        className='relative m-auto mb-3'
+                            src={supportimage1}
+                            accept=".png,.jpg,.jpeg"
+                        >
+                            </iframe>
+                        )}
+                   
+                </div>
+
+                <p className='mt-2 ml-2'>Support Image 2</p>
+                <div className='mx-2 border-dotted border-2 border-green-700 justify-center'>
+                    <div className='grid grid-rows-2 justify-center'>
+                        <div onClick={handleClick4} className="inline-flex cursor-pointer items-center px-8 py-3 mt-8 text-white bg-green-600 border border-green-600 rounded hover:bg-transparent hover:text-green-600 active:text-green-500 focus:outline-none focus:ring">
+                            <span className="text-sm font-medium">Upload Image </span>
+                            <FaPlusCircle className='mx-2' />
+                        </div>
+                        <input type="file"
+                                ref={hiddenFileSupport2}
+                                onChange={handleChange4}
+                                style={{display:'none'}}
+                                accept=".png,.jpg,.jpeg"
+                        /> 
+                        <p className='m-2'>PNG, JPG, JPEG up to 5MB</p>
+                        
+                    </div>
+                    {supportimage2 && (
+                        <iframe
+                        className='relative m-auto mb-3'
+                            src={supportimage2}
+                            accept=".png,.jpg,.jpeg"
+                        >
+                            </iframe>
+                        )}
+                   
+                </div>
+
+                <p className='mt-2 ml-2'>Supporting Document</p>
+                <div className='mx-2 border-dotted border-2 border-green-700 justify-center'>
                     <div className='grid grid-rows-2 justify-center'>
                         <div onClick={handleClick2} className="inline-flex cursor-pointer items-center px-8 py-3 mt-8 text-white bg-green-600 border border-green-600 rounded hover:bg-transparent hover:text-green-600 active:text-green-500 focus:outline-none focus:ring">
                             <span className="text-sm font-medium">Upload Document </span>

@@ -3,12 +3,18 @@ import Footer from './Footer'
 
 import Navbar from './Navbar';
 
+import { useLocation } from 'react-router-dom'
+
 import { ethers } from 'ethers';
 import Mover from '../artifacts/contracts/Mover.sol/Mover.json';
 
 const moverAddress = "0xe1EC8601A53d06D74eE628D06528C3e43d10C0Ee";
 
 const SinglePage = () => {
+
+    let location = useLocation();
+  const single = location.state;
+  console.log(location);
 
     const [currentProperty, setCurrentProperty] = useState([]);
 
@@ -53,7 +59,7 @@ const SinglePage = () => {
                     <img
                         alt="Mobile Phone Stand"
                         className="object-cover rounded-xl"
-                        src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                        src={single.hash}
                     />
                     </div>
 
@@ -62,7 +68,7 @@ const SinglePage = () => {
                         <img
                         alt="Mobile Phone Stand"
                         className="object-cover rounded-xl"
-                        src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                        src={single.hash}
                         />
                     </div>
 
@@ -70,7 +76,7 @@ const SinglePage = () => {
                         <img
                         alt="Mobile Phone Stand"
                         className="object-cover rounded-xl"
-                        src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                        src={single.hash}
                         />
                     </div>
 
@@ -78,7 +84,7 @@ const SinglePage = () => {
                         <img
                         alt="Mobile Phone Stand"
                         className="object-cover rounded-xl"
-                        src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                        src={single.hash}
                         />
                     </div>
 
@@ -86,19 +92,21 @@ const SinglePage = () => {
                         <img
                         alt="Mobile Phone Stand"
                         className="object-cover rounded-xl"
-                        src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                        src={single.hash}
                         />
                     </div>
                     </div>
                 </div>
 
                 <div className="sticky top-0">
-                <strong className="border border-green-600 rounded-full tracking-wide px-3 font-medium py-0.5 text-xs bg-gray-100 text-green-600"> For Sale </strong>
+                <strong className="border border-green-600 rounded-full tracking-wide px-3 font-medium py-0.5 text-xs bg-gray-100 text-green-600"> 
+                For {single.propertytype} 
+                </strong>
 
                     <div class="flex justify-between mt-8">
                     <div className="max-w-[35ch]">
                         <h1 className="text-2xl font-bold">
-                        123 Wallaby Avenue, Park Road
+                        {single.propertylocation}
                         </h1>
 
                         <p className="mt-0.5 text-sm">
@@ -144,7 +152,7 @@ const SinglePage = () => {
                     </div>
 
                     <p className="text-lg font-bold">
-                        $240,000
+                       ETH {single.propertyprice}/ $240,000
                     </p>
                     </div>
 
@@ -192,7 +200,7 @@ const SinglePage = () => {
                             </dt>
 
                             <dd className="font-medium">
-                                2 spaces
+                                {single.propertyparkingspace} spaces
                             </dd>
                             </div>
                         </div>
@@ -211,7 +219,7 @@ const SinglePage = () => {
                             </dt>
 
                             <dd className="font-medium">
-                                2 rooms
+                                {single.propertybathroom} rooms
                             </dd>
                             </div>
                         </div>
@@ -230,7 +238,7 @@ const SinglePage = () => {
                             </dt>
 
                             <dd className="font-medium">
-                                4 rooms
+                                {single.propertybedroom} rooms
                             </dd>
                             </div>
                         </div>

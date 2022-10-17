@@ -746,7 +746,9 @@ const Properties = () => {
 
             <div className="flex flex-col bg-white rounded-sm">
              
-                    <h5 className="text-5xl mt-20 font-bold text-green-900">$240,000</h5>
+                    <h5 className="text-5xl mt-20 font-bold text-green-900">
+                    ETH {data.nested.propertyprice}/ $ 240, 000
+                    </h5>
                     <div className="pt-2 mt-4 border-t-2 border-indigo-100">
                     <p className="text-sm font-medium tracking-widest text-gray-500 uppercase">
                     {data.nested.propertylocation}
@@ -768,7 +770,7 @@ const Properties = () => {
                             </dt>
 
                             <dd className="font-medium">
-                                2 spaces
+                            {data.nested.propertyparkingspace}  spaces
                             </dd>
                             </div>
                         </div>
@@ -787,7 +789,7 @@ const Properties = () => {
                             </dt>
 
                             <dd className="font-medium">
-                                2 rooms
+                            {data.nested.propertybathroom}  rooms
                             </dd>
                             </div>
                         </div>
@@ -806,7 +808,7 @@ const Properties = () => {
                             </dt>
 
                             <dd className="font-medium">
-                                4 rooms
+                            {data.nested.propertybedroom} rooms
                             </dd>
                             </div>
                         </div>

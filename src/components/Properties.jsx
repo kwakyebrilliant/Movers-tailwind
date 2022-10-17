@@ -18,9 +18,35 @@ const moverAddress = "0xe1EC8601A53d06D74eE628D06528C3e43d10C0Ee";
 
 
 const Properties = () => {
-  
+
   const [showModal, setShowModal] = React.useState(false);
   const [currentProperty, setCurrentProperty] = useState([]);
+
+  useEffect(() => {
+    async function fetchPropertyOwner() {
+      // If MetaMask exists
+      if (typeof window.ethereum !== "undefined") {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const contract = new ethers.Contract(
+        moverAddress,
+        Mover.abi,
+        provider
+      );
+      try {
+        const data = await contract.fetchPropertyOwner();
+        console.log("data: ", data);
+        setCurrentProperty(data);
+        for (var i = 1; i <= data; i++) {
+          const currentPropertys = await contract.idPropertyOwner(i);
+          setCurrentProperty((currentProperty) => [...currentProperty, currentPropertys]);
+        }
+      } catch (error) {
+        console.log("Error: ", error);
+      }
+    }
+  }
+  fetchPropertyOwner();
+  }, []);
 
   return (
     <div>
@@ -710,10 +736,11 @@ const Properties = () => {
             <h2 className='text-3xl font-bold'>Hot Deal</h2>
           </div>
 
+          {currentProperty.slice(-1).map((data) => (
             <div className='grid md:grid-cols-2 gap-4 mx-8 text-center'>
-
+              
             <div className="flex flex-col bg-white rounded-sm group hover:shadow-lg">
-              <img className="object-cover rounded-2xl w-full h-full" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="" />  
+              <img className="object-cover rounded-2xl w-full h-full" src={data.nested.hash} alt="" />  
             </div>
 
 
@@ -797,8 +824,9 @@ const Properties = () => {
                     
             </div>
 
-
             </div>
+             ))
+            }
           </div>
 
 

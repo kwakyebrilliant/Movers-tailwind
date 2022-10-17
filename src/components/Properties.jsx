@@ -749,7 +749,7 @@ const Properties = () => {
                     <h5 className="text-5xl mt-20 font-bold text-green-900">$240,000</h5>
                     <div className="pt-2 mt-4 border-t-2 border-indigo-100">
                     <p className="text-sm font-medium tracking-widest text-gray-500 uppercase">
-                      123 Wallaby Avenue, Park Road
+                    {data.nested.propertylocation}
                     </p>
 
                     <p className="text-lg inline-flex font-medium">

@@ -321,7 +321,7 @@ const Home = () => {
                                  </dt>
      
                                  <dd className="text-sm text-gray-100">
-                                 $240,000
+                                 ETH {data.nested.propertyprice}/ $
                                  </dd>
                              </div>
      

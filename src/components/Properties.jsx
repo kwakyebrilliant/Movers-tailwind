@@ -824,6 +824,7 @@ const Properties = () => {
                         propertynumber: data.propertynumber,
                         ownername: data.ownername,
                         propertylocation: data.nested.propertylocation,
+                        propertydescription: data.nested.propertydescription,
                         propertyspace: data.nested.propertyspace,
                         propertyparkingspace: data.nested.propertyparkingspace,
                         propertybathroom: data.nested.propertybathroom,
@@ -833,6 +834,8 @@ const Properties = () => {
                         propertytype: data.nested.propertytype,
                         propertyduration: data.nested.propertyduration,
                         hash: data.nested.hash,
+                        supportimage1: data.nested.supportimage1,
+                        supportimage2: data.nested.supportimage2,
                         document: data.nested.document
                       }}>
                        <button className='px-3 py-2'>View Details</button>

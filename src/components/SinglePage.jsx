@@ -68,7 +68,7 @@ const SinglePage = () => {
                         <img
                         alt="Mobile Phone Stand"
                         className="object-cover rounded-xl"
-                        src={single.hash}
+                        src={single.supportimage1}
                         />
                     </div>
 
@@ -76,25 +76,11 @@ const SinglePage = () => {
                         <img
                         alt="Mobile Phone Stand"
                         className="object-cover rounded-xl"
-                        src={single.hash}
+                        src={single.supportimage2}
                         />
                     </div>
 
-                    <div className="aspect-w-1 aspect-h-1">
-                        <img
-                        alt="Mobile Phone Stand"
-                        className="object-cover rounded-xl"
-                        src={single.hash}
-                        />
-                    </div>
-
-                    <div className="aspect-w-1 aspect-h-1">
-                        <img
-                        alt="Mobile Phone Stand"
-                        className="object-cover rounded-xl"
-                        src={single.hash}
-                        />
-                    </div>
+                   
                     </div>
                 </div>
 
@@ -161,7 +147,7 @@ const SinglePage = () => {
                         <div>
                         <div className="prose max-w-none group-open:hidden">
                             <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa veniam dicta beatae eos ex error culpa delectus rem tenetur, architecto quam nesciunt, dolor veritatis nisi minus inventore, rerum at recusandae?
+                            {single.propertydescription}
                             </p>
                         </div>
 

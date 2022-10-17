@@ -8,7 +8,7 @@ import {
   HomeIcon,
   QuestionMarkCircleIcon
 } from '@heroicons/react/solid'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Navbar from './Navbar'
 
 import { ethers } from 'ethers';
@@ -18,6 +18,10 @@ const moverAddress = "0xe1EC8601A53d06D74eE628D06528C3e43d10C0Ee";
 
 
 const Properties = () => {
+
+  let location = useLocation();
+  const movers = location.state;
+  console.log(location);
 
   const [showModal, setShowModal] = React.useState(false);
   const [currentProperty, setCurrentProperty] = useState([]);

@@ -51,6 +51,7 @@ contract Mover {
         property.propertynumber = property_.propertynumber;
         property.ownername = property_.ownername;
         property.nested.propertylocation = property_.nested.propertylocation;
+         property.nested.propertydescription = property_.nested.propertydescription;
         property.nested.propertyspace = property_.nested.propertyspace;
         property.nested.propertyparkingspace = property_.nested.propertyparkingspace;
         property.nested.propertybathroom = property_.nested.propertybathroom;

@@ -67,7 +67,7 @@ const SinglePage = () => {
                     <div className="aspect-w-1 aspect-h-1">
                         <img
                         alt="Mobile Phone Stand"
-                        className="object-cover rounded-xl"
+                        className="object-cover lg:h-48 h-24 rounded-xl"
                         src={single.supportimage1}
                         />
                     </div>
@@ -75,7 +75,7 @@ const SinglePage = () => {
                     <div className="aspect-w-1 aspect-h-1">
                         <img
                         alt="Mobile Phone Stand"
-                        className="object-cover rounded-xl"
+                        className="object-cover lg:h-48 h-24  rounded-xl"
                         src={single.supportimage2}
                         />
                     </div>
@@ -147,7 +147,7 @@ const SinglePage = () => {
                         <div>
                         <div className="prose max-w-none group-open:hidden">
                             <p>
-                            {single.propertydescription}
+                            {single.propertydescription.slice(0, 82)}
                             </p>
                         </div>
 
@@ -158,13 +158,7 @@ const SinglePage = () => {
                     </summary>
 
                     <div className="pb-6 prose max-w-none">
-                        <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa veniam dicta beatae eos ex error culpa delectus rem tenetur, architecto quam nesciunt, dolor veritatis nisi minus inventore, rerum at recusandae?
-                        </p>
-
-                        <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat nam sapiente nobis ea veritatis error consequatur nisi exercitationem iure laudantium culpa, animi temporibus non! Maxime et quisquam amet. A, deserunt!
-                        </p>
+                        {single.propertydescription}
                     </div>
                     </details>
 

@@ -114,7 +114,7 @@ const Properties = () => {
 
 
           
-        <div className="flex flex-col bg-white m-auto p-auto">
+        {/* <div className="flex flex-col bg-white m-auto p-auto">
               <div className="flex overflow-x-scroll hide-scroll-bar">
 
                 <div className="flex flex-nowrap lg:ml-6 md:ml-20 py-4 ml-6">
@@ -163,7 +163,7 @@ const Properties = () => {
 
                   </div>
                 </div>
-          </div>
+          </div> */}
 
 
           <div>
@@ -191,6 +191,107 @@ const Properties = () => {
           action=""
           className="border-t border-gray-200 lg:border-t-0"
         >
+          
+           <div>
+            <fieldset>
+              <legend className="block w-full px-5 py-3 text-xs font-medium bg-gray-50">
+                Category
+              </legend>
+
+              <div class="px-5 py-6 space-y-2">
+                <div class="flex items-center">
+                  <input
+                    id="3+"
+                    type="checkbox"
+                    name="age[3+]"
+                    className="w-5 h-5 border-gray-300 rounded"
+                  />
+
+                  <label
+                    for="3+"
+                    className="ml-3 text-sm font-medium"
+                  >
+                    Home
+                  </label>
+                </div>
+
+                <div className="flex items-center">
+                  <input
+                    id="8+"
+                    type="checkbox"
+                    name="age[8+]"
+                    className="w-5 h-5 border-gray-300 rounded"
+                  />
+
+                  <label
+                    for="8+"
+                    className="ml-3 text-sm font-medium"
+                  >
+                   Offices
+                  </label>
+                </div>
+
+                <div className="flex items-center">
+                  <input
+                    id="12+"
+                    type="checkbox"
+                    name="age[12+]"
+                    className="w-5 h-5 border-gray-300 rounded"
+                  />
+
+                  <label
+                    for="12+"
+                    className="ml-3 text-sm font-medium"
+                  >
+                    Luxury
+                  </label>
+                </div>
+
+                <div className="flex items-center">
+                  <input
+                    id="16+"
+                    type="checkbox"
+                    name="age[16+]"
+                    className="w-5 h-5 border-gray-300 rounded"
+                  />
+
+                  <label
+                    for="16+"
+                    className="ml-3 text-sm font-medium"
+                  >
+                    Industrial
+                  </label>
+                </div>
+
+                <div className="flex items-center">
+                  <input
+                    id="16+"
+                    type="checkbox"
+                    name="age[16+]"
+                    className="w-5 h-5 border-gray-300 rounded"
+                  />
+
+                  <label
+                    for="16+"
+                    className="ml-3 text-sm font-medium"
+                  >
+                    Others
+                  </label>
+                </div>
+
+                <div className="pt-2">
+                <button
+                  type="button"
+                  className="text-xs text-green-500 px-2 py-1"
+                >
+                  Reset Category
+                </button>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+
           <fieldset>
             <legend className="block w-full px-5 py-3 text-xs font-medium bg-gray-50">
               Type
@@ -256,122 +357,15 @@ const Properties = () => {
             </div>
           </fieldset>
 
-          <div>
-            <fieldset>
-              <legend className="block w-full px-5 py-3 text-xs font-medium bg-gray-50">
-                Year
-              </legend>
+         
 
-              <div class="px-5 py-6 space-y-2">
-                <div class="flex items-center">
-                  <input
-                    id="3+"
-                    type="checkbox"
-                    name="age[3+]"
-                    className="w-5 h-5 border-gray-300 rounded"
-                  />
-
-                  <label
-                    for="3+"
-                    className="ml-3 text-sm font-medium"
-                  >
-                    1-5
-                  </label>
-                </div>
-
-                <div className="flex items-center">
-                  <input
-                    id="8+"
-                    type="checkbox"
-                    name="age[8+]"
-                    className="w-5 h-5 border-gray-300 rounded"
-                  />
-
-                  <label
-                    for="8+"
-                    className="ml-3 text-sm font-medium"
-                  >
-                   6-10
-                  </label>
-                </div>
-
-                <div className="flex items-center">
-                  <input
-                    id="12+"
-                    type="checkbox"
-                    name="age[12+]"
-                    className="w-5 h-5 border-gray-300 rounded"
-                  />
-
-                  <label
-                    for="12+"
-                    className="ml-3 text-sm font-medium"
-                  >
-                    11-20
-                  </label>
-                </div>
-
-                <div className="flex items-center">
-                  <input
-                    id="16+"
-                    type="checkbox"
-                    name="age[16+]"
-                    className="w-5 h-5 border-gray-300 rounded"
-                  />
-
-                  <label
-                    for="16+"
-                    className="ml-3 text-sm font-medium"
-                  >
-                    21-50
-                  </label>
-                </div>
-
-                <div className="pt-2">
-                <button
-                  type="button"
-                  className="text-xs text-green-500 px-2 py-1"
-                >
-                  Reset Year
-                </button>
-                </div>
-              </div>
-            </fieldset>
-          </div>
-
-          <div className="flex justify-between px-5 py-3 border-t border-gray-200">
-          <button
-                  type="button"
-                  className="text-xs text-green-500 px-2 py-1"
-                >
-                  Reset All
-                </button>
-
-            <button
-              name="commit"
-              type="button"
-              className="px-5 py-3 text-xs font-medium text-white bg-green-600 rounded"
-            >
-              Apply Filters
-            </button>
-          </div>
         </form>
       </details>
     </div>
 
       <div className="lg:col-span-3">
-        <div className="flex items-center justify-between">
-          <p className="text-sm text-gray-500">
-            <span className="hidden sm:inline">
-              Showing
-            </span>
-            6 of 24 Products
-          </p>
-          
-        </div>
-        
 
-        <div className="grid grid-cols-1 gap-px mt-4 bg-white border border-gray-200 sm:grid-cols-2 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-px bg-white border border-gray-200 sm:grid-cols-2 lg:grid-cols-2">
 
                 <div className="block overflow-hidden mx-4 my-4 rounded-2xl">
                 <img className="object-cover w-full h-56" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="" />

@@ -301,15 +301,6 @@ const Properties = () => {
                     Others
                   </label>
                 </div>
-
-                <div className="pt-2">
-                <button
-                  type="button"
-                  className="text-xs text-green-500 px-2 py-1"
-                >
-                  Reset Category
-                </button>
-                </div>
               </div>
             </fieldset>
           </div>

@@ -201,11 +201,28 @@ const Properties = () => {
               </legend>
 
               <div class="px-5 py-6 space-y-2">
+              <div class="flex items-center">
+                  <input
+                    type="radio"
+                    className="w-5 h-5 border-gray-300 rounded"
+                    value="all"
+                    checked={category === "all"}
+                    onChange={(e) => { setCategory(e.target.value) }}
+                  />
+
+                  <label
+                    for="3+"
+                    className="ml-3 text-sm font-medium"
+                  >
+                    All
+                  </label>
+                </div>
                 <div class="flex items-center">
                   <input
-                    type="checkbox"
+                    type="radio"
                     className="w-5 h-5 border-gray-300 rounded"
                     value="home"
+                    checked={category === "home"}
                     onChange={(e) => { setCategory(e.target.value) }}
                   />
 
@@ -219,9 +236,10 @@ const Properties = () => {
 
                 <div className="flex items-center">
                   <input
-                    type="checkbox"
+                    type="radio"
                     className="w-5 h-5 border-gray-300 rounded"
                     value="offices"
+                    checked={category === "offices"}
                     onChange={(e) => { setCategory(e.target.value) }}
                   />
 
@@ -235,8 +253,9 @@ const Properties = () => {
 
                 <div className="flex items-center">
                   <input
-                    type="checkbox"
+                    type="radio"
                     value="luxury"
+                    checked={category === "luxury"}
                     onChange={(e) => { setCategory(e.target.value) }}
                     className="w-5 h-5 border-gray-300 rounded"
                   />
@@ -251,8 +270,9 @@ const Properties = () => {
 
                 <div className="flex items-center">
                   <input
-                    type="checkbox"
+                    type="radio"
                     value="industrial"
+                    checked={category === "industrial"}
                     onChange={(e) => { setCategory(e.target.value) }}
                     className="w-5 h-5 border-gray-300 rounded"
                   />
@@ -267,8 +287,9 @@ const Properties = () => {
 
                 <div className="flex items-center">
                   <input
-                    type="checkbox"
+                    type="radio"
                     value="others"
+                    checked={category === "others"}
                     onChange={(e) => { setCategory(e.target.value) }}
                     className="w-5 h-5 border-gray-300 rounded"
                   />

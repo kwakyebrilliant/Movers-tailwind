@@ -261,7 +261,7 @@ const Properties = () => {
             <div className="px-5 py-6 space-y-2">
               <div className="flex items-center">
                 <input
-                  type="checkbox"
+                  type="radio"
                   value="sale"
                   checked={category === "sale"}
                   onChange={(e) => { setCategory(e.target.value) }}
@@ -278,7 +278,7 @@ const Properties = () => {
 
               <div className="flex items-center">
                 <input
-                  type="checkbox"
+                  type="radio"
                   value="rent"
                   checked={category === "rent"}
                   onChange={(e) => { setCategory(e.target.value) }}
@@ -295,7 +295,7 @@ const Properties = () => {
 
               <div className="flex items-center">
                 <input
-                  type="checkbox"
+                  type="radio"
                   value="lease"
                   checked={category === "lease"}
                   onChange={(e) => { setCategory(e.target.value) }}
@@ -310,14 +310,14 @@ const Properties = () => {
                 </label>
               </div>
 
-              <div class="pt-2">
+              {/* <div class="pt-2">
                 <button
                   type="button"
                   className="text-xs text-green-500 px-2 py-1"
                 >
                   Reset Type
                 </button>
-              </div>
+              </div> */}
             </div>
           </fieldset>
 

@@ -203,7 +203,6 @@ const Properties = () => {
               <div class="px-5 py-6 space-y-2">
                 <div class="flex items-center">
                   <input
-                    id="3+"
                     type="checkbox"
                     className="w-5 h-5 border-gray-300 rounded"
                     value="home"
@@ -220,10 +219,10 @@ const Properties = () => {
 
                 <div className="flex items-center">
                   <input
-                    id="8+"
                     type="checkbox"
-                    name="age[8+]"
                     className="w-5 h-5 border-gray-300 rounded"
+                    value="offices"
+                    onChange={(e) => { setCategory(e.target.value) }}
                   />
 
                   <label
@@ -236,9 +235,9 @@ const Properties = () => {
 
                 <div className="flex items-center">
                   <input
-                    id="12+"
                     type="checkbox"
-                    name="age[12+]"
+                    value="luxury"
+                    onChange={(e) => { setCategory(e.target.value) }}
                     className="w-5 h-5 border-gray-300 rounded"
                   />
 
@@ -252,9 +251,9 @@ const Properties = () => {
 
                 <div className="flex items-center">
                   <input
-                    id="16+"
                     type="checkbox"
-                    name="age[16+]"
+                    value="industrial"
+                    onChange={(e) => { setCategory(e.target.value) }}
                     className="w-5 h-5 border-gray-300 rounded"
                   />
 
@@ -268,9 +267,9 @@ const Properties = () => {
 
                 <div className="flex items-center">
                   <input
-                    id="16+"
                     type="checkbox"
-                    name="age[16+]"
+                    value="others"
+                    onChange={(e) => { setCategory(e.target.value) }}
                     className="w-5 h-5 border-gray-300 rounded"
                   />
 

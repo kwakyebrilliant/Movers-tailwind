@@ -192,7 +192,6 @@ const Properties = () => {
         <form
           action=""
           className="border-t border-gray-200 lg:border-t-0"
-          onChange={(e) => { setCategory(e.target.value) }}
         >
           
            <div>
@@ -206,9 +205,9 @@ const Properties = () => {
                   <input
                     id="3+"
                     type="checkbox"
-                    name="age[3+]"
                     className="w-5 h-5 border-gray-300 rounded"
                     value="home"
+                    onChange={(e) => { setCategory(e.target.value) }}
                   />
 
                   <label
@@ -373,7 +372,7 @@ const Properties = () => {
         {
           category ==='home' && (
             <>
-            {currentProperty.map((data) => (
+            {currentProperty.filter((data) => data.nested.propertycategory.match(new RegExp(category, "i"))).map((data) => (
           <Link to="/single" 
           state={{
             id: data.id,

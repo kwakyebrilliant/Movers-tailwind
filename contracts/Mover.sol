@@ -7,6 +7,8 @@ contract Mover {
 
      mapping(uint256 => PropertyOwner) public idPropertyOwner;
       uint public propertyCount = 0;
+      uint256 public booksCount = 0;
+      mapping(uint256 => BookSession) books;
 
       struct PropertyOwner {
       uint256 id;
@@ -31,6 +33,20 @@ contract Mover {
       string supportimage2;
       string document;
     }
+
+    struct BookSession {
+      uint256 id;
+      address owner;
+      string property;
+      bool booked;
+    }
+
+    event AddBook (
+      uint256 id,
+      address owner,
+      string property,
+      bool booked
+    );
 
 
     //add property
@@ -68,6 +84,24 @@ contract Mover {
     }
 
 
+    //add book
+    function addBookSession(BookSession memory book_) public payable{
+      // require(bytes(book_.owner).length > 0, 'Owner is required');
+      require(msg.sender != address(0x0));
+
+      booksCount++;
+      propertyCount++;
+
+      BookSession storage book = books[booksCount];
+
+      book.id = booksCount;
+      book.owner = payable(address(msg.sender));
+      book.property = book_.property;
+      book.booked = false;
+
+    }
+
+
      //all properties
     function fetchPropertyOwner() public view returns (PropertyOwner[] memory) {
       uint itemCount = propertyCount;
@@ -80,6 +114,46 @@ contract Mover {
           currentIndex += 1;
       }
       return items;
+    }
+
+
+    //my books
+    function fetchMyBooks() public view returns (BookSession[] memory) {
+      uint256 totalItemCount = booksCount;
+      uint256 itemCount = 0;
+      uint256 currentIndex = 0;
+
+      for (uint256 i = 0; i < totalItemCount; i++) {
+            if (books[i + 1].owner == msg.sender) {
+                itemCount += 1;
+            }
+        }
+
+        BookSession[] memory items = new BookSession[](itemCount);
+        for (uint256 i = 0; i < totalItemCount; i++) {
+            if (books[i + 1].owner == msg.sender) {
+                uint256 currentId = i + 1;
+                BookSession storage book = books[currentId];
+                items[currentIndex] = book;
+                currentIndex += 1;
+            }
+        }
+        return items;
+    }
+
+
+    //all books
+    function fetchBooks() public view returns (BookSession[] memory) {
+        uint256 itemCount = booksCount;
+        uint256 currentIndex = 0;
+        BookSession[] memory items = new BookSession[](itemCount);
+        for (uint256 i = 0; i < itemCount; i++) {
+            uint256 currentId = i + 1;
+            BookSession storage currentItem = books[currentId];
+            items[currentIndex] = currentItem;
+            currentIndex += 1;
+        }
+        return items;
     }
 
 }

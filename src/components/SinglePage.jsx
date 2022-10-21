@@ -228,7 +228,7 @@ const SinglePage = () => {
 
                     <div className="flex mt-8">
                         <button
-                        className="block px-5 py-3 ml-3 text-xs font-medium"
+                        className="block px-5 py-3 w-full text-lg font-medium"
                         >
                         Book Session
                         </button>

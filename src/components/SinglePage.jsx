@@ -58,7 +58,7 @@ const SinglePage = () => {
                     <div className="aspect-w-1 aspect-h-1">
                     <img
                         alt="Mobile Phone Stand"
-                        className="object-cover rounded-xl"
+                        className="object-cover w-[800px] rounded-xl"
                         src={single.hash}
                     />
                     </div>

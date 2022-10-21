@@ -224,6 +224,13 @@ const SinglePage = () => {
                         </div>
                         </dl>
                     </p>
+
+                    <h1 className='mt-8 text-gray-500 font-bold text-xl'>Book Property</h1>
+                <form className='my-4'>
+                    <select className="rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full" >
+                        <option value="book">Book this property</option>
+                    </select>
+                </form>
                     
 
                     <div className="flex mt-8">

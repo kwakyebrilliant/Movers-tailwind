@@ -523,7 +523,7 @@ const AddProperties = () => {
 
                 <div className='justify-center flex'>
                     <a
-                    className="inline-flex items-center px-8 py-3 mt-8 text-white bg-green-600 border border-green-600 rounded hover:bg-transparent hover:text-green-600 active:text-green-500 focus:outline-none focus:ring"
+                    className="inline-flex cursor-pointer items-center px-8 py-3 mt-8 text-white bg-green-600 border border-green-600 rounded hover:bg-transparent hover:text-green-600 active:text-green-500 focus:outline-none focus:ring"
                     onClick={addProperty}
                     type="submit"
                     >

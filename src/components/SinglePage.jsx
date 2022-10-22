@@ -73,9 +73,29 @@ const SinglePage = () => {
         if (!property) return;
         if (!booked) return;
 
+         // If MetaMask exists
         if (typeof window.ethereum !== "undefined") {
-            
+
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const signer = provider.getSigner();
+
+            const contract = new ethers.Contract(moverAddress, Mover.abi, signer);
+            const transaction = await contract.addBookSession( 
+                [id,
+                    owner,
+                    property,
+                    booked
+                ]
+            );
+
+            setId("");
+            setOwner("");
+            setProperty("");
+            setBooked("");
+            await transaction.wait();
+        
         }
+        window.location.reload(false);
       }
 
   return (

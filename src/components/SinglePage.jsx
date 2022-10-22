@@ -12,17 +12,18 @@ const moverAddress = "0x1fC2F7008C95fdBf7371A1AfcF46E15c5eFc5787";
 
 const SinglePage = () => {
 
+    let count = 1;
+    while (count <= 0) {
+      console.log(count);
+      count++;
+    }
+
     let location = useLocation();
-  const single = location.state;
-  console.log(location);
+    const single = location.state;
+    console.log(location);
 
     const [currentProperty, setCurrentProperty] = useState([]);
 
-    const [haveMetamask, sethaveMetamask] = useState(true);
-    const [id, setId] = useState("");
-    const [owner, setOwner] = useState("");
-    const [property, setProperty] = useState("");
-    const [booked, setBooked] = useState("booked");
 
     useEffect(() => {
         async function fetchPropertyOwner() {
@@ -49,54 +50,7 @@ const SinglePage = () => {
       }
       fetchPropertyOwner();
       }, []);
-
-
-      useEffect(() => {
-        const { ethereum } = window;
       
-        const requestAccount = async () => {
-          if (!ethereum) {
-            sethaveMetamask(false);
-          }
-          sethaveMetamask(true);
-          const accounts = await ethereum.request({
-            method: 'eth_requestAccounts',
-          });
-          setOwner(accounts[0]);
-        };
-        requestAccount();
-      }, []);
-
-      async function addBookSession() {
-        if (!id) return;
-        if (!owner) return;
-        if (!property) return;
-        if (!booked) return;
-
-         // If MetaMask exists
-        if (typeof window.ethereum !== "undefined") {
-
-            const provider = new ethers.providers.Web3Provider(window.ethereum);
-            const signer = provider.getSigner();
-
-            const contract = new ethers.Contract(moverAddress, Mover.abi, signer);
-            const transaction = await contract.addBookSession( 
-                [id,
-                    owner,
-                    property,
-                    booked
-                ]
-            );
-
-            setId("");
-            setOwner("");
-            setProperty("");
-            setBooked("");
-            await transaction.wait();
-        
-        }
-        window.location.reload(false);
-      }
 
   return (
     <div>
@@ -278,36 +232,13 @@ const SinglePage = () => {
                         </div>
                         </dl>
                     </p>
-
-                    <input
-                    className="rounded-lg outline-none opacity-0 focus:outline-none ring-1 ring-green-400 text-lg w-full"
-                    type="text"
-                    placeholder="#"
-                    onChange={(e) => setId(e.target.value)}
-                    value={id}
-                    />
-
-                    <input
-                    className="rounded-lg outline-none opacity-0 focus:outline-none ring-1 ring-green-400 text-lg w-full"
-                    type="text"
-                    placeholder="property"
-                    onChange={(e) => setProperty(e.target.value)}
-                    value={property}
-                    />
-
-                    <h1 className='text-gray-500 font-bold text-xl'>Book Property</h1>
-                <form className='my-4'>
-                    <select onChange={(e) => {setBooked(e.target.value)}} className="rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full" >
-                        <option value="booked">Book this property</option>
-                    </select>
-                </form>
                     
                     <div className="flex mt-8">
                         <button
                         className="block px-5 py-3 w-full text-lg font-medium"
-                        onClick={addBookSession}
+                        onClick={() => {}}
                         >
-                        Book Session
+                        Book Property
                         </button>
                     </div>
                     </form>

@@ -280,7 +280,7 @@ const SinglePage = () => {
                     </p>
 
                     <input
-                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
+                    className="rounded-lg outline-none opacity-0 focus:outline-none ring-1 ring-green-400 text-lg w-full"
                     type="text"
                     placeholder="#"
                     onChange={(e) => setId(e.target.value)}
@@ -288,14 +288,14 @@ const SinglePage = () => {
                     />
 
                     <input
-                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
+                    className="rounded-lg outline-none opacity-0 focus:outline-none ring-1 ring-green-400 text-lg w-full"
                     type="text"
                     placeholder="property"
                     onChange={(e) => setProperty(e.target.value)}
                     value={property}
                     />
 
-                    <h1 className='mt-8 text-gray-500 font-bold text-xl'>Book Property</h1>
+                    <h1 className='text-gray-500 font-bold text-xl'>Book Property</h1>
                 <form className='my-4'>
                     <select onChange={(e) => {setBooked(e.target.value)}} className="rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full" >
                         <option value="booked">Book this property</option>

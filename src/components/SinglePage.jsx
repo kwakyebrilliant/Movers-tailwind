@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {useState, useEffect} from 'react'
 import Footer from './Footer'
 
@@ -12,18 +13,11 @@ const moverAddress = "0x1fC2F7008C95fdBf7371A1AfcF46E15c5eFc5787";
 
 const SinglePage = () => {
 
-    let count = 1;
-    while (count <= 0) {
-      console.log(count);
-      count++;
-    }
-
     let location = useLocation();
     const single = location.state;
     console.log(location);
 
     const [currentProperty, setCurrentProperty] = useState([]);
-
 
     useEffect(() => {
         async function fetchPropertyOwner() {
@@ -50,7 +44,7 @@ const SinglePage = () => {
       }
       fetchPropertyOwner();
       }, []);
-      
+
 
   return (
     <div>
@@ -234,12 +228,19 @@ const SinglePage = () => {
                     </p>
                     
                     <div className="flex mt-8">
-                        <button
+                    <a
+                    className="w-full text-center cursor-pointer items-center px-8 py-3 mt-8 text-white bg-green-600 border border-green-600 rounded hover:bg-transparent hover:text-green-600 active:text-green-500 focus:outline-none focus:ring"
+                    onClick={() => {}}
+                    type="submit"
+                    >
+                    <span className="text-lg font-medium">Book Property </span>
+                    </a>
+                        {/* <button
                         className="block px-5 py-3 w-full text-lg font-medium"
-                        onClick={() => {}}
+                        onClick={(addBookSession)}
                         >
-                        Book Property
-                        </button>
+                        Book Session
+                        </button> */}
                     </div>
                     </form>
                 </div>

@@ -18,6 +18,12 @@ const SinglePage = () => {
 
     const [currentProperty, setCurrentProperty] = useState([]);
 
+    const [haveMetamask, sethaveMetamask] = useState(true);
+    const [id, setId] = useState("");
+    const [owner, setOwner] = useState("");
+    const [property, setProperty] = useState("");
+    const [booked, setBooked] = useState("booked");
+
     useEffect(() => {
         async function fetchPropertyOwner() {
           // If MetaMask exists
@@ -43,6 +49,25 @@ const SinglePage = () => {
       }
       fetchPropertyOwner();
       }, []);
+
+
+      useEffect(() => {
+        const { ethereum } = window;
+      
+        const requestAccount = async () => {
+          if (!ethereum) {
+            sethaveMetamask(false);
+          }
+          sethaveMetamask(true);
+          const accounts = await ethereum.request({
+            method: 'eth_requestAccounts',
+          });
+          setOwner(accounts[0]);
+        };
+        requestAccount();
+      }, []);
+
+      
 
   return (
     <div>
@@ -228,7 +253,7 @@ const SinglePage = () => {
                     <h1 className='mt-8 text-gray-500 font-bold text-xl'>Book Property</h1>
                 <form className='my-4'>
                     <select className="rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full" >
-                        <option value="book">Book this property</option>
+                        <option value="booked">Book this property</option>
                     </select>
                 </form>
                     

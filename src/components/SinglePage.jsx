@@ -279,17 +279,33 @@ const SinglePage = () => {
                         </dl>
                     </p>
 
+                    <input
+                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
+                    type="text"
+                    placeholder="#"
+                    onChange={(e) => setId(e.target.value)}
+                    value={id}
+                    />
+
+                    <input
+                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
+                    type="text"
+                    placeholder="property"
+                    onChange={(e) => setProperty(e.target.value)}
+                    value={property}
+                    />
+
                     <h1 className='mt-8 text-gray-500 font-bold text-xl'>Book Property</h1>
                 <form className='my-4'>
-                    <select className="rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full" >
+                    <select onChange={(e) => {setBooked(e.target.value)}} className="rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full" >
                         <option value="booked">Book this property</option>
                     </select>
                 </form>
                     
-
                     <div className="flex mt-8">
                         <button
                         className="block px-5 py-3 w-full text-lg font-medium"
+                        onClick={addBookSession}
                         >
                         Book Session
                         </button>

@@ -67,7 +67,16 @@ const SinglePage = () => {
         requestAccount();
       }, []);
 
-      
+      async function addBookSession() {
+        if (!id) return;
+        if (!owner) return;
+        if (!property) return;
+        if (!booked) return;
+
+        if (typeof window.ethereum !== "undefined") {
+            
+        }
+      }
 
   return (
     <div>

@@ -11,10 +11,10 @@ const Sidebar = () => {
     const location = useLocation()
 
     const Menus = [
-        { title: 'Summary', path: '/summary', src: <AiFillPieChart /> },
-        { title: 'Booked', path: '/booked', src: <FaBook /> },
+        // { title: 'Summary', path: '/summary', src: <AiFillPieChart /> },
+        // { title: 'Booked', path: '/booked', src: <FaBook /> },
         { title: 'Properties', path: '/userproperties', src: <FaBuilding /> },
-        { title: 'Chat', path: '/chat', src: <FaMailBulk />},
+        // { title: 'Chat', path: '/chat', src: <FaMailBulk />},
     ]
 
     return (

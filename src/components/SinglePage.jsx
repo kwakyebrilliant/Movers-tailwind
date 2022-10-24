@@ -233,7 +233,7 @@ const SinglePage = () => {
                     onClick={() => {}}
                     type="submit"
                     >
-                    <span className="text-lg font-medium">Book Property </span>
+                    <span className="text-lg font-medium">Own Property</span>
                     </a>
                         {/* <button
                         className="block px-5 py-3 w-full text-lg font-medium"

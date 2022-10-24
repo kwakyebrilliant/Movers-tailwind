@@ -276,11 +276,37 @@ const SinglePage = () => {
                                 </div>
 
                                 <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
+                                    <p className='font-bold text-3xl text-green-700 mx-1'>ETH{single.propertyprice}/ $24,000</p> 
+                                </div>
+
+                                <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
                                     <p className='font-bold text-xl mx-1'>Owner Name:</p> {single.ownername}
                                 </div>
 
                                 <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
                                 <p className='font-bold text-xl mx-1'>Property Location:</p> {single.propertylocation}
+                                </div>
+
+
+                                <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
+                                <p className='font-bold text-xl mx-1'>Property Category:</p> {single.propertycategory}
+                                </div>
+
+                                <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
+                                <p className='font-bold text-xl mx-1'>Property Space:</p> {single.propertyspace}
+                                </div>
+
+                                <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
+                                <p className='font-bold text-xl mx-1'>Property Bedroom:</p> {single.propertybedroom} bedroom
+                                </div>
+
+                                <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
+                                <p className='font-bold text-xl mx-1'>Property Bathroom:</p> {single.propertybathroom} bathroom
+                                </div>
+
+
+                                <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
+                                <p className='font-bold text-xl mx-1'>Property Parking Space:</p> {single.propertyparkingspace} parking space
                                 </div>
 
                                 <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>

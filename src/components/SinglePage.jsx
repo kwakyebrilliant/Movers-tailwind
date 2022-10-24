@@ -274,6 +274,18 @@ const SinglePage = () => {
                                 <div className='mb-5'>
                                 <img className="object-cover w-full h-80 rounded-2xl" src={single.hash} alt="" />
                                 </div>
+
+                                <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
+                                    <p className='font-bold text-xl mx-1'>Owner Name:</p> {single.ownername}
+                                </div>
+
+                                <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
+                                <p className='font-bold text-xl mx-1'>Property Location:</p> {single.propertylocation}
+                                </div>
+
+                                <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
+                                <p className='font-bold text-xl mx-1'>Details:</p> {single.propertydescription}
+                                </div>
                                     
                                 </div>
                                 </div>

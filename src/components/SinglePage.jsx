@@ -256,7 +256,7 @@ const SinglePage = () => {
                                 {/*header*/}
                                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
                                 <h3 className="text-3xl font-semibold">
-                                {single.propertylocation}
+                                {single.propertynumber}
                                 </h3>
                                 <button
                                     className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -270,7 +270,10 @@ const SinglePage = () => {
                                 {/*body*/}
                                 <div className="relative p-6 flex-auto">
                                 <div className="my-4 text-slate-500 text-lg leading-relaxed">
-                                <p>{single.propertylocation}</p>
+
+                                <div className='mb-5'>
+                                <img className="object-cover w-full h-80 rounded-2xl" src={single.hash} alt="" />
+                                </div>
                                     
                                 </div>
                                 </div>

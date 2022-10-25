@@ -296,6 +296,10 @@ const SinglePage = () => {
                                 </div>
 
                                 <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
+                                <p className='font-bold text-xl mx-1'>Property Duration:</p> {single.propertyduration} year(s)
+                                </div>
+
+                                <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
                                 <p className='font-bold text-xl mx-1'>Property Space:</p> {single.propertyspace}
                                 </div>
 
@@ -314,6 +318,18 @@ const SinglePage = () => {
 
                                 <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
                                 <p className='font-bold text-xl mx-1'>Details:</p> {single.propertydescription}
+                                </div>
+
+                                <a className='text-red-600' href={single.document} download={single.propertylocation}>
+                                    Click on this link to fill the form
+                                </a>
+
+                                <div className='mt-2'>
+                                    <h5 className='text-green-600'>Upload the filled form</h5>
+                                    <input type="file"
+                                    style={{backgroundColor: 'green', color: '#fff'}}
+                                    accept=".pdf"
+                                    /> 
                                 </div>
                                     
                                 </div>

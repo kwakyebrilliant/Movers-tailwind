@@ -275,8 +275,11 @@ const SinglePage = () => {
                                 <img className="object-cover w-full h-80 rounded-2xl" src={single.hash} alt="" />
                                 </div>
 
-                                <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
+                                <div className='mb-5 flex justify-between text-black border-b border-solid border-slate-200 rounded-t'>
                                     <p className='font-bold text-3xl text-green-700 mx-1'>ETH{single.propertyprice}/ $24,000</p> 
+                                    <strong className="border border-red-600 rounded-full tracking-wide px-3 font-medium py-2 text-xs bg-red-600 text-white"> 
+                                    For {single.propertytype} 
+                                    </strong>
                                 </div>
 
                                 <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>

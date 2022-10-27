@@ -9,7 +9,7 @@ import { useLocation } from 'react-router-dom'
 import { ethers } from 'ethers';
 import Mover from '../artifacts/contracts/Mover.sol/Mover.json';
 
-const moverAddress = "0xe163c12d31C8A39255952E1AD6321115D17aaa72";
+const moverAddress = "0x112aC5d71f69ee89237ECD182e6Ae5Fc5C08f8E9";
 
 const SinglePage = () => {
 

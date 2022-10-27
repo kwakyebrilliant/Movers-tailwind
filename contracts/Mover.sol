@@ -7,8 +7,8 @@ contract Mover {
 
      mapping(uint256 => PropertyOwner) public idPropertyOwner;
       uint public propertyCount = 0;
-      uint256 public booksCount = 0;
-      mapping(uint256 => BookSession) books;
+      uint public propertySold = 0;
+      address payable propertybuyer;
 
       struct PropertyOwner {
       uint256 id;
@@ -24,7 +24,7 @@ contract Mover {
       string propertyparkingspace;
       string propertybathroom;
       string propertybedroom;
-      string propertyprice;
+      uint256 propertyprice;
       string propertycategory;
       string propertytype;
       string propertyduration;
@@ -32,21 +32,9 @@ contract Mover {
       string supportimage1;
       string supportimage2;
       string document;
+      address propertyseller;
+      address propertybuyer;
     }
-
-    struct BookSession {
-      uint256 id;
-      address owner;
-      string property;
-      bool booked;
-    }
-
-    event AddBook (
-      uint256 id,
-      address owner,
-      string property,
-      bool booked
-    );
 
 
     //add property
@@ -67,7 +55,7 @@ contract Mover {
         property.propertynumber = property_.propertynumber;
         property.ownername = property_.ownername;
         property.nested.propertylocation = property_.nested.propertylocation;
-         property.nested.propertydescription = property_.nested.propertydescription;
+        property.nested.propertydescription = property_.nested.propertydescription;
         property.nested.propertyspace = property_.nested.propertyspace;
         property.nested.propertyparkingspace = property_.nested.propertyparkingspace;
         property.nested.propertybathroom = property_.nested.propertybathroom;
@@ -80,24 +68,7 @@ contract Mover {
         property.nested.supportimage1 = property_.nested.supportimage1;
         property.nested.supportimage2 = property_.nested.supportimage2;
         property.nested.document = property_.nested.document;
-
-    }
-
-
-    //add book
-    function addBookSession(BookSession memory book_) public payable{
-      // require(bytes(book_.owner).length > 0, 'Owner is required');
-      require(msg.sender != address(0x0));
-
-      booksCount++;
-      propertyCount++;
-
-      BookSession storage book = books[booksCount];
-
-      book.id = booksCount;
-      book.owner = payable(address(msg.sender));
-      book.property = book_.property;
-      book.booked = false;
+        
 
     }
 
@@ -117,43 +88,71 @@ contract Mover {
     }
 
 
-    //my books
-    function fetchMyBooks() public view returns (BookSession[] memory) {
-      uint256 totalItemCount = booksCount;
-      uint256 itemCount = 0;
-      uint256 currentIndex = 0;
+  //  Transfers ownership of property
+  function transferProperty(uint256 id) public payable {
+    PropertyOwner storage propertyTransfer = idPropertyOwner[id];
+    require(bytes(propertyTransfer.nested.hash).length > 0, 'Image Hash is required');
+    require(propertyTransfer.nested.propertyprice > 0, "Please submit the asking price");
+    propertyTransfer.nested.propertyseller =  idPropertyOwner[id].nested.propertyseller;
+    propertyTransfer.nested.propertyprice = idPropertyOwner[id].nested.propertyprice;
+    propertyTransfer.nested.propertylocation = idPropertyOwner[id].nested.propertylocation;
+    propertyTransfer.nested.propertyduration = idPropertyOwner[id].nested.propertyduration;
+    propertyTransfer.nested.propertyspace = idPropertyOwner[id].nested.propertyspace;
+    propertyTransfer.nested.propertybedroom = idPropertyOwner[id].nested.propertybedroom;
+    propertyTransfer.nested.propertybathroom = idPropertyOwner[id].nested.propertybathroom;
+    propertyTransfer.nested.propertydescription = idPropertyOwner[id].nested.propertydescription;
+    propertyTransfer.nested.document = idPropertyOwner[id].nested.document;
+    idPropertyOwner[id].nested.propertybuyer = payable(msg.sender);
+    idPropertyOwner[id].nested.propertyseller = payable(address(0));
+    payable(propertybuyer).transfer(propertyTransfer.nested.propertyprice);
+    payable(propertyTransfer.nested.propertyseller).transfer(msg.value);
 
-      for (uint256 i = 0; i < totalItemCount; i++) {
-            if (books[i + 1].owner == msg.sender) {
-                itemCount += 1;
-            }
-        }
+  }
 
-        BookSession[] memory items = new BookSession[](itemCount);
-        for (uint256 i = 0; i < totalItemCount; i++) {
-            if (books[i + 1].owner == msg.sender) {
-                uint256 currentId = i + 1;
-                BookSession storage book = books[currentId];
-                items[currentIndex] = book;
-                currentIndex += 1;
-            }
+  //Returns all unsold properties
+  function fetchUnsoldProperties() public view returns (PropertyOwner[] memory) {
+    uint itemCount = propertyCount;
+    uint unsoldItemCount = propertyCount - propertySold;
+    uint currentIndex = 0;
+
+    PropertyOwner[] memory items = new PropertyOwner[](unsoldItemCount);
+     for (uint i = 0; i < itemCount; i++) {
+        if (idPropertyOwner[i + 1].nested.propertybuyer == address(this)) {
+          uint currentId = i + 1;
+          PropertyOwner storage currentItem = idPropertyOwner[currentId];
+          items[currentIndex] = currentItem;
+          currentIndex += 1;
         }
-        return items;
+      }
+      return items;
     }
 
 
-    //all books
-    function fetchBooks() public view returns (BookSession[] memory) {
-        uint256 itemCount = booksCount;
-        uint256 currentIndex = 0;
-        BookSession[] memory items = new BookSession[](itemCount);
-        for (uint256 i = 0; i < itemCount; i++) {
-            uint256 currentId = i + 1;
-            BookSession storage currentItem = books[currentId];
-            items[currentIndex] = currentItem;
-            currentIndex += 1;
+  // Returns only properties that a user has purchased
+  function fetchMyProperties() public view returns (PropertyOwner[] memory) {
+    uint totalItemCount = propertyCount;
+    uint itemCount = 0;
+    uint currentIndex = 0;
+
+    for (uint i = 0; i < totalItemCount; i++) {
+        if (idPropertyOwner[i + 1].nested.propertybuyer == msg.sender) {
+          itemCount += 1;
         }
-        return items;
-    }
+      }
+
+       PropertyOwner[] memory properties = new PropertyOwner[](itemCount);
+      for (uint i = 0; i < totalItemCount; i++) {
+        if (idPropertyOwner[i + 1].nested.propertybuyer == msg.sender) {
+          uint currentId = i + 1;
+          PropertyOwner storage currentItem = idPropertyOwner[currentId];
+          properties[currentIndex] = currentItem;
+          currentIndex += 1;
+        }
+      }
+      return properties;
+
+  }
+
+ 
 
 }

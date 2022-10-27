@@ -7,7 +7,7 @@ import { FaPlusCircle } from 'react-icons/fa'
 import { ethers } from 'ethers';
 import Mover from '../../artifacts/contracts/Mover.sol/Mover.json';
 
-const moverAddress = "0x2d10F1a40577DEb50C41e994F97f7815Ba2231bF";
+const moverAddress = "0xe163c12d31C8A39255952E1AD6321115D17aaa72";
 
 const AdminProperties = () => {
 

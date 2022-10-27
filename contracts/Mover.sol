@@ -22,7 +22,7 @@ contract Mover {
       string propertyparkingspace;
       string propertybathroom;
       string propertybedroom;
-      uint256 propertyprice;
+      string propertyprice;
       string propertycategory;
       string propertytype;
       string propertyduration;
@@ -82,7 +82,6 @@ contract Mover {
       }
       return items;
     }
-
  
 
 }

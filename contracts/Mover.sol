@@ -7,9 +7,9 @@ contract Mover {
 
      mapping(uint256 => PropertyOwner) public idPropertyOwner;
       uint public propertyCount = 0;
-      uint public propertySold = 0;
+      // uint public propertySold = 0;
 
-       address payable propertyOwner;
+      //  address payable propertyOwner;
 
       struct PropertyOwner {
       uint256 id;
@@ -25,7 +25,7 @@ contract Mover {
       string propertyparkingspace;
       string propertybathroom;
       string propertybedroom;
-      uint256 propertyprice;
+      string propertyprice;
       string propertycategory;
       string propertytype;
       string propertyduration;
@@ -33,8 +33,8 @@ contract Mover {
       string supportimage1;
       string supportimage2;
       string document;
-      address propertyOwner;
-      address propertyBuyer;
+      // address propertyOwner;
+      // address propertyBuyer;
     }
 
 
@@ -90,73 +90,73 @@ contract Mover {
  
 
     //Transfer ownership of property
-    function transferProperty(uint256 id, uint256 propertyprice) public payable{
-      address propertyBuyer = idPropertyOwner[id].nested.propertyBuyer;
-      PropertyOwner storage _transfer = idPropertyOwner[id];
-      _transfer.id = idPropertyOwner[id].id;
-      _transfer.ownername = idPropertyOwner[id].ownername;
-      _transfer.propertynumber = idPropertyOwner[id].propertynumber;
-      _transfer.nested.propertylocation = idPropertyOwner[id].nested.propertylocation;
-      _transfer.nested.propertydescription = idPropertyOwner[id].nested.propertydescription;
-      _transfer.nested.propertyspace = idPropertyOwner[id].nested.propertyspace;
-      _transfer.nested.propertyparkingspace = idPropertyOwner[id].nested.propertyparkingspace;
-      _transfer.nested.propertybathroom = idPropertyOwner[id].nested.propertybathroom;
-      _transfer.nested.propertybedroom = idPropertyOwner[id].nested.propertybedroom;
-      _transfer.nested.propertyprice = idPropertyOwner[id].nested.propertyprice;
-      _transfer.nested.propertycategory = idPropertyOwner[id].nested.propertycategory;
-      _transfer.nested.propertytype = idPropertyOwner[id].nested.propertytype;
-      _transfer.nested.propertyduration = idPropertyOwner[id].nested.propertyduration;
-      _transfer.nested.hash = idPropertyOwner[id].nested.hash;
-      _transfer.nested.supportimage1 = idPropertyOwner[id].nested.supportimage1;
-      _transfer.nested.supportimage2 = idPropertyOwner[id].nested.supportimage2;
-      _transfer.nested.document = idPropertyOwner[id].nested.document;
-      idPropertyOwner[id].nested.propertyOwner = payable(msg.sender);
-      idPropertyOwner[id].nested.propertyBuyer = payable(address(0));
-      payable(propertyOwner).transfer(propertyprice);
-      payable(propertyBuyer).transfer(msg.value);
+    // function transferProperty(uint256 id, uint256 propertyprice) public payable{
+    //   address propertyBuyer = idPropertyOwner[id].nested.propertyBuyer;
+    //   PropertyOwner storage _transfer = idPropertyOwner[id];
+    //   _transfer.id = idPropertyOwner[id].id;
+    //   _transfer.ownername = idPropertyOwner[id].ownername;
+    //   _transfer.propertynumber = idPropertyOwner[id].propertynumber;
+    //   _transfer.nested.propertylocation = idPropertyOwner[id].nested.propertylocation;
+    //   _transfer.nested.propertydescription = idPropertyOwner[id].nested.propertydescription;
+    //   _transfer.nested.propertyspace = idPropertyOwner[id].nested.propertyspace;
+    //   _transfer.nested.propertyparkingspace = idPropertyOwner[id].nested.propertyparkingspace;
+    //   _transfer.nested.propertybathroom = idPropertyOwner[id].nested.propertybathroom;
+    //   _transfer.nested.propertybedroom = idPropertyOwner[id].nested.propertybedroom;
+    //   _transfer.nested.propertyprice = idPropertyOwner[id].nested.propertyprice;
+    //   _transfer.nested.propertycategory = idPropertyOwner[id].nested.propertycategory;
+    //   _transfer.nested.propertytype = idPropertyOwner[id].nested.propertytype;
+    //   _transfer.nested.propertyduration = idPropertyOwner[id].nested.propertyduration;
+    //   _transfer.nested.hash = idPropertyOwner[id].nested.hash;
+    //   _transfer.nested.supportimage1 = idPropertyOwner[id].nested.supportimage1;
+    //   _transfer.nested.supportimage2 = idPropertyOwner[id].nested.supportimage2;
+    //   _transfer.nested.document = idPropertyOwner[id].nested.document;
+    //   idPropertyOwner[id].nested.propertyOwner = payable(msg.sender);
+    //   idPropertyOwner[id].nested.propertyBuyer = payable(address(0));
+    //   payable(propertyOwner).transfer(propertyprice);
+    //   payable(propertyBuyer).transfer(msg.value);
 
-    }
+    // }
 
     //returns unsold properties
-    function fetchUnsoldProperties() public view returns (PropertyOwner[] memory) {
-      uint itemCount = propertyCount;
-      uint unsoldItemCount = propertyCount - propertySold;
-      uint currentIndex = 0;
+    // function fetchUnsoldProperties() public view returns (PropertyOwner[] memory) {
+    //   uint itemCount = propertyCount;
+    //   uint unsoldItemCount = propertyCount - propertySold;
+    //   uint currentIndex = 0;
 
-      PropertyOwner[] memory items = new PropertyOwner[](unsoldItemCount);
-      for (uint i = 0; i < itemCount; i++) {
-        if (idPropertyOwner[i + 1].nested.propertyOwner == address(this)) {
-          uint currentId = i + 1;
-          PropertyOwner storage currentItem = idPropertyOwner[currentId];
-          items[currentIndex] = currentItem;
-          currentIndex += 1;
-        }
-      }
-      return items;
-    }
+    //   PropertyOwner[] memory items = new PropertyOwner[](unsoldItemCount);
+    //   for (uint i = 0; i < itemCount; i++) {
+    //     if (idPropertyOwner[i + 1].nested.propertyOwner == address(this)) {
+    //       uint currentId = i + 1;
+    //       PropertyOwner storage currentItem = idPropertyOwner[currentId];
+    //       items[currentIndex] = currentItem;
+    //       currentIndex += 1;
+    //     }
+    //   }
+    //   return items;
+    // }
 
     //returns properties a user purchased
-    function fetchMyProperties() public view returns (PropertyOwner[] memory) {
-      uint totalItemCount = propertyCount;
-      uint itemCount = 0;
-      uint currentIndex = 0;
+    // function fetchMyProperties() public view returns (PropertyOwner[] memory) {
+    //   uint totalItemCount = propertyCount;
+    //   uint itemCount = 0;
+    //   uint currentIndex = 0;
 
-      for (uint i = 0; i < totalItemCount; i++) {
-        if (idPropertyOwner[i + 1].nested.propertyOwner == msg.sender) {
-          itemCount += 1;
-        }
-      }
+    //   for (uint i = 0; i < totalItemCount; i++) {
+    //     if (idPropertyOwner[i + 1].nested.propertyOwner == msg.sender) {
+    //       itemCount += 1;
+    //     }
+    //   }
 
-      PropertyOwner[] memory items = new PropertyOwner[](itemCount);
-      for (uint i = 0; i < totalItemCount; i++) {
-        if (idPropertyOwner[i + 1].nested.propertyOwner == msg.sender) {
-          uint currentId = i + 1;
-          PropertyOwner storage currentItem = idPropertyOwner[currentId];
-          items[currentIndex] = currentItem;
-          currentIndex += 1;
-        }
-      }
-      return items;
-    }
+    //   PropertyOwner[] memory items = new PropertyOwner[](itemCount);
+    //   for (uint i = 0; i < totalItemCount; i++) {
+    //     if (idPropertyOwner[i + 1].nested.propertyOwner == msg.sender) {
+    //       uint currentId = i + 1;
+    //       PropertyOwner storage currentItem = idPropertyOwner[currentId];
+    //       items[currentIndex] = currentItem;
+    //       currentIndex += 1;
+    //     }
+    //   }
+    //   return items;
+    // }
 
 }

@@ -1,162 +1,183 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
+import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+
 import "hardhat/console.sol";
 
-contract Mover {
+contract Mover is ERC721URIStorage {
+    using Counters for Counters.Counter;
+    Counters.Counter private _tokenIds;
+    Counters.Counter private _itemsSold;
 
-     mapping(uint256 => PropertyOwner) public idPropertyOwner;
-      uint public propertyCount = 0;
-      // uint public propertySold = 0;
+    uint256 listingPrice = 0.025 ether;
+    address payable owner;
 
-      //  address payable propertyOwner;
+    mapping(uint256 => MarketItem) private idToMarketItem;
 
-      struct PropertyOwner {
-      uint256 id;
-      string propertynumber;
-      string ownername;
-      Nested nested;
+    struct MarketItem {
+      uint256 tokenId;
+      address payable seller;
+      address payable owner;
+      uint256 price;
+      bool sold;
     }
 
-    struct Nested {
-      string propertylocation;
-      string propertydescription;
-      string propertyspace;
-      string propertyparkingspace;
-      string propertybathroom;
-      string propertybedroom;
-      string propertyprice;
-      string propertycategory;
-      string propertytype;
-      string propertyduration;
-      string hash;
-      string supportimage1;
-      string supportimage2;
-      string document;
-      // address propertyOwner;
-      // address propertyBuyer;
+    event MarketItemCreated (
+      uint256 indexed tokenId,
+      address seller,
+      address owner,
+      uint256 price,
+      bool sold
+    );
+
+    constructor() ERC721("Metaverse Tokens", "METT") {
+      owner = payable(msg.sender);
     }
 
+    /* Updates the listing price of the contract */
+    function updateListingPrice(uint _listingPrice) public payable {
+      require(owner == msg.sender, "Only marketplace owner can update listing price.");
+      listingPrice = _listingPrice;
+    }
 
-    //add property
-    function addProperty(PropertyOwner memory property_)
-      public
-      payable
-      {
-        require(bytes(property_.ownername).length > 0, 'Owner name is required');
-        require(bytes(property_.nested.hash).length > 0, 'Image Hash is required');
-        require(bytes(property_.nested.supportimage1).length > 0, 'Support image1 is required');
-        require(bytes(property_.nested.supportimage2).length > 0, 'Support image2 is required');
-        require(bytes(property_.nested.document).length > 0, 'Document is required');
+    /* Returns the listing price of the contract */
+    function getListingPrice() public view returns (uint256) {
+      return listingPrice;
+    }
 
-        propertyCount++;
-        PropertyOwner storage property = idPropertyOwner[propertyCount];
+    /* Mints a token and lists it in the marketplace */
+    function createToken(string memory tokenURI, uint256 price) public payable returns (uint) {
+      _tokenIds.increment();
+      uint256 newTokenId = _tokenIds.current();
 
-        property.id = propertyCount;
-        property.propertynumber = property_.propertynumber;
-        property.ownername = property_.ownername;
-        property.nested.propertylocation = property_.nested.propertylocation;
-        property.nested.propertydescription = property_.nested.propertydescription;
-        property.nested.propertyspace = property_.nested.propertyspace;
-        property.nested.propertyparkingspace = property_.nested.propertyparkingspace;
-        property.nested.propertybathroom = property_.nested.propertybathroom;
-        property.nested.propertybedroom = property_.nested.propertybedroom;
-        property.nested.propertyprice = property_.nested.propertyprice;
-        property.nested.propertycategory = property_.nested.propertycategory;
-        property.nested.propertytype = property_.nested.propertytype;
-        property.nested.propertyduration = property_.nested.propertyduration;
-        property.nested.hash = property_.nested.hash;
-        property.nested.supportimage1 = property_.nested.supportimage1;
-        property.nested.supportimage2 = property_.nested.supportimage2;
-        property.nested.document = property_.nested.document;
+      _mint(msg.sender, newTokenId);
+      _setTokenURI(newTokenId, tokenURI);
+      createMarketItem(newTokenId, price);
+      return newTokenId;
+    }
+
+    function createMarketItem(
+      uint256 tokenId,
+      uint256 price
+    ) private {
+      require(price > 0, "Price must be at least 1 wei");
+      require(msg.value == listingPrice, "Price must be equal to listing price");
+
+      idToMarketItem[tokenId] =  MarketItem(
+        tokenId,
+        payable(msg.sender),
+        payable(address(this)),
+        price,
+        false
+      );
+
+      _transfer(msg.sender, address(this), tokenId);
+      emit MarketItemCreated(
+        tokenId,
+        msg.sender,
+        address(this),
+        price,
+        false
+      );
+    }
+
+    /* allows someone to resell a token they have purchased */
+    function resellToken(uint256 tokenId, uint256 price) public payable {
+      require(idToMarketItem[tokenId].owner == msg.sender, "Only item owner can perform this operation");
+      require(msg.value == listingPrice, "Price must be equal to listing price");
+      idToMarketItem[tokenId].sold = false;
+      idToMarketItem[tokenId].price = price;
+      idToMarketItem[tokenId].seller = payable(msg.sender);
+      idToMarketItem[tokenId].owner = payable(address(this));
+      _itemsSold.decrement();
+
+      _transfer(msg.sender, address(this), tokenId);
+    }
+
+    /* Creates the sale of a marketplace item */
+    /* Transfers ownership of the item, as well as funds between parties */
+    function createMarketSale(
+      uint256 tokenId
+      ) public payable {
         
-
+      uint price = idToMarketItem[tokenId].price;
+      address seller = idToMarketItem[tokenId].seller;
+      require(msg.value == price, "Please submit the asking price in order to complete the purchase");
+      idToMarketItem[tokenId].owner = payable(msg.sender);
+      idToMarketItem[tokenId].sold = true;
+      idToMarketItem[tokenId].seller = payable(address(0));
+      _itemsSold.increment();
+      _transfer(address(this), msg.sender, tokenId);
+      payable(owner).transfer(listingPrice);
+      payable(seller).transfer(msg.value);
     }
 
-
-     //all properties
-    function fetchPropertyOwner() public view returns (PropertyOwner[] memory) {
-      uint itemCount = propertyCount;
+    /* Returns all unsold market items */
+    function fetchMarketItems() public view returns (MarketItem[] memory) {
+      uint itemCount = _tokenIds.current();
+      uint unsoldItemCount = _tokenIds.current() - _itemsSold.current();
       uint currentIndex = 0;
-      PropertyOwner[]  memory items = new PropertyOwner[](itemCount);
-       for (uint i = 0; i < itemCount; i++) {
+
+      MarketItem[] memory items = new MarketItem[](unsoldItemCount);
+      for (uint i = 0; i < itemCount; i++) {
+        if (idToMarketItem[i + 1].owner == address(this)) {
           uint currentId = i + 1;
-          PropertyOwner storage currentItem = idPropertyOwner[currentId];
+          MarketItem storage currentItem = idToMarketItem[currentId];
           items[currentIndex] = currentItem;
           currentIndex += 1;
+        }
       }
       return items;
     }
- 
 
-    //Transfer ownership of property
-    // function transferProperty(uint256 id, uint256 propertyprice) public payable{
-    //   address propertyBuyer = idPropertyOwner[id].nested.propertyBuyer;
-    //   PropertyOwner storage _transfer = idPropertyOwner[id];
-    //   _transfer.id = idPropertyOwner[id].id;
-    //   _transfer.ownername = idPropertyOwner[id].ownername;
-    //   _transfer.propertynumber = idPropertyOwner[id].propertynumber;
-    //   _transfer.nested.propertylocation = idPropertyOwner[id].nested.propertylocation;
-    //   _transfer.nested.propertydescription = idPropertyOwner[id].nested.propertydescription;
-    //   _transfer.nested.propertyspace = idPropertyOwner[id].nested.propertyspace;
-    //   _transfer.nested.propertyparkingspace = idPropertyOwner[id].nested.propertyparkingspace;
-    //   _transfer.nested.propertybathroom = idPropertyOwner[id].nested.propertybathroom;
-    //   _transfer.nested.propertybedroom = idPropertyOwner[id].nested.propertybedroom;
-    //   _transfer.nested.propertyprice = idPropertyOwner[id].nested.propertyprice;
-    //   _transfer.nested.propertycategory = idPropertyOwner[id].nested.propertycategory;
-    //   _transfer.nested.propertytype = idPropertyOwner[id].nested.propertytype;
-    //   _transfer.nested.propertyduration = idPropertyOwner[id].nested.propertyduration;
-    //   _transfer.nested.hash = idPropertyOwner[id].nested.hash;
-    //   _transfer.nested.supportimage1 = idPropertyOwner[id].nested.supportimage1;
-    //   _transfer.nested.supportimage2 = idPropertyOwner[id].nested.supportimage2;
-    //   _transfer.nested.document = idPropertyOwner[id].nested.document;
-    //   idPropertyOwner[id].nested.propertyOwner = payable(msg.sender);
-    //   idPropertyOwner[id].nested.propertyBuyer = payable(address(0));
-    //   payable(propertyOwner).transfer(propertyprice);
-    //   payable(propertyBuyer).transfer(msg.value);
+    /* Returns only items that a user has purchased */
+    function fetchMyNFTs() public view returns (MarketItem[] memory) {
+      uint totalItemCount = _tokenIds.current();
+      uint itemCount = 0;
+      uint currentIndex = 0;
 
-    // }
+      for (uint i = 0; i < totalItemCount; i++) {
+        if (idToMarketItem[i + 1].owner == msg.sender) {
+          itemCount += 1;
+        }
+      }
 
-    //returns unsold properties
-    // function fetchUnsoldProperties() public view returns (PropertyOwner[] memory) {
-    //   uint itemCount = propertyCount;
-    //   uint unsoldItemCount = propertyCount - propertySold;
-    //   uint currentIndex = 0;
+      MarketItem[] memory items = new MarketItem[](itemCount);
+      for (uint i = 0; i < totalItemCount; i++) {
+        if (idToMarketItem[i + 1].owner == msg.sender) {
+          uint currentId = i + 1;
+          MarketItem storage currentItem = idToMarketItem[currentId];
+          items[currentIndex] = currentItem;
+          currentIndex += 1;
+        }
+      }
+      return items;
+    }
 
-    //   PropertyOwner[] memory items = new PropertyOwner[](unsoldItemCount);
-    //   for (uint i = 0; i < itemCount; i++) {
-    //     if (idPropertyOwner[i + 1].nested.propertyOwner == address(this)) {
-    //       uint currentId = i + 1;
-    //       PropertyOwner storage currentItem = idPropertyOwner[currentId];
-    //       items[currentIndex] = currentItem;
-    //       currentIndex += 1;
-    //     }
-    //   }
-    //   return items;
-    // }
+    /* Returns only items a user has listed */
+    function fetchItemsListed() public view returns (MarketItem[] memory) {
+      uint totalItemCount = _tokenIds.current();
+      uint itemCount = 0;
+      uint currentIndex = 0;
 
-    //returns properties a user purchased
-    // function fetchMyProperties() public view returns (PropertyOwner[] memory) {
-    //   uint totalItemCount = propertyCount;
-    //   uint itemCount = 0;
-    //   uint currentIndex = 0;
+      for (uint i = 0; i < totalItemCount; i++) {
+        if (idToMarketItem[i + 1].seller == msg.sender) {
+          itemCount += 1;
+        }
+      }
 
-    //   for (uint i = 0; i < totalItemCount; i++) {
-    //     if (idPropertyOwner[i + 1].nested.propertyOwner == msg.sender) {
-    //       itemCount += 1;
-    //     }
-    //   }
-
-    //   PropertyOwner[] memory items = new PropertyOwner[](itemCount);
-    //   for (uint i = 0; i < totalItemCount; i++) {
-    //     if (idPropertyOwner[i + 1].nested.propertyOwner == msg.sender) {
-    //       uint currentId = i + 1;
-    //       PropertyOwner storage currentItem = idPropertyOwner[currentId];
-    //       items[currentIndex] = currentItem;
-    //       currentIndex += 1;
-    //     }
-    //   }
-    //   return items;
-    // }
-
+      MarketItem[] memory items = new MarketItem[](itemCount);
+      for (uint i = 0; i < totalItemCount; i++) {
+        if (idToMarketItem[i + 1].seller == msg.sender) {
+          uint currentId = i + 1;
+          MarketItem storage currentItem = idToMarketItem[currentId];
+          items[currentIndex] = currentItem;
+          currentIndex += 1;
+        }
+      }
+      return items;
+    }
 }

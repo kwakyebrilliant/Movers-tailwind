@@ -19,7 +19,7 @@ contract Mover is ERC721URIStorage {
 
     struct MarketItem {
       uint256 tokenId;
-      address payable seller;
+      address payable buyer;
       address payable owner;
       uint256 price;
       bool sold;
@@ -27,7 +27,7 @@ contract Mover is ERC721URIStorage {
 
     event MarketItemCreated (
       uint256 indexed tokenId,
-      address seller,
+      address buyer,
       address owner,
       uint256 price,
       bool sold
@@ -90,7 +90,7 @@ contract Mover is ERC721URIStorage {
       require(msg.value == listingPrice, "Price must be equal to listing price");
       idToMarketItem[tokenId].sold = false;
       idToMarketItem[tokenId].price = price;
-      idToMarketItem[tokenId].seller = payable(msg.sender);
+      idToMarketItem[tokenId].buyer = payable(msg.sender);
       idToMarketItem[tokenId].owner = payable(address(this));
       _itemsSold.decrement();
 
@@ -104,15 +104,15 @@ contract Mover is ERC721URIStorage {
       ) public payable {
         
       uint price = idToMarketItem[tokenId].price;
-      address seller = idToMarketItem[tokenId].seller;
+      address buyer = idToMarketItem[tokenId].buyer;
       require(msg.value == price, "Please submit the asking price in order to complete the purchase");
       idToMarketItem[tokenId].owner = payable(msg.sender);
       idToMarketItem[tokenId].sold = true;
-      idToMarketItem[tokenId].seller = payable(address(0));
+      idToMarketItem[tokenId].buyer = payable(address(0));
       _itemsSold.increment();
       _transfer(address(this), msg.sender, tokenId);
       payable(owner).transfer(listingPrice);
-      payable(seller).transfer(msg.value);
+      payable(buyer).transfer(msg.value);
     }
 
     /* Returns all unsold market items */
@@ -164,14 +164,14 @@ contract Mover is ERC721URIStorage {
       uint currentIndex = 0;
 
       for (uint i = 0; i < totalItemCount; i++) {
-        if (idToMarketItem[i + 1].seller == msg.sender) {
+        if (idToMarketItem[i + 1].buyer == msg.sender) {
           itemCount += 1;
         }
       }
 
       MarketItem[] memory items = new MarketItem[](itemCount);
       for (uint i = 0; i < totalItemCount; i++) {
-        if (idToMarketItem[i + 1].seller == msg.sender) {
+        if (idToMarketItem[i + 1].buyer == msg.sender) {
           uint currentId = i + 1;
           MarketItem storage currentItem = idToMarketItem[currentId];
           items[currentIndex] = currentItem;

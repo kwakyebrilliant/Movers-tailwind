@@ -1,5 +1,5 @@
 require('@nomiclabs/hardhat-waffle');
-const privateKey = '';
+const privateKey = 'e5521236a22b16a827161afb56a2fd5fd1c48d0b4dc3dd960a96ec8cdad914cc';
 
 module.exports = {
   defaultNetwork: 'hardhat',

@@ -51,6 +51,17 @@ contract Mover is ERC721URIStorage {
       owner = payable(msg.sender);
     }
 
+    /* Updates the listing price of the contract */
+    function updateListingPrice(uint _listingPrice) public payable {
+      require(owner == msg.sender, "Only property owner can update listing price.");
+      listingPrice = _listingPrice;
+    }
+
+    /* Returns the listing price of the contract */
+    function getListingPrice() public view returns (uint256) {
+      return listingPrice;
+    }
+
 
     /* Mints a property and lists it in the marketplace */
     function createProperty(

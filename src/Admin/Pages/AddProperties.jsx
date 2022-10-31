@@ -10,11 +10,6 @@ import { Web3Storage } from 'web3.storage';
 
 import { useNavigate } from 'react-router-dom';
 
-import { ethers } from 'ethers';
-import Mover from '../../artifacts/contracts/Mover.sol/Mover.json';
-
-const moverAddress = "0xF33ad1669fe2E2267469ea2e0E10cDBD6f32A473";
-
 function getAccessToken () {
     
     return 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDE0ZGU4NTUwMjAxMTdENDIyY0IxOTRBREJiZERlOTJGZjBkYzkxNzciLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NjIyMDkwNzQ1NjUsIm5hbWUiOiJNb3ZlciJ9.04qLL5Jvrb2ZrrL3Mdpe-zMVmXVGuxroEAl_DwUT97E'
@@ -29,40 +24,23 @@ const AddProperties = () => {
 
     const navigate = useNavigate();
 
-
-    const [haveMetamask, sethaveMetamask] = useState(true);
-    const [id, setId] = useState("");
-    const [propertynumber, setPropertyNumber] = useState("");
-    const [ownername, setOwnerName] = useState("");
     const [propertylocation, setPropertyLocation] = useState("");
     const [propertydescription, setPropertyDescription] = useState("");
-    const [propertyspace, setPropertySpace] = useState("");
-    const [propertyparkingspace, setPropertyParkingSpace] = useState("");
-    const [propertybathroom, setPropertyBathroom] = useState("");
-    const [propertybedroom, setPropertyBedroom] = useState("");
     const [propertyprice, setPropertyPrice] = useState("");
     const [propertycategory, setPropertyCategory] = useState("");
     const [propertytype, setPropertyType] = useState("");
-    const [propertyduration, setPropertyDuration] = useState("");
-    const [useraddress, setUserAddress] = useState('');
     const [image, setImage] = useState(``);
     const [supportimage1, setSupportImage1] = useState(``);
     const [supportimage2, setSupportImage2] = useState(``);
-    const [document, setDocument] = useState(``);
 
     const hiddenFileInput = useRef(null);
     const hiddenFileSupport1 = useRef(null);
     const hiddenFileSupport2 = useRef(null);
-    const hiddenDocumentInput = useRef(null);
 
     
     const handleClick = () => {
       hiddenFileInput.current.click();
     };
-
-    const handleClick2 = () => {
-        hiddenDocumentInput.current.click();
-      };
 
       const handleClick3 = () => {
         hiddenFileSupport1.current.click();
@@ -149,121 +127,6 @@ const AddProperties = () => {
       };
 
 
-      async function handleChange2(event) {
-        const documentUploaded = event.target.files[0];
-        setDocument(URL.createObjectURL(event.target.files[0]));
-        const client = makeStorageClient()
-        const cid = await client.put([documentUploaded])
-        console.log('stored files with cid:', cid)
-    
-        const res = await client.get(cid)
-        console.log(`Got a response! [${res.status}] ${res.statusText}`)
-        if (!res.ok) {
-          throw new Error(`failed to get ${cid} - [${res.status}] ${res.statusText}`)
-        }
-    
-    
-        const documents = await res.files();
-        setDocument(`https://${cid}.ipfs.dweb.link/${documentUploaded.name}`);
-        console.log(document)
-        console.log(documentUploaded)
-        for (const file of documents) {
-          console.log(`${file.cid} -- ${file.path} -- ${file.size}`)
-        }
-        return cid
-    
-      };
-
-
-    useEffect(() => {
-        const { ethereum } = window;
-      
-        const requestAccount = async () => {
-          if (!ethereum) {
-            sethaveMetamask(false);
-          }
-          sethaveMetamask(true);
-          const accounts = await ethereum.request({
-            method: 'eth_requestAccounts',
-          });
-          setUserAddress(accounts[0]);
-        };
-        requestAccount();
-      }, []);
-
-
-      async function addProperty() {
-        if (!id) return;
-        if (!propertynumber) return;
-        if (!ownername) return;
-        if (!propertylocation) return;
-        if (!propertydescription) return;
-        if (!propertyspace) return;
-        if (!propertyparkingspace) return;
-        if (!propertybathroom) return;
-        if (!propertybedroom) return;
-        if (!propertyprice) return;
-        if (!propertycategory) return;
-        if (!propertytype) return;
-        if (!propertyduration) return;
-        if (!image) return;
-        if (!supportimage1) return;
-        if (!supportimage2) return;
-        if (!document) return;
-
-
-                // If MetaMask exists
-        if (typeof window.ethereum !== "undefined") {
-            
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const signer = provider.getSigner();
-
-        const contract = new ethers.Contract(moverAddress, Mover.abi, signer);
-        const transaction = await contract.addProperty( 
-            [id,
-            propertynumber,
-            ownername,
-            [
-            propertylocation,
-            propertydescription,
-            propertyspace,
-            propertyparkingspace,
-            propertybathroom,
-            propertybedroom,
-            propertyprice,
-            propertycategory,
-            propertytype,
-            propertyduration,
-            image,
-            supportimage1,
-            supportimage2,
-            document  
-            ]
-            ]
-        );
-
-        setId("");
-        setPropertyNumber("");
-        setOwnerName("");
-        setPropertyLocation("");
-        setPropertyDescription("");
-        setPropertySpace("");
-        setPropertyParkingSpace("");
-        setPropertyBathroom("");
-        setPropertyBedroom("");
-        setPropertyPrice("");
-        setPropertyCategory("");
-        setPropertyType("");
-        setPropertyDuration("");
-        setImage("");
-        setSupportImage1("");
-        setSupportImage2("");
-        setDocument("");
-        await transaction.wait();
-        
-        }
-        window.location.reload(false);
-      }
 
 
   return (
@@ -285,32 +148,6 @@ const AddProperties = () => {
 
         <div>
 
-        <h1 className='text-gray-500 text-2xl'>Number:</h1>
-                <input
-                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
-                    type="text"
-                    placeholder="#"
-                    onChange={(e) => setId(e.target.value)}
-                    value={id}
-                />
-
-            <h1 className='text-gray-500 text-2xl'>Property Number:</h1>
-                <input
-                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
-                    type="text"
-                    placeholder="P001"
-                    onChange={(e) => setPropertyNumber(e.target.value)}
-                    value={propertynumber}
-                />
-
-            <h1 className='text-gray-500 text-2xl'>Property Owner:</h1>
-                <input
-                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
-                    type="text"
-                    placeholder="Enter owner name"
-                    onChange={(e) => setOwnerName(e.target.value)}
-                    value={ownername}
-                />
 
             <h1 className='text-gray-500 text-2xl'>Property Location:</h1>
                 <input
@@ -330,42 +167,7 @@ const AddProperties = () => {
                     onChange={(e) => setPropertyDescription(e.target.value)}
                     value={propertydescription}
                 />
-
-            <h1 className='mt-4 text-gray-500 text-2xl'>Property Space:</h1>
-                <input
-                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
-                    type="text"
-                    placeholder="Enter space"
-                    onChange={(e) => setPropertySpace(e.target.value)}
-                    value={propertyspace}
-                />
-
-            <h1 className='mt-4 text-gray-500 text-2xl'>Property Parking Space:</h1>
-                <input
-                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
-                    type="text"
-                    placeholder="Enter number of parking space"
-                    onChange={(e) => setPropertyParkingSpace(e.target.value)}
-                    value={propertyparkingspace}
-                />
-            
-            <h1 className='mt-4 text-gray-500 text-2xl'>Property Bathroom:</h1>
-                <input
-                    className="mt-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
-                    type="text"
-                    placeholder="Enter number of bathroom"
-                    onChange={(e) => setPropertyBathroom(e.target.value)}
-                    value={propertybathroom}
-                />
-
-            <h1 className='mt-4 text-gray-500 text-2xl'>Property Bedroom:</h1>
-                <input
-                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
-                    type="text"
-                    placeholder="Enter number of bedroom"
-                    onChange={(e) => setPropertyBedroom(e.target.value)}
-                    value={propertybedroom}
-                />
+           
 
             <h1 className=' text-gray-500 text-2xl'>Property Price:</h1>
                 <input
@@ -402,14 +204,6 @@ const AddProperties = () => {
                     </select>
                 </form>
 
-            <h1 className=' text-gray-500 text-2xl'>Property Duration:</h1>
-                <input
-                    className="my-4 rounded-lg outline-none focus:outline-none ring-1 ring-green-400 p-2 text-lg w-full"
-                    type="text"
-                    placeholder="Enter number of years"
-                    onChange={(e) => setPropertyDuration(e.target.value)}
-                    value={propertyduration}
-                />
 
             <h1 className='mt-4 text-gray-500 text-2xl'>Property Documents:</h1>
 
@@ -494,37 +288,11 @@ const AddProperties = () => {
                    
                 </div>
 
-                <p className='mt-2 ml-2'>Supporting Document</p>
-                <div className='mx-2 border-dotted border-2 border-green-700 justify-center'>
-                    <div className='grid grid-rows-2 justify-center'>
-                        <div onClick={handleClick2} className="inline-flex cursor-pointer items-center px-8 py-3 mt-8 text-white bg-green-600 border border-green-600 rounded hover:bg-transparent hover:text-green-600 active:text-green-500 focus:outline-none focus:ring">
-                            <span className="text-sm font-medium">Upload Document </span>
-                            <FaPlusCircle className='mx-2' />
-                        </div>
-                        <input type="file"
-                                ref={hiddenDocumentInput}
-                                onChange={handleChange2}
-                                style={{display:'none'}}
-                                accept=".pdf"
-                        /> 
-                        <p className='m-2'> PDF up to 5MB</p>
-                        
-                    </div>
-                    {document && (
-                        <iframe
-                        className='relative m-auto mb-3'
-                            src={document}
-                            accept=".pdf"
-                        >
-                            </iframe>
-                        )}
-                   
-                </div>
 
                 <div className='justify-center flex'>
                     <a
                     className="inline-flex cursor-pointer items-center px-8 py-3 mt-8 text-white bg-green-600 border border-green-600 rounded hover:bg-transparent hover:text-green-600 active:text-green-500 focus:outline-none focus:ring"
-                    onClick={addProperty}
+                    onClick={() => {}}
                     type="submit"
                     >
                     <span className="text-sm font-medium">Submit </span>

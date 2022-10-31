@@ -62,7 +62,7 @@ contract Mover is ERC721URIStorage {
       string memory _propertytype,
       string memory _hash,
       string memory _supportimage1,
-      string memory _supportimage2,
+      string memory _supportimage2
       ) public payable returns (uint) {
       _propertyIds.increment();
       uint256 newpropertyId = _propertyIds.current();
@@ -83,13 +83,10 @@ contract Mover is ERC721URIStorage {
       string memory _propertytype,
       string memory _hash,
       string memory _supportimage1,
-      string memory _supportimage2,
+      string memory _supportimage2
      ) private {
       require(price > 0, "Price must be at least 1 wei");
       require(msg.value == listingPrice, "Price must be equal to listing price");
-      require(bytes(hash).length > 0, 'Image Hash is required');
-      require(bytes(supportimage1).length > 0, 'Support image1 is required');
-      require(bytes(supportimage2).length > 0, 'Support image2 is required');
 
       idToPropertyOwner[propertyId] =  PropertyOwner(
         propertyId,

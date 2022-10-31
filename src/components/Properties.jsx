@@ -11,46 +11,16 @@ import { FaSearch } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import Navbar from './Navbar'
 
-import { ethers } from 'ethers';
-import Mover from '../artifacts/contracts/Mover.sol/Mover.json';
-
-const moverAddress = "0xF33ad1669fe2E2267469ea2e0E10cDBD6f32A473";
-
 
 const Properties = () => {
 
   const [showModal, setShowModal] = React.useState(false);
-  const [currentProperty, setCurrentProperty] = useState([]);
 
   const [searchValue, setSearchValue] = useState('');
 
   const [category, setCategory] = useState('all');
 
-  useEffect(() => {
-    async function fetchPropertyOwner() {
-      // If MetaMask exists
-      if (typeof window.ethereum !== "undefined") {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const contract = new ethers.Contract(
-        moverAddress,
-        Mover.abi,
-        provider
-      );
-      try {
-        const data = await contract.fetchPropertyOwner();
-        console.log("data: ", data);
-        setCurrentProperty(data);
-        for (var i = 1; i <= data; i++) {
-          const currentPropertys = await contract.idPropertyOwner(i);
-          setCurrentProperty((currentProperty) => [...currentProperty, currentPropertys]);
-        }
-      } catch (error) {
-        console.log("Error: ", error);
-      }
-    }
-  }
-  fetchPropertyOwner();
-  }, []);
+  
 
   return (
     <div>
@@ -96,29 +66,10 @@ const Properties = () => {
                       value={searchValue}
                       onChange={(e) => { setSearchValue(e.target.value) }}
                       />
-                      {currentProperty.filter((data) => data.nested.propertydescription.match(new RegExp(searchValue, "i"))).map((data) => (
-                        <Link to="/single" 
-                        state={{
-                          id: data.id,
-                          propertynumber: data.propertynumber,
-                          ownername: data.ownername,
-                          propertylocation: data.nested.propertylocation,
-                          propertydescription: data.nested.propertydescription,
-                          propertyspace: data.nested.propertyspace,
-                          propertyparkingspace: data.nested.propertyparkingspace,
-                          propertybathroom: data.nested.propertybathroom,
-                          propertybedroom: data.nested.propertybedroom,
-                          propertyprice: data.nested.propertyprice,
-                          propertycategory: data.nested.propertycategory,
-                          propertytype: data.nested.propertytype,
-                          propertyduration: data.nested.propertyduration,
-                          hash: data.nested.hash,
-                          supportimage1: data.nested.supportimage1,
-                          supportimage2: data.nested.supportimage2,
-                          document: data.nested.document
-                        }}>
+                     
+                        <Link to="/single" >
                               <div className="block overflow-hidden mx-4 my-4 rounded-2xl">
-                              <img className="object-cover w-full h-56" src={data.nested.hash} alt="" />
+                              <img className="object-cover w-full h-56" src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="" />
 
                               <div className="p-4 bg-gray-900">
                                       <dl>
@@ -128,7 +79,7 @@ const Properties = () => {
                                           </dt>
 
                                           <dd className="text-sm text-gray-100">
-                                          ETH {data.nested.propertyprice}/ $ 240, 000
+                                          ETH 2/ $ 240, 000
                                           </dd>
                                       </div>
 
@@ -138,7 +89,7 @@ const Properties = () => {
                                           </dt>
 
                                           <dd className="font-medium text-gray-100">
-                                          {data.nested.propertylocation}
+                                          Ashongman
                                           </dd>
                                       </div>
                                       </dl>
@@ -158,7 +109,7 @@ const Properties = () => {
                                           </dt>
 
                                           <dd className="font-medium text-gray-100">
-                                          {data.nested.propertyparkingspace}  spaces
+                                          2 spaces
                                           </dd>
                                           </div>
                                       </div>
@@ -177,7 +128,7 @@ const Properties = () => {
                                           </dt>
 
                                           <dd className="font-medium text-gray-100">
-                                          {data.nested.propertybathroom}  rooms
+                                          2 rooms
                                           </dd>
                                           </div>
                                       </div>
@@ -196,7 +147,7 @@ const Properties = () => {
                                           </dt>
 
                                           <dd className="font-medium text-gray-100">
-                                          {data.nested.propertybedroom} rooms
+                                          2 rooms
                                           </dd>
                                           </div>
                                       </div>
@@ -204,8 +155,7 @@ const Properties = () => {
                                   </div>
                               </div>
                               </Link>
-                            ))
-                            }         
+                                   
                   </div>
                 </div>
                 {/*footer*/}
@@ -240,15 +190,7 @@ const Properties = () => {
         open
         className="overflow-hidden border border-gray-200 rounded"
       >
-        {/* <summary className="flex items-center justify-between px-5 py-3 bg-gray-900 lg:hidden">
-          <span className="text-sm font-medium">
-            Filters
-          </span>
-
-          <svg className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </summary> */}
+       
 
         <form
           action=""
@@ -424,14 +366,7 @@ const Properties = () => {
                 </label>
               </div>
 
-              {/* <div class="pt-2">
-                <button
-                  type="button"
-                  className="text-xs text-green-500 px-2 py-1"
-                >
-                  Reset Type
-                </button>
-              </div> */}
+              
             </div>
           </fieldset>
 
@@ -447,29 +382,10 @@ const Properties = () => {
         {
           category ==='all' && (
             <>
-            {currentProperty.map((data) => (
-          <Link to="/single" 
-          state={{
-            id: data.id,
-            propertynumber: data.propertynumber,
-            ownername: data.ownername,
-            propertylocation: data.nested.propertylocation,
-            propertydescription: data.nested.propertydescription,
-            propertyspace: data.nested.propertyspace,
-            propertyparkingspace: data.nested.propertyparkingspace,
-            propertybathroom: data.nested.propertybathroom,
-            propertybedroom: data.nested.propertybedroom,
-            propertyprice: data.nested.propertyprice,
-            propertycategory: data.nested.propertycategory,
-            propertytype: data.nested.propertytype,
-            propertyduration: data.nested.propertyduration,
-            hash: data.nested.hash,
-            supportimage1: data.nested.supportimage1,
-            supportimage2: data.nested.supportimage2,
-            document: data.nested.document
-          }}>
+          
+          <Link to="/single">
                 <div className="block overflow-hidden mx-4 my-4 rounded-2xl">
-                <img className="object-cover w-full h-56" src={data.nested.hash} alt="" />
+                <img className="object-cover w-full h-56" src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="" />
 
                  <div className="p-4 bg-gray-900">
                         <dl>
@@ -479,7 +395,7 @@ const Properties = () => {
                             </dt>
 
                             <dd className="text-sm text-gray-100">
-                            ETH {data.nested.propertyprice}/ $ 240, 000
+                            ETH 2/ $ 240, 000
                             </dd>
                         </div>
 
@@ -489,7 +405,7 @@ const Properties = () => {
                             </dt>
 
                             <dd className="font-medium text-gray-100">
-                            {data.nested.propertylocation}
+                            Ashongman
                             </dd>
                         </div>
                         </dl>
@@ -509,7 +425,7 @@ const Properties = () => {
                             </dt>
 
                             <dd className="font-medium text-gray-100">
-                            {data.nested.propertyparkingspace}  spaces
+                            2 spaces
                             </dd>
                             </div>
                         </div>
@@ -528,7 +444,7 @@ const Properties = () => {
                             </dt>
 
                             <dd className="font-medium text-gray-100">
-                            {data.nested.propertybathroom}  rooms
+                            2 rooms
                             </dd>
                             </div>
                         </div>
@@ -547,7 +463,7 @@ const Properties = () => {
                             </dt>
 
                             <dd className="font-medium text-gray-100">
-                            {data.nested.propertybedroom} rooms
+                            2 rooms
                             </dd>
                             </div>
                         </div>
@@ -555,37 +471,16 @@ const Properties = () => {
                     </div>
                 </div>
                 </Link>
-              ))
-              }
+             
             </>
           )
         }
         {
           category ==='home' && (
             <>
-            {currentProperty.filter((data) => data.nested.propertycategory.match(new RegExp(category, "i"))).map((data) => (
-          <Link to="/single" 
-          state={{
-            id: data.id,
-            propertynumber: data.propertynumber,
-            ownername: data.ownername,
-            propertylocation: data.nested.propertylocation,
-            propertydescription: data.nested.propertydescription,
-            propertyspace: data.nested.propertyspace,
-            propertyparkingspace: data.nested.propertyparkingspace,
-            propertybathroom: data.nested.propertybathroom,
-            propertybedroom: data.nested.propertybedroom,
-            propertyprice: data.nested.propertyprice,
-            propertycategory: data.nested.propertycategory,
-            propertytype: data.nested.propertytype,
-            propertyduration: data.nested.propertyduration,
-            hash: data.nested.hash,
-            supportimage1: data.nested.supportimage1,
-            supportimage2: data.nested.supportimage2,
-            document: data.nested.document
-          }}>
+          <Link to="/single">
                 <div className="block overflow-hidden mx-4 my-4 rounded-2xl">
-                <img className="object-cover w-full h-56" src={data.nested.hash} alt="" />
+                <img className="object-cover w-full h-56" src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="" />
 
                  <div className="p-4 bg-gray-900">
                         <dl>
@@ -595,7 +490,7 @@ const Properties = () => {
                             </dt>
 
                             <dd className="text-sm text-gray-100">
-                            ETH {data.nested.propertyprice}/ $ 240, 000
+                            ETH 2/ $ 240, 000
                             </dd>
                         </div>
 
@@ -605,7 +500,7 @@ const Properties = () => {
                             </dt>
 
                             <dd className="font-medium text-gray-100">
-                            {data.nested.propertylocation}
+                            Ashongman
                             </dd>
                         </div>
                         </dl>
@@ -625,7 +520,7 @@ const Properties = () => {
                             </dt>
 
                             <dd className="font-medium text-gray-100">
-                            {data.nested.propertyparkingspace}  spaces
+                            2 spaces
                             </dd>
                             </div>
                         </div>
@@ -644,7 +539,7 @@ const Properties = () => {
                             </dt>
 
                             <dd className="font-medium text-gray-100">
-                            {data.nested.propertybathroom}  rooms
+                            2 rooms
                             </dd>
                             </div>
                         </div>
@@ -663,7 +558,7 @@ const Properties = () => {
                             </dt>
 
                             <dd className="font-medium text-gray-100">
-                            {data.nested.propertybedroom} rooms
+                            2 rooms
                             </dd>
                             </div>
                         </div>
@@ -671,711 +566,17 @@ const Properties = () => {
                     </div>
                 </div>
                 </Link>
-              ))
-              }
+              
             </>
           )
         }
-        {
-          category ==='offices' && (
-            <>
-            {currentProperty.filter((data) => data.nested.propertycategory.match(new RegExp(category, "i"))).map((data) => (
-          <Link to="/single" 
-          state={{
-            id: data.id,
-            propertynumber: data.propertynumber,
-            ownername: data.ownername,
-            propertylocation: data.nested.propertylocation,
-            propertydescription: data.nested.propertydescription,
-            propertyspace: data.nested.propertyspace,
-            propertyparkingspace: data.nested.propertyparkingspace,
-            propertybathroom: data.nested.propertybathroom,
-            propertybedroom: data.nested.propertybedroom,
-            propertyprice: data.nested.propertyprice,
-            propertycategory: data.nested.propertycategory,
-            propertytype: data.nested.propertytype,
-            propertyduration: data.nested.propertyduration,
-            hash: data.nested.hash,
-            supportimage1: data.nested.supportimage1,
-            supportimage2: data.nested.supportimage2,
-            document: data.nested.document
-          }}>
-                <div className="block overflow-hidden mx-4 my-4 rounded-2xl">
-                <img className="object-cover w-full h-56" src={data.nested.hash} alt="" />
-
-                 <div className="p-4 bg-gray-900">
-                        <dl>
-                        <div>
-                            <dt className="sr-only">
-                            Price
-                            </dt>
-
-                            <dd className="text-sm text-gray-100">
-                            ETH {data.nested.propertyprice}/ $ 240, 000
-                            </dd>
-                        </div>
-
-                        <div>
-                            <dt className="sr-only">
-                            Address
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertylocation}
-                            </dd>
-                        </div>
-                        </dl>
-
-                        <dl className="flex items-center mt-6 space-x-8 text-xs">
-                        <div className="sm:inline-flex sm:items-center sm:shrink-0">
-                            <svg
-                            className="w-4 h-4 text-green-500"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
-                            </svg>
-
-                            <div className="sm:ml-3 mt-1.5 sm:mt-0">
-                            <dt className="text-gray-100">
-                                Parking
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertyparkingspace}  spaces
-                            </dd>
-                            </div>
-                        </div>
-
-                        <div className="sm:inline-flex sm:items-center sm:shrink-0">
-                            <svg
-                            className="w-4 h-4 text-green-500"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                            </svg>
-
-                            <div className="sm:ml-3 mt-1.5 sm:mt-0">
-                            <dt className="text-gray-100">
-                                Bathroom
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertybathroom}  rooms
-                            </dd>
-                            </div>
-                        </div>
-
-                        <div className="sm:inline-flex sm:items-center sm:shrink-0">
-                            <svg
-                            className="w-4 h-4 text-green-500"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                            </svg>
-
-                            <div className="sm:ml-3 mt-1.5 sm:mt-0">
-                            <dt className="text-gray-100">
-                                Bedroom
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertybedroom} rooms
-                            </dd>
-                            </div>
-                        </div>
-                        </dl>
-                    </div>
-                </div>
-                </Link>
-              ))
-              }
-            </>
-          )
-        }
-        {
-          category ==='luxury' && (
-            <>
-            {currentProperty.filter((data) => data.nested.propertycategory.match(new RegExp(category, "i"))).map((data) => (
-          <Link to="/single" 
-          state={{
-            id: data.id,
-            propertynumber: data.propertynumber,
-            ownername: data.ownername,
-            propertylocation: data.nested.propertylocation,
-            propertydescription: data.nested.propertydescription,
-            propertyspace: data.nested.propertyspace,
-            propertyparkingspace: data.nested.propertyparkingspace,
-            propertybathroom: data.nested.propertybathroom,
-            propertybedroom: data.nested.propertybedroom,
-            propertyprice: data.nested.propertyprice,
-            propertycategory: data.nested.propertycategory,
-            propertytype: data.nested.propertytype,
-            propertyduration: data.nested.propertyduration,
-            hash: data.nested.hash,
-            supportimage1: data.nested.supportimage1,
-            supportimage2: data.nested.supportimage2,
-            document: data.nested.document
-          }}>
-                <div className="block overflow-hidden mx-4 my-4 rounded-2xl">
-                <img className="object-cover w-full h-56" src={data.nested.hash} alt="" />
-
-                 <div className="p-4 bg-gray-900">
-                        <dl>
-                        <div>
-                            <dt className="sr-only">
-                            Price
-                            </dt>
-
-                            <dd className="text-sm text-gray-100">
-                            ETH {data.nested.propertyprice}/ $ 240, 000
-                            </dd>
-                        </div>
-
-                        <div>
-                            <dt className="sr-only">
-                            Address
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertylocation}
-                            </dd>
-                        </div>
-                        </dl>
-
-                        <dl className="flex items-center mt-6 space-x-8 text-xs">
-                        <div className="sm:inline-flex sm:items-center sm:shrink-0">
-                            <svg
-                            className="w-4 h-4 text-green-500"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
-                            </svg>
-
-                            <div className="sm:ml-3 mt-1.5 sm:mt-0">
-                            <dt className="text-gray-100">
-                                Parking
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertyparkingspace}  spaces
-                            </dd>
-                            </div>
-                        </div>
-
-                        <div className="sm:inline-flex sm:items-center sm:shrink-0">
-                            <svg
-                            className="w-4 h-4 text-green-500"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                            </svg>
-
-                            <div className="sm:ml-3 mt-1.5 sm:mt-0">
-                            <dt className="text-gray-100">
-                                Bathroom
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertybathroom}  rooms
-                            </dd>
-                            </div>
-                        </div>
-
-                        <div className="sm:inline-flex sm:items-center sm:shrink-0">
-                            <svg
-                            className="w-4 h-4 text-green-500"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                            </svg>
-
-                            <div className="sm:ml-3 mt-1.5 sm:mt-0">
-                            <dt className="text-gray-100">
-                                Bedroom
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertybedroom} rooms
-                            </dd>
-                            </div>
-                        </div>
-                        </dl>
-                    </div>
-                </div>
-                </Link>
-              ))
-              }
-            </>
-          )
-        }
-        {
-          category ==='industrial' && (
-            <>
-            {currentProperty.filter((data) => data.nested.propertycategory.match(new RegExp(category, "i"))).map((data) => (
-          <Link to="/single" 
-          state={{
-            id: data.id,
-            propertynumber: data.propertynumber,
-            ownername: data.ownername,
-            propertylocation: data.nested.propertylocation,
-            propertydescription: data.nested.propertydescription,
-            propertyspace: data.nested.propertyspace,
-            propertyparkingspace: data.nested.propertyparkingspace,
-            propertybathroom: data.nested.propertybathroom,
-            propertybedroom: data.nested.propertybedroom,
-            propertyprice: data.nested.propertyprice,
-            propertycategory: data.nested.propertycategory,
-            propertytype: data.nested.propertytype,
-            propertyduration: data.nested.propertyduration,
-            hash: data.nested.hash,
-            supportimage1: data.nested.supportimage1,
-            supportimage2: data.nested.supportimage2,
-            document: data.nested.document
-          }}>
-                <div className="block overflow-hidden mx-4 my-4 rounded-2xl">
-                <img className="object-cover w-full h-56" src={data.nested.hash} alt="" />
-
-                 <div className="p-4 bg-gray-900">
-                        <dl>
-                        <div>
-                            <dt className="sr-only">
-                            Price
-                            </dt>
-
-                            <dd className="text-sm text-gray-100">
-                            ETH {data.nested.propertyprice}/ $ 240, 000
-                            </dd>
-                        </div>
-
-                        <div>
-                            <dt className="sr-only">
-                            Address
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertylocation}
-                            </dd>
-                        </div>
-                        </dl>
-
-                        <dl className="flex items-center mt-6 space-x-8 text-xs">
-                        <div className="sm:inline-flex sm:items-center sm:shrink-0">
-                            <svg
-                            className="w-4 h-4 text-green-500"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
-                            </svg>
-
-                            <div className="sm:ml-3 mt-1.5 sm:mt-0">
-                            <dt className="text-gray-100">
-                                Parking
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertyparkingspace}  spaces
-                            </dd>
-                            </div>
-                        </div>
-
-                        <div className="sm:inline-flex sm:items-center sm:shrink-0">
-                            <svg
-                            className="w-4 h-4 text-green-500"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                            </svg>
-
-                            <div className="sm:ml-3 mt-1.5 sm:mt-0">
-                            <dt className="text-gray-100">
-                                Bathroom
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertybathroom}  rooms
-                            </dd>
-                            </div>
-                        </div>
-
-                        <div className="sm:inline-flex sm:items-center sm:shrink-0">
-                            <svg
-                            className="w-4 h-4 text-green-500"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                            </svg>
-
-                            <div className="sm:ml-3 mt-1.5 sm:mt-0">
-                            <dt className="text-gray-100">
-                                Bedroom
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertybedroom} rooms
-                            </dd>
-                            </div>
-                        </div>
-                        </dl>
-                    </div>
-                </div>
-                </Link>
-              ))
-              }
-            </>
-          )
-        }
-        {
-          category ==='others' && (
-            <>
-            {currentProperty.filter((data) => data.nested.propertycategory.match(new RegExp(category, "i"))).map((data) => (
-          <Link to="/single" 
-          state={{
-            id: data.id,
-            propertynumber: data.propertynumber,
-            ownername: data.ownername,
-            propertylocation: data.nested.propertylocation,
-            propertydescription: data.nested.propertydescription,
-            propertyspace: data.nested.propertyspace,
-            propertyparkingspace: data.nested.propertyparkingspace,
-            propertybathroom: data.nested.propertybathroom,
-            propertybedroom: data.nested.propertybedroom,
-            propertyprice: data.nested.propertyprice,
-            propertycategory: data.nested.propertycategory,
-            propertytype: data.nested.propertytype,
-            propertyduration: data.nested.propertyduration,
-            hash: data.nested.hash,
-            supportimage1: data.nested.supportimage1,
-            supportimage2: data.nested.supportimage2,
-            document: data.nested.document
-          }}>
-                <div className="block overflow-hidden mx-4 my-4 rounded-2xl">
-                <img className="object-cover w-full h-56" src={data.nested.hash} alt="" />
-
-                 <div className="p-4 bg-gray-900">
-                        <dl>
-                        <div>
-                            <dt className="sr-only">
-                            Price
-                            </dt>
-
-                            <dd className="text-sm text-gray-100">
-                            ETH {data.nested.propertyprice}/ $ 240, 000
-                            </dd>
-                        </div>
-
-                        <div>
-                            <dt className="sr-only">
-                            Address
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertylocation}
-                            </dd>
-                        </div>
-                        </dl>
-
-                        <dl className="flex items-center mt-6 space-x-8 text-xs">
-                        <div className="sm:inline-flex sm:items-center sm:shrink-0">
-                            <svg
-                            className="w-4 h-4 text-green-500"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
-                            </svg>
-
-                            <div className="sm:ml-3 mt-1.5 sm:mt-0">
-                            <dt className="text-gray-100">
-                                Parking
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertyparkingspace}  spaces
-                            </dd>
-                            </div>
-                        </div>
-
-                        <div className="sm:inline-flex sm:items-center sm:shrink-0">
-                            <svg
-                            className="w-4 h-4 text-green-500"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                            </svg>
-
-                            <div className="sm:ml-3 mt-1.5 sm:mt-0">
-                            <dt className="text-gray-100">
-                                Bathroom
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertybathroom}  rooms
-                            </dd>
-                            </div>
-                        </div>
-
-                        <div className="sm:inline-flex sm:items-center sm:shrink-0">
-                            <svg
-                            className="w-4 h-4 text-green-500"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                            </svg>
-
-                            <div className="sm:ml-3 mt-1.5 sm:mt-0">
-                            <dt className="text-gray-100">
-                                Bedroom
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertybedroom} rooms
-                            </dd>
-                            </div>
-                        </div>
-                        </dl>
-                    </div>
-                </div>
-                </Link>
-              ))
-              }
-            </>
-          )
-        } 
-        {
-          category ==='sale' && (
-            <>
-            {currentProperty.filter((data) => data.nested.propertytype.match(new RegExp(category, "i"))).map((data) => (
-          <Link to="/single" 
-          state={{
-            id: data.id,
-            propertynumber: data.propertynumber,
-            ownername: data.ownername,
-            propertylocation: data.nested.propertylocation,
-            propertydescription: data.nested.propertydescription,
-            propertyspace: data.nested.propertyspace,
-            propertyparkingspace: data.nested.propertyparkingspace,
-            propertybathroom: data.nested.propertybathroom,
-            propertybedroom: data.nested.propertybedroom,
-            propertyprice: data.nested.propertyprice,
-            propertycategory: data.nested.propertycategory,
-            propertytype: data.nested.propertytype,
-            propertyduration: data.nested.propertyduration,
-            hash: data.nested.hash,
-            supportimage1: data.nested.supportimage1,
-            supportimage2: data.nested.supportimage2,
-            document: data.nested.document
-          }}>
-                <div className="block overflow-hidden mx-4 my-4 rounded-2xl">
-                <img className="object-cover w-full h-56" src={data.nested.hash} alt="" />
-
-                 <div className="p-4 bg-gray-900">
-                        <dl>
-                        <div>
-                            <dt className="sr-only">
-                            Price
-                            </dt>
-
-                            <dd className="text-sm text-gray-100">
-                            ETH {data.nested.propertyprice}/ $ 240, 000
-                            </dd>
-                        </div>
-
-                        <div>
-                            <dt className="sr-only">
-                            Address
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertylocation}
-                            </dd>
-                        </div>
-                        </dl>
-
-                        <dl className="flex items-center mt-6 space-x-8 text-xs">
-                        <div className="sm:inline-flex sm:items-center sm:shrink-0">
-                            <svg
-                            className="w-4 h-4 text-green-500"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
-                            </svg>
-
-                            <div className="sm:ml-3 mt-1.5 sm:mt-0">
-                            <dt className="text-gray-100">
-                                Parking
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertyparkingspace}  spaces
-                            </dd>
-                            </div>
-                        </div>
-
-                        <div className="sm:inline-flex sm:items-center sm:shrink-0">
-                            <svg
-                            className="w-4 h-4 text-green-500"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                            </svg>
-
-                            <div className="sm:ml-3 mt-1.5 sm:mt-0">
-                            <dt className="text-gray-100">
-                                Bathroom
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertybathroom}  rooms
-                            </dd>
-                            </div>
-                        </div>
-
-                        <div className="sm:inline-flex sm:items-center sm:shrink-0">
-                            <svg
-                            className="w-4 h-4 text-green-500"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                            </svg>
-
-                            <div className="sm:ml-3 mt-1.5 sm:mt-0">
-                            <dt className="text-gray-100">
-                                Bedroom
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertybedroom} rooms
-                            </dd>
-                            </div>
-                        </div>
-                        </dl>
-                    </div>
-                </div>
-                </Link>
-              ))
-              }
-            </>
-          )
-        }
-        {
-          category ==='rent' && (
-            <>
-            {currentProperty.filter((data) => data.nested.propertytype.match(new RegExp(category, "i"))).map((data) => (
-          <Link to="/single" 
-          state={{
-            id: data.id,
-            propertynumber: data.propertynumber,
-            ownername: data.ownername,
-            propertylocation: data.nested.propertylocation,
-            propertydescription: data.nested.propertydescription,
-            propertyspace: data.nested.propertyspace,
-            propertyparkingspace: data.nested.propertyparkingspace,
-            propertybathroom: data.nested.propertybathroom,
-            propertybedroom: data.nested.propertybedroom,
-            propertyprice: data.nested.propertyprice,
-            propertycategory: data.nested.propertycategory,
-            propertytype: data.nested.propertytype,
-            propertyduration: data.nested.propertyduration,
-            hash: data.nested.hash,
-            supportimage1: data.nested.supportimage1,
-            supportimage2: data.nested.supportimage2,
-            document: data.nested.document
-          }}>
-                <div className="block overflow-hidden mx-4 my-4 rounded-2xl">
-                <img className="object-cover w-full h-56" src={data.nested.hash} alt="" />
-
-                 <div className="p-4 bg-gray-900">
-                        <dl>
-                        <div>
-                            <dt className="sr-only">
-                            Price
-                            </dt>
-
-                            <dd className="text-sm text-gray-100">
-                            ETH {data.nested.propertyprice}/ $ 240, 000
-                            </dd>
-                        </div>
-
-                        <div>
-                            <dt className="sr-only">
-                            Address
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertylocation}
-                            </dd>
-                        </div>
-                        </dl>
-
-                        <dl className="flex items-center mt-6 space-x-8 text-xs">
-                        <div className="sm:inline-flex sm:items-center sm:shrink-0">
-                            <svg
-                            className="w-4 h-4 text-green-500"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
-                            </svg>
-
-                            <div className="sm:ml-3 mt-1.5 sm:mt-0">
-                            <dt className="text-gray-100">
-                                Parking
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertyparkingspace}  spaces
-                            </dd>
-                            </div>
-                        </div>
-
-                        <div className="sm:inline-flex sm:items-center sm:shrink-0">
-                            <svg
-                            className="w-4 h-4 text-green-500"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                            </svg>
-
-                            <div className="sm:ml-3 mt-1.5 sm:mt-0">
-                            <dt className="text-gray-100">
-                                Bathroom
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertybathroom}  rooms
-                            </dd>
-                            </div>
-                        </div>
-
-                        <div className="sm:inline-flex sm:items-center sm:shrink-0">
-                            <svg
-                            className="w-4 h-4 text-green-500"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                            </svg>
-
-                            <div className="sm:ml-3 mt-1.5 sm:mt-0">
-                            <dt className="text-gray-100">
-                                Bedroom
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertybedroom} rooms
-                            </dd>
-                            </div>
-                        </div>
-                        </dl>
-                    </div>
-                </div>
-                </Link>
-              ))
-              }
-            </>
-          )
-        } 
-        {
+        
+        
+       
+        {/* {
           category ==='lease' && (
-            <>
-            {currentProperty.filter((data) => data.nested.propertytype.match(new RegExp(category, "i"))).map((data) => (
+            <> */}
+            {/* {currentProperty.filter((data) => data.nested.propertytype.match(new RegExp(category, "i"))).map((data) => (
           <Link to="/single" 
           state={{
             id: data.id,
@@ -1484,120 +685,10 @@ const Properties = () => {
                 </div>
                 </Link>
               ))
-              }
-            </>
+              } */}
+            {/* </>
           )
-        }   
-        {/* {currentProperty.filter((data) => data.nested.propertydescription.match(new RegExp(searchValue, "i"))).map((data) => (
-          <Link to="/single" 
-          state={{
-            id: data.id,
-            propertynumber: data.propertynumber,
-            ownername: data.ownername,
-            propertylocation: data.nested.propertylocation,
-            propertydescription: data.nested.propertydescription,
-            propertyspace: data.nested.propertyspace,
-            propertyparkingspace: data.nested.propertyparkingspace,
-            propertybathroom: data.nested.propertybathroom,
-            propertybedroom: data.nested.propertybedroom,
-            propertyprice: data.nested.propertyprice,
-            propertycategory: data.nested.propertycategory,
-            propertytype: data.nested.propertytype,
-            propertyduration: data.nested.propertyduration,
-            hash: data.nested.hash,
-            supportimage1: data.nested.supportimage1,
-            supportimage2: data.nested.supportimage2,
-            document: data.nested.document
-          }}>
-                <div className="block overflow-hidden mx-4 my-4 rounded-2xl">
-                <img className="object-cover w-full h-56" src={data.nested.hash} alt="" />
-
-                 <div className="p-4 bg-gray-900">
-                        <dl>
-                        <div>
-                            <dt className="sr-only">
-                            Price
-                            </dt>
-
-                            <dd className="text-sm text-gray-100">
-                            ETH {data.nested.propertyprice}/ $ 240, 000
-                            </dd>
-                        </div>
-
-                        <div>
-                            <dt className="sr-only">
-                            Address
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertylocation}
-                            </dd>
-                        </div>
-                        </dl>
-
-                        <dl className="flex items-center mt-6 space-x-8 text-xs">
-                        <div className="sm:inline-flex sm:items-center sm:shrink-0">
-                            <svg
-                            className="w-4 h-4 text-green-500"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
-                            </svg>
-
-                            <div className="sm:ml-3 mt-1.5 sm:mt-0">
-                            <dt className="text-gray-100">
-                                Parking
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertyparkingspace}  spaces
-                            </dd>
-                            </div>
-                        </div>
-
-                        <div className="sm:inline-flex sm:items-center sm:shrink-0">
-                            <svg
-                            className="w-4 h-4 text-green-500"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                            </svg>
-
-                            <div className="sm:ml-3 mt-1.5 sm:mt-0">
-                            <dt className="text-gray-100">
-                                Bathroom
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertybathroom}  rooms
-                            </dd>
-                            </div>
-                        </div>
-
-                        <div className="sm:inline-flex sm:items-center sm:shrink-0">
-                            <svg
-                            className="w-4 h-4 text-green-500"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                            </svg>
-
-                            <div className="sm:ml-3 mt-1.5 sm:mt-0">
-                            <dt className="text-gray-100">
-                                Bedroom
-                            </dt>
-
-                            <dd className="font-medium text-gray-100">
-                            {data.nested.propertybedroom} rooms
-                            </dd>
-                            </div>
-                        </div>
-                        </dl>
-                    </div>
-                </div>
-                </Link>
-              ))
-              }          */}
+        }    */}
          
               </div>
             </div>
@@ -1613,22 +704,22 @@ const Properties = () => {
             <h2 className='text-3xl font-bold'>Hot Deal</h2>
           </div>
 
-          {currentProperty.slice(-1).map((data) => (
+        
             <div className='grid md:grid-cols-2 gap-4 mx-8 text-center'>
               
             <div className="flex flex-col bg-white rounded-sm group hover:shadow-lg">
-              <img className="object-cover rounded-2xl w-full h-full" src={data.nested.hash} alt="" />  
+              <img className="object-cover rounded-2xl w-full h-full" src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="" />  
             </div>
 
 
             <div className="flex flex-col bg-white rounded-sm">
              
                     <h5 className="text-5xl mt-20 font-bold text-green-900">
-                    ETH {data.nested.propertyprice}/ $ 240, 000
+                    ETH 2 / $ 240, 000
                     </h5>
                     <div className="pt-2 mt-4 border-t-2 border-indigo-100">
                     <p className="text-sm font-medium tracking-widest text-gray-500 uppercase">
-                    {data.nested.propertylocation}
+                    Ashongman
                     </p>
 
                     <p className="text-lg inline-flex font-medium">
@@ -1647,7 +738,7 @@ const Properties = () => {
                             </dt>
 
                             <dd className="font-medium">
-                            {data.nested.propertyparkingspace}  spaces
+                            2 spaces
                             </dd>
                             </div>
                         </div>
@@ -1666,7 +757,7 @@ const Properties = () => {
                             </dt>
 
                             <dd className="font-medium">
-                            {data.nested.propertybathroom}  rooms
+                            2 rooms
                             </dd>
                             </div>
                         </div>
@@ -1685,7 +776,7 @@ const Properties = () => {
                             </dt>
 
                             <dd className="font-medium">
-                            {data.nested.propertybedroom} rooms
+                            2 rooms
                             </dd>
                             </div>
                         </div>
@@ -1695,26 +786,7 @@ const Properties = () => {
                     </div>
                     <div className="items-center mt-4">
                     <div className='inline-flex flex-col'>
-                      <Link to="/single" 
-                      state={{
-                        id: data.id,
-                        propertynumber: data.propertynumber,
-                        ownername: data.ownername,
-                        propertylocation: data.nested.propertylocation,
-                        propertydescription: data.nested.propertydescription,
-                        propertyspace: data.nested.propertyspace,
-                        propertyparkingspace: data.nested.propertyparkingspace,
-                        propertybathroom: data.nested.propertybathroom,
-                        propertybedroom: data.nested.propertybedroom,
-                        propertyprice: data.nested.propertyprice,
-                        propertycategory: data.nested.propertycategory,
-                        propertytype: data.nested.propertytype,
-                        propertyduration: data.nested.propertyduration,
-                        hash: data.nested.hash,
-                        supportimage1: data.nested.supportimage1,
-                        supportimage2: data.nested.supportimage2,
-                        document: data.nested.document
-                      }}>
+                      <Link to="/single">
                        <button className='px-3 py-2'>View Details</button>
                       </Link>
                       </div>
@@ -1723,8 +795,7 @@ const Properties = () => {
             </div>
 
             </div>
-             ))
-            }
+            
           </div>
 
 

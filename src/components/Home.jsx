@@ -15,40 +15,7 @@ import bgImg from '../assets/banner.png'
 import supportImg from '../assets/support.jpeg'
 import Navbar from './Navbar';
 
-import { ethers } from 'ethers';
-import Mover from '../artifacts/contracts/Mover.sol/Mover.json';
-
-const moverAddress = "0xF33ad1669fe2E2267469ea2e0E10cDBD6f32A473";
-
 const Home = () => {
-
-    const [currentProperty, setCurrentProperty] = useState([]);
-
-    useEffect(() => {
-        async function fetchPropertyOwner() {
-          // If MetaMask exists
-          if (typeof window.ethereum !== "undefined") {
-          const provider = new ethers.providers.Web3Provider(window.ethereum);
-          const contract = new ethers.Contract(
-            moverAddress,
-            Mover.abi,
-            provider
-          );
-          try {
-            const data = await contract.fetchPropertyOwner();
-            console.log("data: ", data);
-            setCurrentProperty(data);
-            for (var i = 1; i <= data; i++) {
-              const currentPropertys = await contract.idPropertyOwner(i);
-              setCurrentProperty((currentProperty) => [...currentProperty, currentPropertys]);
-            }
-          } catch (error) {
-            console.log("Error: ", error);
-          }
-        }
-      }
-      fetchPropertyOwner();
-      }, []);
     
   return (
     <div>
@@ -309,9 +276,8 @@ const Home = () => {
 
                 <div className='grid grid-cols-1 lg:grid-cols-3'>
 
-                {currentProperty.slice(-3).map((data) => (
                      <div className="block overflow-hidden mx-4 my-4 rounded-2xl">
-                     <img className="object-cover w-full h-56" src={data.nested.hash} alt="" />
+                     <img className="object-cover w-full h-56" src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="" />
      
                       <div className="p-4 bg-gray-900">
                              <dl>
@@ -321,7 +287,7 @@ const Home = () => {
                                  </dt>
      
                                  <dd className="text-sm text-gray-100">
-                                 ETH {data.nested.propertyprice}/ $
+                                 ETH 2/ $
                                  </dd>
                              </div>
      
@@ -331,7 +297,7 @@ const Home = () => {
                                  </dt>
      
                                  <dd className="font-medium">
-                                 {data.nested.propertylocation}
+                                 Ashongman
                                  </dd>
                              </div>
                              </dl>
@@ -351,7 +317,7 @@ const Home = () => {
                                  </dt>
      
                                  <dd className="font-medium">
-                                 {data.nested.propertyparkingspace}  spaces
+                                 2 spaces
                                  </dd>
                                  </div>
                              </div>
@@ -370,7 +336,7 @@ const Home = () => {
                                  </dt>
      
                                  <dd className="font-medium">
-                                 {data.nested.propertybathroom}  rooms
+                                 2 rooms
                                  </dd>
                                  </div>
                              </div>
@@ -389,15 +355,14 @@ const Home = () => {
                                  </dt>
      
                                  <dd className="font-medium">
-                                 {data.nested.propertybedroom} rooms
+                                 2 rooms
                                  </dd>
                                  </div>
                              </div>
                              </dl>
                          </div>
                      </div>
-                    ))
-                }
+                   
                 
                 
                 </div>

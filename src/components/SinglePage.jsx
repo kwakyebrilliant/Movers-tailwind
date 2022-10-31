@@ -6,46 +6,10 @@ import Navbar from './Navbar';
 
 import { useLocation } from 'react-router-dom'
 
-import { ethers } from 'ethers';
-import Mover from '../artifacts/contracts/Mover.sol/Mover.json';
-
-const moverAddress = "0xF33ad1669fe2E2267469ea2e0E10cDBD6f32A473";
-
 const SinglePage = () => {
 
-    let location = useLocation();
-    const single = location.state;
-    console.log(location);
-
-    const [currentProperty, setCurrentProperty] = useState([]);
 
     const [showModal, setShowModal] = React.useState(false);
-
-    useEffect(() => {
-        async function fetchPropertyOwner() {
-          // If MetaMask exists
-          if (typeof window.ethereum !== "undefined") {
-          const provider = new ethers.providers.Web3Provider(window.ethereum);
-          const contract = new ethers.Contract(
-            moverAddress,
-            Mover.abi,
-            provider
-          );
-          try {
-            const data = await contract.fetchPropertyOwner();
-            console.log("data: ", data);
-            setCurrentProperty(data);
-            for (var i = 1; i <= data; i++) {
-              const currentPropertys = await contract.idPropertyOwner(i);
-              setCurrentProperty((currentProperty) => [...currentProperty, currentPropertys]);
-            }
-          } catch (error) {
-            console.log("Error: ", error);
-          }
-        }
-      }
-      fetchPropertyOwner();
-      }, []);
 
 
   return (
@@ -63,7 +27,7 @@ const SinglePage = () => {
                     <img
                         alt="Mobile Phone Stand"
                         className="object-cover w-[800px] rounded-xl"
-                        src={single.hash}
+                        src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
                     />
                     </div>
 
@@ -72,7 +36,7 @@ const SinglePage = () => {
                         <img
                         alt="Mobile Phone Stand"
                         className="object-cover lg:h-48 h-24 rounded-xl"
-                        src={single.supportimage1}
+                        src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
                         />
                     </div>
 
@@ -80,7 +44,7 @@ const SinglePage = () => {
                         <img
                         alt="Mobile Phone Stand"
                         className="object-cover lg:h-48 h-24  rounded-xl"
-                        src={single.supportimage2}
+                        src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
                         />
                     </div>
 
@@ -90,13 +54,13 @@ const SinglePage = () => {
 
                 <div className="sticky top-0">
                 <strong className="border border-green-600 rounded-full tracking-wide px-3 font-medium py-0.5 text-xs bg-gray-100 text-green-600"> 
-                For {single.propertytype} 
+                For Sale
                 </strong>
 
                     <div class="flex justify-between mt-8">
                     <div className="max-w-[35ch]">
                         <h1 className="text-2xl font-bold">
-                        {single.propertylocation}
+                        Ashongman
                         </h1>
 
                         <p className="mt-0.5 text-sm">
@@ -142,7 +106,7 @@ const SinglePage = () => {
                     </div>
 
                     <p className="text-lg font-bold">
-                       ETH {single.propertyprice}/ $240,000
+                       ETH 2/ $240,000
                     </p>
                     </div>
 
@@ -151,7 +115,7 @@ const SinglePage = () => {
                         <div>
                         <div className="prose max-w-none group-open:hidden">
                             <p>
-                            {single.propertydescription.slice(0, 82)}
+                            That is it
                             </p>
                         </div>
 
@@ -162,7 +126,7 @@ const SinglePage = () => {
                     </summary>
 
                     <div className="pb-6 prose max-w-none">
-                        {single.propertydescription}
+                        That is it
                     </div>
                     </details>
 
@@ -184,7 +148,7 @@ const SinglePage = () => {
                             </dt>
 
                             <dd className="font-medium">
-                                {single.propertyparkingspace} spaces
+                                2 spaces
                             </dd>
                             </div>
                         </div>
@@ -203,7 +167,7 @@ const SinglePage = () => {
                             </dt>
 
                             <dd className="font-medium">
-                                {single.propertybathroom} rooms
+                                2 rooms
                             </dd>
                             </div>
                         </div>
@@ -222,7 +186,7 @@ const SinglePage = () => {
                             </dt>
 
                             <dd className="font-medium">
-                                {single.propertybedroom} rooms
+                                2 rooms
                             </dd>
                             </div>
                         </div>
@@ -256,7 +220,7 @@ const SinglePage = () => {
                                 {/*header*/}
                                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
                                 <h3 className="text-3xl font-semibold">
-                                {single.propertynumber}
+                                P002
                                 </h3>
                                 <button
                                     className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -272,57 +236,32 @@ const SinglePage = () => {
                                 <div className="my-4 text-slate-500 text-lg leading-relaxed">
 
                                 <div className='mb-5'>
-                                <img className="object-cover w-full h-80 rounded-2xl" src={single.hash} alt="" />
+                                <img className="object-cover w-full h-80 rounded-2xl" src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"alt="" />
                                 </div>
 
                                 <div className='mb-5 flex justify-between text-black border-b border-solid border-slate-200 rounded-t'>
-                                    <p className='font-bold text-3xl text-green-700 mx-1'>ETH{single.propertyprice}/ $24,000</p> 
+                                    <p className='font-bold text-3xl text-green-700 mx-1'>ETH2 / $24,000</p> 
                                     <strong className="border border-red-600 rounded-full tracking-wide px-3 font-medium py-2 text-xs bg-red-600 text-white"> 
-                                    For {single.propertytype} 
+                                    For Sale
                                     </strong>
                                 </div>
 
-                                <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
-                                    <p className='font-bold text-xl mx-1'>Owner Name:</p> {single.ownername}
-                                </div>
+            
 
                                 <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
-                                <p className='font-bold text-xl mx-1'>Property Location:</p> {single.propertylocation}
-                                </div>
-
-
-                                <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
-                                <p className='font-bold text-xl mx-1'>Property Category:</p> {single.propertycategory}
-                                </div>
-
-                                <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
-                                <p className='font-bold text-xl mx-1'>Property Duration:</p> {single.propertyduration} year(s)
-                                </div>
-
-                                <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
-                                <p className='font-bold text-xl mx-1'>Property Space:</p> {single.propertyspace}
-                                </div>
-
-                                <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
-                                <p className='font-bold text-xl mx-1'>Property Bedroom:</p> {single.propertybedroom} bedroom
-                                </div>
-
-                                <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
-                                <p className='font-bold text-xl mx-1'>Property Bathroom:</p> {single.propertybathroom} bathroom
+                                <p className='font-bold text-xl mx-1'>Property Location:</p> Ashongman
                                 </div>
 
 
                                 <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
-                                <p className='font-bold text-xl mx-1'>Property Parking Space:</p> {single.propertyparkingspace} parking space
+                                <p className='font-bold text-xl mx-1'>Property Category:</p> Home
                                 </div>
+
 
                                 <div className='mb-5 flex text-black border-b border-solid border-slate-200 rounded-t'>
-                                <p className='font-bold text-xl mx-1'>Details:</p> {single.propertydescription}
+                                <p className='font-bold text-xl mx-1'>Details:</p> This is that
                                 </div>
 
-                                <a className='text-red-600' href={single.document} download={single.propertylocation}>
-                                    Click on this link to fill the form
-                                </a>
 
                                 <div className='mt-2'>
                                     <h5 className='text-green-600'>Upload the filled form</h5>
@@ -349,13 +288,7 @@ const SinglePage = () => {
                                 >
                                 <span className="text-sm font-medium">Close</span>
                                 </a>
-                                {/* <button
-                                    className="text-red-700 background-transparent font-bold uppercase px-10 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                    type="button"
-                                    onClick={() => setShowModal(false)}
-                                >
-                                    Close
-                                </button> */}
+                               
                                 </div>
                             </div>
                             </div>
@@ -385,9 +318,9 @@ const SinglePage = () => {
 
                 <div className='grid grid-cols-1 lg:grid-cols-3'>
 
-                {currentProperty.slice(-3).map((data) => (
+               
                      <div className="block overflow-hidden mx-4 my-4 rounded-2xl">
-                     <img className="object-cover w-full h-56" src={data.nested.hash} alt="" />
+                     <img className="object-cover w-full h-56" src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="" />
      
                       <div className="p-4 bg-gray-900">
                              <dl>
@@ -397,7 +330,7 @@ const SinglePage = () => {
                                  </dt>
      
                                  <dd className="text-sm text-gray-100">
-                                 ETH {data.nested.propertyprice}/ $
+                                 ETH 2/ $
                                  </dd>
                              </div>
      
@@ -407,7 +340,7 @@ const SinglePage = () => {
                                  </dt>
      
                                  <dd className="font-medium">
-                                 {data.nested.propertylocation}
+                                 Ashongman
                                  </dd>
                              </div>
                              </dl>
@@ -427,7 +360,7 @@ const SinglePage = () => {
                                  </dt>
      
                                  <dd className="font-medium">
-                                 {data.nested.propertyparkingspace}  spaces
+                                 2 spaces
                                  </dd>
                                  </div>
                              </div>
@@ -446,7 +379,7 @@ const SinglePage = () => {
                                  </dt>
      
                                  <dd className="font-medium">
-                                 {data.nested.propertybathroom}  rooms
+                                 2 rooms
                                  </dd>
                                  </div>
                              </div>
@@ -465,15 +398,13 @@ const SinglePage = () => {
                                  </dt>
      
                                  <dd className="font-medium">
-                                 {data.nested.propertybedroom} rooms
+                                 2 rooms
                                  </dd>
                                  </div>
                              </div>
                              </dl>
                          </div>
                      </div>
-                    ))
-                }
 
 
                 </div>

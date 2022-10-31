@@ -9,27 +9,41 @@ import "hardhat/console.sol";
 
 contract Mover is ERC721URIStorage {
     using Counters for Counters.Counter;
-    Counters.Counter private _tokenIds;
-    Counters.Counter private _itemsSold;
+    Counters.Counter private _propertyIds;
+    Counters.Counter private _propertySold;
 
     uint256 listingPrice = 0.025 ether;
     address payable owner;
 
-    mapping(uint256 => MarketItem) private idToMarketItem;
+    mapping(uint256 => PropertyOwner) private idToPropertyOwner;
 
-    struct MarketItem {
-      uint256 tokenId;
+    struct PropertyOwner {
+      uint256 propertyId;
       address payable buyer;
       address payable owner;
       uint256 price;
+      string propertylocation;
+      string propertydescription;
+      string propertycategory;
+      string propertytype;
+      string hash;
+      string supportimage1;
+      string supportimage2;
       bool sold;
     }
 
-    event MarketItemCreated (
-      uint256 indexed tokenId,
+    event PropertyOwnerCreated (
+      uint256 indexed propertyId,
       address buyer,
       address owner,
       uint256 price,
+      string propertylocation,
+      string propertydescription,
+      string propertycategory,
+      string propertytype,
+      string hash,
+      string supportimage1,
+      string supportimage2,
       bool sold
     );
 
@@ -37,95 +51,93 @@ contract Mover is ERC721URIStorage {
       owner = payable(msg.sender);
     }
 
-    /* Updates the listing price of the contract */
-    function updateListingPrice(uint _listingPrice) public payable {
-      require(owner == msg.sender, "Only marketplace owner can update listing price.");
-      listingPrice = _listingPrice;
+
+    /* Mints a property and lists it in the marketplace */
+    function createProperty(
+      string memory tokenURI, 
+      uint256 price,
+      string memory _propertylocation,
+      string memory _propertydescription,
+      string memory _propertycategory,
+      string memory _propertytype,
+      string memory _hash,
+      string memory _supportimage1,
+      string memory _supportimage2,
+      ) public payable returns (uint) {
+      _propertyIds.increment();
+      uint256 newpropertyId = _propertyIds.current();
+
+      _mint(msg.sender, newpropertyId);
+      _setTokenURI(newpropertyId, tokenURI);
+      addProperty(newpropertyId, price, _propertylocation, _propertydescription, _propertycategory, _propertytype, _hash, _supportimage1, _supportimage2);
+      return newpropertyId;
     }
 
-    /* Returns the listing price of the contract */
-    function getListingPrice() public view returns (uint256) {
-      return listingPrice;
-    }
-
-    /* Mints a token and lists it in the marketplace */
-    function createToken(string memory tokenURI, uint256 price) public payable returns (uint) {
-      _tokenIds.increment();
-      uint256 newTokenId = _tokenIds.current();
-
-      _mint(msg.sender, newTokenId);
-      _setTokenURI(newTokenId, tokenURI);
-      createMarketItem(newTokenId, price);
-      return newTokenId;
-    }
-
-    function createMarketItem(
-      uint256 tokenId,
-      uint256 price
-    ) private {
+    //add property
+    function addProperty( 
+      uint256 propertyId, 
+      uint256 price,
+      string memory _propertylocation,
+      string memory _propertydescription,
+      string memory _propertycategory,
+      string memory _propertytype,
+      string memory _hash,
+      string memory _supportimage1,
+      string memory _supportimage2,
+     ) private {
       require(price > 0, "Price must be at least 1 wei");
       require(msg.value == listingPrice, "Price must be equal to listing price");
+      require(bytes(hash).length > 0, 'Image Hash is required');
+      require(bytes(supportimage1).length > 0, 'Support image1 is required');
+      require(bytes(supportimage2).length > 0, 'Support image2 is required');
 
-      idToMarketItem[tokenId] =  MarketItem(
-        tokenId,
+      idToPropertyOwner[propertyId] =  PropertyOwner(
+        propertyId,
         payable(msg.sender),
         payable(address(this)),
         price,
+        _propertylocation,
+        _propertydescription,
+        _propertycategory,
+        _propertytype,
+        _hash,
+        _supportimage1,
+        _supportimage2,
         false
       );
 
-      _transfer(msg.sender, address(this), tokenId);
-      emit MarketItemCreated(
-        tokenId,
-        msg.sender,
-        address(this),
-        price,
-        false
-      );
+      _transfer(msg.sender, address(this), propertyId);
     }
 
-    /* allows someone to resell a token they have purchased */
-    function resellToken(uint256 tokenId, uint256 price) public payable {
-      require(idToMarketItem[tokenId].owner == msg.sender, "Only item owner can perform this operation");
-      require(msg.value == listingPrice, "Price must be equal to listing price");
-      idToMarketItem[tokenId].sold = false;
-      idToMarketItem[tokenId].price = price;
-      idToMarketItem[tokenId].buyer = payable(msg.sender);
-      idToMarketItem[tokenId].owner = payable(address(this));
-      _itemsSold.decrement();
 
-      _transfer(msg.sender, address(this), tokenId);
-    }
-
-    /* Creates the sale of a marketplace item */
-    /* Transfers ownership of the item, as well as funds between parties */
-    function createMarketSale(
-      uint256 tokenId
+    /* Transfers ownership of the property, as well as funds between parties */
+    function createPropertyTransfer(
+      uint256 propertyId
       ) public payable {
         
-      uint price = idToMarketItem[tokenId].price;
-      address buyer = idToMarketItem[tokenId].buyer;
+      uint price = idToPropertyOwner[propertyId].price;
+      address buyer = idToPropertyOwner[propertyId].buyer;
       require(msg.value == price, "Please submit the asking price in order to complete the purchase");
-      idToMarketItem[tokenId].owner = payable(msg.sender);
-      idToMarketItem[tokenId].sold = true;
-      idToMarketItem[tokenId].buyer = payable(address(0));
-      _itemsSold.increment();
-      _transfer(address(this), msg.sender, tokenId);
+      idToPropertyOwner[propertyId].owner = payable(msg.sender);
+      idToPropertyOwner[propertyId].sold = true;
+      idToPropertyOwner[propertyId].buyer = payable(address(0));
+      _propertySold.increment();
+      _transfer(address(this), msg.sender, propertyId);
       payable(owner).transfer(listingPrice);
       payable(buyer).transfer(msg.value);
     }
 
-    /* Returns all unsold market items */
-    function fetchMarketItems() public view returns (MarketItem[] memory) {
-      uint itemCount = _tokenIds.current();
-      uint unsoldItemCount = _tokenIds.current() - _itemsSold.current();
+    /* Returns all unsold properties */
+    function fetchUnsoldProperties() public view returns (PropertyOwner[] memory) {
+      uint itemCount = _propertyIds.current();
+      uint unsoldItemCount = _propertyIds.current() - _propertySold.current();
       uint currentIndex = 0;
 
-      MarketItem[] memory items = new MarketItem[](unsoldItemCount);
+      PropertyOwner[] memory items = new PropertyOwner[](unsoldItemCount);
       for (uint i = 0; i < itemCount; i++) {
-        if (idToMarketItem[i + 1].owner == address(this)) {
+        if (idToPropertyOwner[i + 1].owner == address(this)) {
           uint currentId = i + 1;
-          MarketItem storage currentItem = idToMarketItem[currentId];
+          PropertyOwner storage currentItem = idToPropertyOwner[currentId];
           items[currentIndex] = currentItem;
           currentIndex += 1;
         }
@@ -133,23 +145,23 @@ contract Mover is ERC721URIStorage {
       return items;
     }
 
-    /* Returns only items that a user has purchased */
-    function fetchMyNFTs() public view returns (MarketItem[] memory) {
-      uint totalItemCount = _tokenIds.current();
+    /* Returns only properties that a user has purchased */
+    function fetchMyProperties() public view returns (PropertyOwner[] memory) {
+      uint totalItemCount = _propertyIds.current();
       uint itemCount = 0;
       uint currentIndex = 0;
 
       for (uint i = 0; i < totalItemCount; i++) {
-        if (idToMarketItem[i + 1].owner == msg.sender) {
+        if (idToPropertyOwner[i + 1].owner == msg.sender) {
           itemCount += 1;
         }
       }
 
-      MarketItem[] memory items = new MarketItem[](itemCount);
+      PropertyOwner[] memory items = new PropertyOwner[](itemCount);
       for (uint i = 0; i < totalItemCount; i++) {
-        if (idToMarketItem[i + 1].owner == msg.sender) {
+        if (idToPropertyOwner[i + 1].owner == msg.sender) {
           uint currentId = i + 1;
-          MarketItem storage currentItem = idToMarketItem[currentId];
+          PropertyOwner storage currentItem = idToPropertyOwner[currentId];
           items[currentIndex] = currentItem;
           currentIndex += 1;
         }
@@ -157,27 +169,4 @@ contract Mover is ERC721URIStorage {
       return items;
     }
 
-    /* Returns only items a user has listed */
-    function fetchItemsListed() public view returns (MarketItem[] memory) {
-      uint totalItemCount = _tokenIds.current();
-      uint itemCount = 0;
-      uint currentIndex = 0;
-
-      for (uint i = 0; i < totalItemCount; i++) {
-        if (idToMarketItem[i + 1].buyer == msg.sender) {
-          itemCount += 1;
-        }
-      }
-
-      MarketItem[] memory items = new MarketItem[](itemCount);
-      for (uint i = 0; i < totalItemCount; i++) {
-        if (idToMarketItem[i + 1].buyer == msg.sender) {
-          uint currentId = i + 1;
-          MarketItem storage currentItem = idToMarketItem[currentId];
-          items[currentIndex] = currentItem;
-          currentIndex += 1;
-        }
-      }
-      return items;
-    }
 }

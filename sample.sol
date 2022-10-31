@@ -84,5 +84,55 @@ contract Sample {
     }
  
 
+  /* Returns only properties a user has listed */
+    //will not need
+    function fetchPropertiesListed() public view returns (PropertyOwner[] memory) {
+      uint totalItemCount = _propertyIds.current();
+      uint itemCount = 0;
+      uint currentIndex = 0;
+
+      for (uint i = 0; i < totalItemCount; i++) {
+        if (idToPropertyOwner[i + 1].buyer == msg.sender) {
+          itemCount += 1;
+        }
+      }
+
+      PropertyOwner[] memory items = new PropertyOwner[](itemCount);
+      for (uint i = 0; i < totalItemCount; i++) {
+        if (idToPropertyOwner[i + 1].buyer == msg.sender) {
+          uint currentId = i + 1;
+          PropertyOwner storage currentItem = idToPropertyOwner[currentId];
+          items[currentIndex] = currentItem;
+          currentIndex += 1;
+        }
+      }
+      return items;
+    }
+
+    /* allows someone to resell a property they have purchased */
+    //will not need
+    function resellToken(uint256 propertyId, uint256 price) public payable {
+      require(idToPropertyOwner[propertyId].owner == msg.sender, "Only item owner can perform this operation");
+      require(msg.value == listingPrice, "Price must be equal to listing price");
+      idToPropertyOwner[propertyId].sold = false;
+      idToPropertyOwner[propertyId].price = price;
+      idToPropertyOwner[propertyId].buyer = payable(msg.sender);
+      idToPropertyOwner[propertyId].owner = payable(address(this));
+      _propertySold.decrement();
+
+      _transfer(msg.sender, address(this), propertyId);
+    }
+
+    /* Updates the listing price of the contract */
+    function updateListingPrice(uint _listingPrice) public payable {
+      require(owner == msg.sender, "Only property owner can update listing price.");
+      listingPrice = _listingPrice;
+    }
+
+    /* Returns the listing price of the contract */
+    function getListingPrice() public view returns (uint256) {
+      return listingPrice;
+    }
+
 
 }

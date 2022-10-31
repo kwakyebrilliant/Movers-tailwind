@@ -167,8 +167,17 @@ const AddProperties = () => {
           const provider = new ethers.providers.Web3Provider(window.ethereum);
           const signer = provider.getSigner();
 
-        }
+          const price = ethers.utils.parseUnits(price, "ether");
+          const contract = new ethers.Contract(moverAddress, Mover.abi, signer);
+          let listingPrice = await contract.getListingPrice();
+          listingPrice = listingPrice.toString();
+          const transaction = await contract.createProperty( 
 
+          );
+
+          await transaction.wait();
+        }
+        window.location.reload(false);
       }
 
 
@@ -336,7 +345,7 @@ const AddProperties = () => {
                 <div className='justify-center flex'>
                     <a
                     className="inline-flex cursor-pointer items-center px-8 py-3 mt-8 text-white bg-green-600 border border-green-600 rounded hover:bg-transparent hover:text-green-600 active:text-green-500 focus:outline-none focus:ring"
-                    onClick={() => {}}
+                    onClick={createProperty}
                     type="submit"
                     >
                     <span className="text-sm font-medium">Submit </span>

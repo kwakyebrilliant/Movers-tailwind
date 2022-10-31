@@ -10,6 +10,11 @@ import { Web3Storage } from 'web3.storage';
 
 import { useNavigate } from 'react-router-dom';
 
+import { ethers } from 'ethers';
+import Mover from '../../artifacts/contracts/Mover.sol/Mover.json';
+
+const moverAddress = "0xfCeEFB32100Cfd08E9fDbCE8aCb6a170D3f00bf7";
+
 function getAccessToken () {
     
     return 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDE0ZGU4NTUwMjAxMTdENDIyY0IxOTRBREJiZERlOTJGZjBkYzkxNzciLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NjIyMDkwNzQ1NjUsIm5hbWUiOiJNb3ZlciJ9.04qLL5Jvrb2ZrrL3Mdpe-zMVmXVGuxroEAl_DwUT97E'
@@ -24,6 +29,8 @@ const AddProperties = () => {
 
     const navigate = useNavigate();
 
+    const [haveMetamask, sethaveMetamask] = useState(true);
+    const [useraddress, setUserAddress] = useState('');
     const [propertylocation, setPropertyLocation] = useState("");
     const [propertydescription, setPropertyDescription] = useState("");
     const [propertyprice, setPropertyPrice] = useState("");
@@ -126,6 +133,43 @@ const AddProperties = () => {
     
       };
 
+
+      useEffect(() => {
+        const { ethereum } = window;
+      
+        const requestAccount = async () => {
+          if (!ethereum) {
+            sethaveMetamask(false);
+          }
+          sethaveMetamask(true);
+          const accounts = await ethereum.request({
+            method: 'eth_requestAccounts',
+          });
+          setUserAddress(accounts[0]);
+        };
+        requestAccount();
+      }, []);
+
+      async function createProperty() {
+        if (!propertylocation) return;
+        if (!propertydescription) return;
+        if (!propertyprice) return;
+        if (!propertycategory) return;
+        if (!propertytype) return;
+        if (!image) return;
+        if (!supportimage1) return;
+        if (!supportimage2) return;
+
+         // If MetaMask exists
+        if (typeof window.ethereum !== "undefined") {
+          // await requestAccount();
+
+          const provider = new ethers.providers.Web3Provider(window.ethereum);
+          const signer = provider.getSigner();
+
+        }
+
+      }
 
 
 

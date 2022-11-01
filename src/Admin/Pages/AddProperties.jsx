@@ -167,14 +167,32 @@ const AddProperties = () => {
           const provider = new ethers.providers.Web3Provider(window.ethereum);
           const signer = provider.getSigner();
 
-          const price = ethers.utils.parseUnits(price, "ether");
+          const price = ethers.utils.parseUnits(propertyprice, "ether");
           const contract = new ethers.Contract(moverAddress, Mover.abi, signer);
           let listingPrice = await contract.getListingPrice();
           listingPrice = listingPrice.toString();
           const transaction = await contract.createProperty( 
-
+            price, 
+            {
+              value: listingPrice,
+            },
+            propertylocation,
+            propertydescription,
+            propertycategory,
+            propertytype,
+            image,
+            supportimage1,
+            supportimage2
           );
 
+          setPropertyPrice("");
+          setPropertyLocation("");
+          setPropertyDescription("");
+          setPropertyCategory("");
+          setPropertyType("");
+          setImage("");
+          setSupportImage1("");
+          setSupportImage2("");
           await transaction.wait();
         }
         window.location.reload(false);

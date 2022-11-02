@@ -185,14 +185,14 @@ const AddProperties = () => {
             supportimage2
           );
 
-          setPropertyPrice("");
-          setPropertyLocation("");
-          setPropertyDescription("");
-          setPropertyCategory("");
-          setPropertyType("");
-          setImage("");
-          setSupportImage1("");
-          setSupportImage2("");
+          // setPropertyPrice("");
+          // setPropertyLocation("");
+          // setPropertyDescription("");
+          // setPropertyCategory("");
+          // setPropertyType("");
+          // setImage("");
+          // setSupportImage1("");
+          // setSupportImage2("");
           await transaction.wait();
         }
         window.location.reload(false);

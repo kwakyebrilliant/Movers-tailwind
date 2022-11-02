@@ -4,8 +4,8 @@ pragma solidity ^0.8.4;
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-
 import "hardhat/console.sol";
+import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 
 contract Mover is ERC721URIStorage {
     using Counters for Counters.Counter;
@@ -14,6 +14,8 @@ contract Mover is ERC721URIStorage {
 
     uint256 listingPrice = 0.025 ether;
     address payable owner;
+
+    AggregatorV3Interface internal eth_usd_price_feed;
 
     mapping(uint256 => PropertyOwner) private idToPropertyOwner;
 
@@ -32,23 +34,33 @@ contract Mover is ERC721URIStorage {
       bool sold;
     }
 
-    event PropertyOwnerCreated (
-      uint256 indexed propertyId,
-      address buyer,
-      address owner,
-      uint256 price,
-      string propertylocation,
-      string propertydescription,
-      string propertycategory,
-      string propertytype,
-      string hash,
-      string supportimage1,
-      string supportimage2,
-      bool sold
-    );
+    // event PropertyOwnerCreated (
+    //   uint256 indexed propertyId,
+    //   address buyer,
+    //   address owner,
+    //   uint256 price,
+    //   string propertylocation,
+    //   string propertydescription,
+    //   string propertycategory,
+    //   string propertytype,
+    //   string hash,
+    //   string supportimage1,
+    //   string supportimage2,
+    //   bool sold
+    // );
 
-    constructor() ERC721("Metaverse Tokens", "METT") {
-      owner = payable(msg.sender);
+   constructor() ERC721("Metaverse Tokens", "METT") {
+        owner = payable(msg.sender);
+        eth_usd_price_feed = AggregatorV3Interface(
+            0x07999D7C31F94360CcD9Ed545D0935B140Ee4198
+        );
+    }
+
+    //get EthUsd
+    function getEthUsd() public view returns (uint256) {
+        // (, int256 price, , , ) = eth_usd_price_feed.latestRoundData();
+        (, int256 price, , , ) = eth_usd_price_feed.latestRoundData();
+        // return price;
     }
 
     /* Updates the listing price of the contract */

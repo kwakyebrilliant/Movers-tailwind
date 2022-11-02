@@ -267,7 +267,7 @@ const AddProperties = () => {
                     type="text"
                     placeholder="Enter Price in ETH"
                     onChange={(e) => setPropertyPrice(e.target.value)}
-                    value={propertyprice}
+                    value={propertyprice?.toString()}
                 />
 
 

@@ -148,7 +148,7 @@ const AddProperties = () => {
           setUserAddress(accounts[0]);
         };
         requestAccount();
-      }, []);
+      }, []); 
 
       async function createProperty() {
         if (!propertylocation) return;
@@ -160,6 +160,8 @@ const AddProperties = () => {
         if (!supportimage1) return;
         if (!supportimage2) return;
 
+        console.log("price", propertyprice);
+
          // If MetaMask exists
         if (typeof window.ethereum !== "undefined") {
           // await requestAccount();
@@ -167,22 +169,22 @@ const AddProperties = () => {
           const provider = new ethers.providers.Web3Provider(window.ethereum);
           const signer = provider.getSigner();
 
-          const price = ethers.utils.parseUnits(propertyprice, "ether");
+          const price = ethers.utils.parseUnits(propertyprice?.toString(), "ether");
           const contract = new ethers.Contract(moverAddress, Mover.abi, signer);
           let listingPrice = await contract.getListingPrice();
           listingPrice = listingPrice.toString();
           const transaction = await contract.createProperty( 
             price, 
-            {
-              value: listingPrice,
-            },
             propertylocation,
             propertydescription,
             propertycategory,
             propertytype,
             image,
             supportimage1,
-            supportimage2
+            supportimage2,
+            {
+              value: listingPrice,
+            },
           );
 
           // setPropertyPrice("");

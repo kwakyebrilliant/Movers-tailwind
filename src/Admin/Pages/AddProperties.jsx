@@ -149,7 +149,7 @@ const AddProperties = () => {
         };
         requestAccount();
       }, []); 
-
+       
       async function createProperty() {
         if (!propertylocation) return;
         if (!propertydescription) return;

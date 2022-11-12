@@ -362,8 +362,6 @@ const Home = () => {
                              </dl>
                          </div>
                      </div>
-                   
-                
                 
                 </div>
 
